@@ -4,7 +4,8 @@ import MainHeader from './components/MainHeader.vue';
 </script>
 
 <template>
-  <MainHeader />
+  <MainHeader :key=0 />
+  <MainHeader :key=1 />
   <router-view></router-view>
 </template>
 
