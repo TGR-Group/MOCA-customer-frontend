@@ -1,14 +1,11 @@
 <script setup>
 import {ref,computed} from 'vue'
-
-
-const msg_h1 = ref("MOCA");
-
-msg_h1.value = "tt";
+import MainHeader from './components/MainHeader.vue';
 </script>
 
 <template>
-<h1>{{msg_h1}}</h1>
+  <MainHeader />
+  <router-view></router-view>
 </template>
 
 <style scoped>
