@@ -23,6 +23,8 @@ a:hover {
 }
 
 body {
+  background-color: #ffffff;
+  color: #000000;
   margin: 0;
   display: flex;
   place-items: center;
