@@ -1,42 +1,68 @@
 <script setup>
-    import { ref, reactive } from 'vue';
 
 
-    const Categories = [
-        'Food' ,
-        'Attraction',
-        'Restaurant',
-        'Display',
-        'Other'
-    ];
+    import { ref, reactive, onMounted } from 'vue';
+    import StoreDatasSample from '../assets/StoreDatasSample.json';
+
+    const StoreDatas = ref(StoreDatasSample);
 
     const props = defineProps({
         StoreID: Number,
     });
-    const state = reactive({
-        StoreId: props.StoreID,
-        Category: Categories[1],
-        StoreName: '私たちの店',
-        StoreDescription: 'This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt',
-        TimeOrPeople: 'Time',
-        WaitingTimeOrpeople: 0,
-        Called: false
-    });
+
+    const StoreDatasIndex = ref(StoreDatas.value.findIndex((data) => data.StoreId == props.StoreID));
+
+    const StoreData = ref(StoreDatas.value[StoreDatasIndex.value]);
+
+    const BackGroundColor = ref('#ffffff');
+
+
+    if(StoreData.value.CalledOver){
+        BackGroundColor.value = '#888888';
+    }else if (StoreData.value.Called) {
+        BackGroundColor.value = '#ff0000';
+    }else if (StoreData.value.WaitingPeople <= 5) {
+        BackGroundColor.value = '#ffff00';
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    const NowDate = ref(new Date());
+    const NowGetTime = ref(NowDate.value.getTime());
+    const AfterThirtyMinutes = ref(30 * 60 * 1000 + NowGetTime.value);
+
+    const RemainingTime = ref(null);
+    if (StoreData.value.Called) {
+        StoreData.value.CalledOverTime = AfterThirtyMinutes.value - (945 * 1000);
+        RemainingTime.value = Math.floor((StoreData.value.CalledOverTime - NowGetTime.value) / 1000 / 60);
+        console.log(RemainingTime.value);
+    }
+
 </script>
 
 <template>
     <div class="StoreBox">
-        <div class="StoreName">{{ state.StoreName }}</div>
-        <div class="StoreDiscription">{{ state.StoreDescription }}</div>
-        <div v-if="state.Called" class="StoreState">
-            呼び出し済み
+
+        <div class="StoreName">{{ StoreData.StoreName }}</div>
+
+        <div class="StoreDiscription">{{ StoreData.StoreDescription }}</div>
+
+        <div class="StoreState">
+
+
+            <div v-if="StoreData.CalledOver">
+                呼び出し終了
+            </div>
+            <div v-else-if="StoreData.Called">
+                呼び出し済み<br>残り{{ RemainingTime }}分
+            </div>
+            <div v-else>
+                {{ StoreData.WaitingPeople }} 人待ち
+
+            </div>
+
         </div>
-        <div v-else-if="state.TimeOrPeople === 'Time'" class="StoreState">
-            {{ state.WaitingTimeOrpeople }} 分待ち
-        </div>
-        <div v-else class="StoreState">
-            {{ state.WaitingTimeOrpeople }} 人待ち
-        </div>
+
     </div>
 </template>
 
@@ -44,14 +70,19 @@
 <style scoped>
     .StoreBox {
         display: grid;
-        border: 1px solid #000000;
         width: 80%;
         max-height: 5em;
-        margin: 0 auto;
+        margin: 0.5em auto;
         height: fit-content;
         grid-template-columns: 4fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 0;
+        grid-template-rows: 1fr 2fr;
+        background-color: v-bind(BackGroundColor);
+        border-radius: 1.5em;
+        box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0.5em;
+        gap: 0.5em;
     }
     .StoreName {
         top: 0%;
@@ -67,17 +98,19 @@
     }
     .StoreState {
         left: 100%;
-        font-size: 1em;
+        font-size: 1.0em;
         font-weight: bold;
         grid-column: 2;
         grid-row: 1 / 3;
-        height: fit-content;
+        top: 0;
+        bottom: 0;
+        margin: auto;
     }
     .StoreDiscription {
         font-size: 0.5em;
         font-weight: bold;
         word-break: break-all;
-        overflow: hidden;
+        overflow: scroll;
         grid-column: 1;
         grid-row: 2 / 3;
         height: 75%;
