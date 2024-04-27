@@ -35,7 +35,6 @@
     if (StoreData.value.Called) {
         StoreData.value.CalledOverTime = AfterThirtyMinutes.value - (945 * 1000);
         RemainingTime.value = Math.floor((StoreData.value.CalledOverTime - NowGetTime.value) / 1000 / 60);
-        console.log(RemainingTime.value);
     }
 
 </script>
