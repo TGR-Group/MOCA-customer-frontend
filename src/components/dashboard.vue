@@ -4,7 +4,8 @@
 
     const VisitorID = "MC00001";
 
-    const ResearvedStoreIDs = ref([10001,20001,30001,40001,50001]);
+    //const ResearvedStoreIDs = ref([10001,20001,30001,40001,50001]);
+    const ResearvedStoreIDs = ref([]);
 
 </script>
 
@@ -15,11 +16,14 @@
     <div class="IdBox">
         ID:{{ VisitorID }}
     </div>
-
-    <div class="StoreBox" v-for="ResearvedStoreID in ResearvedStoreIDs" :key="ResearvedStoreID">
-        <StoreState :StoreID=ResearvedStoreID />
+    <div v-if="ResearvedStoreIDs.length == 0">
+        <h2>予約店舗がありません</h2>
     </div>
-
+    <div v-else>
+        <div class="StoreBox" v-for="ResearvedStoreID in ResearvedStoreIDs" :key="ResearvedStoreID">
+            <StoreState :StoreID=ResearvedStoreID />
+        </div>
+    </div>
 </template>
 
 <style>
