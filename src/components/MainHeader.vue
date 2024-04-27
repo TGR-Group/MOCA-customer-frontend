@@ -1,6 +1,6 @@
 <template>
     <div class="Header">
-        <router-link to="/" class="col-6">Dashboard</router-link> |
+        <router-link to="/" class="col-6">HOMEへ</router-link> |
         <router-link to="/intoduction" class="col-6">出し物紹介</router-link>
     </div>
 </template>

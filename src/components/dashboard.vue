@@ -6,6 +6,7 @@
 </script>
 
 <template>
+    <h1>HOME</h1>
     <div class="IdBox">
         ID:{{ VisitorID }}
     </div>
