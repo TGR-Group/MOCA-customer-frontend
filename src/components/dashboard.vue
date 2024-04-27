@@ -1,35 +1,24 @@
 <script setup>
+    import { ref } from 'vue';
     import StoreState from './StoreState.vue';
 
     const VisitorID = "MC00001";
 
+    const ResearvedStoreIDs = ref([10001,20001,30001,40001,50001]);
+
 </script>
 
 <template>
+
     <h1>HOME</h1>
+
     <div class="IdBox">
         ID:{{ VisitorID }}
     </div>
 
-    <div class="StoreBox">
-        <StoreState :StoreID=10001 />
+    <div class="StoreBox" v-for="ResearvedStoreID in ResearvedStoreIDs" :key="ResearvedStoreID">
+        <StoreState :StoreID=ResearvedStoreID />
     </div>
-    <div class="StoreBox">
-        <StoreState :StoreID=20001 />
-    </div>
-
-    <div class="StoreBox">
-        <StoreState :StoreID=30001 />
-    </div>
-
-    <div class="StoreBox">
-        <StoreState :StoreID=40001 />
-    </div>
-
-    <div class="StoreBox">
-        <StoreState :StoreID=50001 />
-    </div>
-
 
 </template>
 
