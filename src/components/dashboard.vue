@@ -4,9 +4,12 @@
 
     const VisitorID = "MC00001";
 
-    //const ResearvedStoreIDs = ref([10001,20001,30001,40001,50001]);
-    const ResearvedStoreIDs = ref([]);
+    const ResearvedStoreIDs = ref([10001,20001,30001,40001,50001]);
+    //const ResearvedStoreIDs = ref([]);
 
+    for (const i of ResearvedStoreIDs.value){
+        //残り時間でソートする
+    }
 </script>
 
 <template>
@@ -16,7 +19,7 @@
     <div class="IdBox">
         ID:{{ VisitorID }}
     </div>
-    <div v-if="ResearvedStoreIDs.length == 0">
+    <div class="NoResearved" v-if="ResearvedStoreIDs.length == 0">
         <h2>予約店舗がありません</h2>
     </div>
     <div v-else>
@@ -32,7 +35,7 @@
     height: fit-content;
 }
 .IdBox {
-    margin: auto auto;
+    margin: 0.5em auto;
     height: fit-content;
     width: fit-content;
     text-align: center;
@@ -43,5 +46,8 @@
     padding: 0.5em;
     border-radius: 0.5em;
     box-shadow: 0 0 0.5em #000000;
+}
+.NoResearved {
+    margin: 10em 0;
 }
 </style>
