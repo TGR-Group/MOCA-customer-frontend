@@ -109,7 +109,7 @@
         font-size: 0.5em;
         font-weight: bold;
         word-break: break-all;
-        overflow: scroll;
+        overflow: auto;
         grid-column: 1;
         grid-row: 2 / 3;
         height: 75%;
