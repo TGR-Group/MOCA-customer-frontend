@@ -70,7 +70,7 @@
     .StoreBox {
         display: grid;
         width: 80%;
-        max-height: 5em;
+        max-height: 9em;
         margin: 0.5em auto;
         height: fit-content;
         grid-template-columns: 4fr 1fr;
@@ -86,7 +86,7 @@
     .StoreName {
         top: 0%;
         left: 0%;
-        font-size: 1.5em;
+        font-size: 2.0em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
@@ -97,7 +97,7 @@
     }
     .StoreState {
         left: 100%;
-        font-size: 1.0em;
+        font-size: 1.5em;
         font-weight: bold;
         grid-column: 2;
         grid-row: 1 / 3;
@@ -106,7 +106,7 @@
         margin: auto;
     }
     .StoreDiscription {
-        font-size: 0.5em;
+        font-size: 0.8em;
         font-weight: bold;
         word-break: break-all;
         overflow: auto;

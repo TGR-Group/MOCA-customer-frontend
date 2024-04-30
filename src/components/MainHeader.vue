@@ -1,7 +1,7 @@
 <template>
     <div class="Header">
         <router-link to="/" class="col-6">HOMEへ</router-link> |
-        <router-link to="/intoduction" class="col-6">出し物紹介</router-link>
+        <router-link to="/introduction" class="col-6">出し物紹介</router-link>
     </div>
 </template>
 
@@ -16,5 +16,6 @@ padding: 10px; /* ヘッダーの余白を指定する(上下左右) */
 background-color: #232525; /* ヘッダーの背景色を指定する */
 color: #000000; /* フォントの色を指定する */
 margin: auto;
+font-size: 180%;
 }
 </style>

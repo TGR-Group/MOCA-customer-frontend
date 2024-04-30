@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-    { path: "/intoduction", component: () => import("../components/introduction.vue") },
+    { path: "/introduction", component: () => import("../components/introduction.vue") },
     { path: "/", component: () => import("../components/dashboard.vue") },
 ]
 
