@@ -13,7 +13,7 @@
         <h1>出し物紹介</h1>
     </div>
     <div class="StoreBox" v-for="StoreID in StoreIDs" :key="StoreID">
-        <StoreDiscriptionBox :StoreData=StoreDatas[StoreID]  />
+        <StoreDiscriptionBox :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
     </div>
 </template>
 

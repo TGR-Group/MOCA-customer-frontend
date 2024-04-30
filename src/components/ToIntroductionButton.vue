@@ -41,7 +41,6 @@ const ToIntroduction = () => {
   color: #ffffff;
   background: #00bff8;
   border-bottom: 2px solid #0090bb;
-  margin-top: 3px;
 }
 
 .ButtonText {

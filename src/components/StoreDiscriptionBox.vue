@@ -1,7 +1,12 @@
 <script setup>
     import { ref } from "vue";
+import router from "../routes";
 
     const props = defineProps({
+        StoreID: {
+            type: String,
+            required: true,
+        },
         StoreData: {
             type: Object,
             required: true,
@@ -19,10 +24,22 @@
         <div class="StoreState">
             {{ props.StoreData.WaitingPeople }} 人待ち
         </div>
+        <router-link :to="'/introduction/detail/' + props.StoreID" class="btn col-6 ToDetail">
+            詳しく
+        </router-link>
     </div>
 </template>
 
 <style scoped>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+    .btn {
+        padding: 0;
+    }
     .StoreBox {
         display: grid;
         width: 80%;
@@ -69,5 +86,25 @@
         grid-column: 1;
         grid-row: 2 / 3;
         height: 75%;
+    }
+    .ToDetail {
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        width: 100%;
+        color: #fff;
+        background: #00bff8;
+        border-bottom: 5px solid #0090bb;
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        margin: auto;
+        align-items: center;
+        text-align: center;
+        justify-content:center;
+    }
+    .ToDetail:hover {
+        color: #ffffff;
+        background: #00bff8;
+        border-bottom: 2px solid #0090bb;
     }
 </style>
