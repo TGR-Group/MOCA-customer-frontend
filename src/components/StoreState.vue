@@ -1,10 +1,8 @@
 <script setup>
     import { ref, reactive, onMounted } from 'vue';
     import StoreDatasSample from '../assets/StoreDatasSample.json';
-    import UserDataSample from '../assets/UserDataSample.json';
 
     const StoreDatas = ref(StoreDatasSample);
-    const UserData = ref(UserDataSample);
 
     const props = defineProps({
         VisitorID: {
@@ -12,15 +10,20 @@
             required: true,
         },
         StoreID: {
-            type: Number,
+            type: String,
             required: true,
         }, 
+        UserData: {
+            type: Object,
+            required: true,
+        },
+
     });
 
     const ReserveData = ref(StoreDatas.value[props.StoreID]);
 
-    ReserveData.value.Called = ref(UserData.value[props.VisitorID].ReservedStore[props.StoreID].Called);
-    ReserveData.value.CalledOver = ref(UserData.value[props.VisitorID].ReservedStore[props.StoreID].CalledOver);
+    ReserveData.value.Called = ref(props.UserData[props.VisitorID].ReservedStore[props.StoreID].Called);
+    ReserveData.value.CalledOver = ref(props.UserData[props.VisitorID].ReservedStore[props.StoreID].CalledOver);
 
     const BackGroundColor = ref('#ffffff');
 
