@@ -3,34 +3,34 @@
         "StoreName": "私たちの店",
         "Category": "Food",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
-        "WaitingPeople": 3,
+        "WaitingPeople": 3
     },
 
     "20001":{
         "StoreName": "私たちの店",
         "Category": "Attraction",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
-        "WaitingPeople": 1,
+        "WaitingPeople": 1
     },
 
     "30001":{
         "StoreName": "私たちの店",
         "Category": "Restaurant",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
-        "WaitingPeople": 0,
+        "WaitingPeople": 0
     },
 
     "40001":{
         "StoreName": "私たちの店",
         "Category": "Display",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
-        "WaitingPeople": 17,
+        "WaitingPeople": 17
     },
 
     "50001":{
         "StoreName": "私たちの店",
         "Category": "Other",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
-        "WaitingPeople": 0,
+        "WaitingPeople": 0
     }
 }
