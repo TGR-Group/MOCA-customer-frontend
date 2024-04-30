@@ -14,7 +14,7 @@ width: 100%; /* ヘッダーの横幅を指定する */
 height: 2.5em; /* ヘッダーの高さを指定する */
 padding: 10px; /* ヘッダーの余白を指定する(上下左右) */
 background-color: #232525; /* ヘッダーの背景色を指定する */
-color: #000000; /* フォントの色を指定する */
+color: #ffffff; /* フォントの色を指定する */
 margin: auto;
 font-size: 180%;
 }

@@ -55,8 +55,7 @@
     margin: 10em 0;
 }
 .ToIntroductionButton {
-    margin: 1.0em auto;
-    height: fit-content;
+    margin: 5em 0;
     align-items: center;
 }
 </style>
