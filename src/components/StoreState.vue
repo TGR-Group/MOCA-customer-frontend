@@ -1,27 +1,27 @@
 <script setup>
-
-
     import { ref, reactive, onMounted } from 'vue';
     import StoreDatasSample from '../assets/StoreDatasSample.json';
+    import UserDataSample from '../assets/UserDataSample.json';
 
     const StoreDatas = ref(StoreDatasSample);
+    const UserData = ref(UserDataSample);
 
     const props = defineProps({
         StoreID: Number,
     });
 
-    const StoreDatasIndex = ref(StoreDatas.value.findIndex((data) => data.StoreId == props.StoreID));
+    const ReserveData = ref(StoreDatas.value[props.StoreID]);
 
-    const StoreData = ref(StoreDatas.value[StoreDatasIndex.value]);
+    ReserveData.value.Called = ref(UserData.value.ReservedStore[props.StoreID].Called);
+    ReserveData.value.CalledOver = ref(UserData.value.ReservedStore[props.StoreID].CalledOver);
 
     const BackGroundColor = ref('#ffffff');
 
-
-    if(StoreData.value.CalledOver){
+    if(ReserveData.value.CalledOver){
         BackGroundColor.value = '#888888';
-    }else if (StoreData.value.Called) {
+    }else if (ReserveData.value.Called) {
         BackGroundColor.value = '#ff0000';
-    }else if (StoreData.value.WaitingPeople <= 5) {
+    }else if (ReserveData.value.WaitingPeople <= 5) {
         BackGroundColor.value = '#ffff00';
     }
 
@@ -32,9 +32,9 @@
     const AfterThirtyMinutes = ref(30 * 60 * 1000 + NowGetTime.value);
 
     const RemainingTime = ref(null);
-    if (StoreData.value.Called) {
-        StoreData.value.CalledOverTime = AfterThirtyMinutes.value - (945 * 1000);
-        RemainingTime.value = Math.floor((StoreData.value.CalledOverTime - NowGetTime.value) / 1000 / 60);
+    if (ReserveData.value.Called) {
+        ReserveData.value.CalledOverTime = AfterThirtyMinutes.value - (945 * 1000);
+        RemainingTime.value = Math.floor((ReserveData.value.CalledOverTime - NowGetTime.value) / 1000 / 60);
     }
 
 </script>
@@ -42,21 +42,21 @@
 <template>
     <div class="StoreBox">
 
-        <div class="StoreName">{{ StoreData.StoreName }}</div>
+        <div class="StoreName">{{ ReserveData.StoreName }}</div>
 
-        <div class="StoreDiscription">{{ StoreData.StoreDescription }}</div>
+        <div class="StoreDiscription">{{ ReserveData.StoreDescription }}</div>
 
         <div class="StoreState">
 
 
-            <div v-if="StoreData.CalledOver">
+            <div v-if="ReserveData.CalledOver">
                 呼び出し終了
             </div>
-            <div v-else-if="StoreData.Called">
+            <div v-else-if="ReserveData.Called">
                 呼び出し済み<br>残り{{ RemainingTime }}分
             </div>
             <div v-else>
-                {{ StoreData.WaitingPeople }} 人待ち
+                {{ ReserveData.WaitingPeople }} 人待ち
 
             </div>
 

@@ -1,0 +1,29 @@
+{
+    "ReservedStore": {
+        "10001":
+        {
+            "Called": false,
+            "CalledOver": false
+        },
+        "20001":
+        {
+            "Called": false,
+            "CalledOver": false
+        },
+        "30001":
+        {
+            "Called": true,
+            "CalledOver": true
+        },
+        "40001":
+        {
+            "Called": false,
+            "CalledOver": false
+        },
+        "50001":
+        {
+            "Called": true,
+            "CalledOver": false
+        }
+    }
+}

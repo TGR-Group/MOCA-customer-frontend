@@ -1,51 +1,36 @@
-[
-    {
-        "StoreId": "10001",
+{
+    "10001":{
         "StoreName": "私たちの店",
         "Category": "Food",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 3,
-        "Called": false,
-        "CalledOver": false
     },
 
-    {
-        "StoreId": "20001",
+    "20001":{
         "StoreName": "私たちの店",
         "Category": "Attraction",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 1,
-        "Called": false,
-        "CalledOver": false
     },
 
-    {
-        "StoreId": "30001",
+    "30001":{
         "StoreName": "私たちの店",
         "Category": "Restaurant",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0,
-        "Called": true,
-        "CalledOver": true
     },
 
-    {
-        "StoreId": "40001",
+    "40001":{
         "StoreName": "私たちの店",
         "Category": "Display",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 17,
-        "Called": false,
-        "CalledOver": false
     },
 
-    {
-        "StoreId": "50001",
+    "50001":{
         "StoreName": "私たちの店",
         "Category": "Other",
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0,
-        "Called": true,
-        "CalledOver": false
     }
-]
+}
