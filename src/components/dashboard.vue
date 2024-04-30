@@ -25,7 +25,7 @@
     </div>
     <div v-else>
         <div class="StoreBox" v-for="ResearvedStoreID in ResearvedStoreIDs" :key="ResearvedStoreID">
-            <StoreState :StoreID=ResearvedStoreID />
+            <StoreState :VisitorID=VisitorID :StoreID=ResearvedStoreID />
         </div>
     </div>
     <div class="ToIntroductionButton">

@@ -7,13 +7,20 @@
     const UserData = ref(UserDataSample);
 
     const props = defineProps({
-        StoreID: Number,
+        VisitorID: {
+            type: String,
+            required: true,
+        },
+        StoreID: {
+            type: Number,
+            required: true,
+        }, 
     });
 
     const ReserveData = ref(StoreDatas.value[props.StoreID]);
 
-    ReserveData.value.Called = ref(UserData.value.ReservedStore[props.StoreID].Called);
-    ReserveData.value.CalledOver = ref(UserData.value.ReservedStore[props.StoreID].CalledOver);
+    ReserveData.value.Called = ref(UserData.value[props.VisitorID].ReservedStore[props.StoreID].Called);
+    ReserveData.value.CalledOver = ref(UserData.value[props.VisitorID].ReservedStore[props.StoreID].CalledOver);
 
     const BackGroundColor = ref('#ffffff');
 
