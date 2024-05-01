@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 [
 
     {
         "StoreId": "10001",
+=======
+{
+    "10001":{
+>>>>>>> 8f86e71eb2a1ba7edc6b753674c0e39c6528e60b
         "StoreName": "私たちの店",
         "Grade": 1,
         "Category": 64,
@@ -9,8 +14,7 @@
         "WaitingPeople": 3
     },
 
-    {
-        "StoreId": "20001",
+    "20001":{
         "StoreName": "私たちの店",
         "Grade": 1,
         "Category": 32,
@@ -18,8 +22,7 @@
         "WaitingPeople": 1
     },
 
-    {
-        "StoreId": "30001",
+    "30001":{
         "StoreName": "私たちの店",
         "Grade": 1,
         "Category": 16,
@@ -27,8 +30,7 @@
         "WaitingPeople": 0
     },
 
-    {
-        "StoreId": "40001",
+    "40001":{
         "StoreName": "私たちの店",
         "Grade": 1,
         "Category": 8,
@@ -36,13 +38,13 @@
         "WaitingPeople": 17
     },
 
-    {
-        "StoreId": "50001",
+    "50001":{
         "StoreName": "私たちの店",
         "Grade": 1,
         "Category": 4,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0
+<<<<<<< HEAD
     },
 
     {
@@ -61,5 +63,7 @@
         "Category": 1,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0
+=======
+>>>>>>> 8f86e71eb2a1ba7edc6b753674c0e39c6528e60b
     }
-]
+}

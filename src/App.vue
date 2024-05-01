@@ -1,11 +1,12 @@
 <script setup>
 import {ref,computed} from 'vue'
 import MainHeader from './components/MainHeader.vue';
+import ToPageTop from './components/ToPageTop.vue';
 </script>
 
 <template>
-  <MainHeader :key=0 />
-  <MainHeader :key=1 />
+  <MainHeader />
+  <ToPageTop />
   <router-view></router-view>
 </template>
 

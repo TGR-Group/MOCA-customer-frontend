@@ -2,11 +2,13 @@
     import { ref } from 'vue';
     import StoreState from './StoreState.vue';
     import ToIntroductionButton from './ToIntroductionButton.vue';
+    import UserDataSample from '../assets/UserDataSample.json';
 
     const VisitorID = "MC00001";
 
-    const ResearvedStoreIDs = ref([10001,20001,30001,40001,50001]);
-    //const ResearvedStoreIDs = ref([]);
+    const UserData = ref(UserDataSample);
+
+    const ResearvedStoreIDs = ref(Object.keys(UserData.value[VisitorID].ReservedStore));
 
     for (const i of ResearvedStoreIDs.value){
         //残り時間でソートする
@@ -25,7 +27,7 @@
     </div>
     <div v-else>
         <div class="StoreBox" v-for="ResearvedStoreID in ResearvedStoreIDs" :key="ResearvedStoreID">
-            <StoreState :StoreID=ResearvedStoreID />
+            <StoreState :VisitorID=VisitorID :StoreID=ResearvedStoreID :UserData=UserData />
         </div>
     </div>
     <div class="ToIntroductionButton">

@@ -1,0 +1,36 @@
+{
+    "MC00001":{
+        "ReservedStore": {
+            "10001":
+            {
+                "Called": false,
+                "CalledOver": false,
+                "CalledOverTime": null
+            },
+            "20001":
+            {
+                "Called": false,
+                "CalledOver": false,
+                "CalledOverTime": null
+            },
+            "30001":
+            {
+                "Called": true,
+                "CalledOver": true,
+                "CalledOverTime": 1714506334209
+            },
+            "40001":
+            {
+                "Called": false,
+                "CalledOver": false,
+                "CalledOverTime": null
+            },
+            "50001":
+            {
+                "Called": true,
+                "CalledOver": false,
+                "CalledOverTime": 1714508134209
+            }
+        }
+    }
+}
