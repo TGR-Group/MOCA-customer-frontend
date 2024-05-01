@@ -9,7 +9,7 @@
 
     "20001":{
         "StoreName": "私たちの店",
-        "Grade": 1,
+        "Grade": 4,
         "Category": 32,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 1
@@ -17,7 +17,7 @@
 
     "30001":{
         "StoreName": "私たちの店",
-        "Grade": 1,
+        "Grade": 8,
         "Category": 16,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0
@@ -25,7 +25,7 @@
 
     "40001":{
         "StoreName": "私たちの店",
-        "Grade": 1,
+        "Grade": 2,
         "Category": 8,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 17
@@ -33,7 +33,7 @@
 
     "50001":{
         "StoreName": "私たちの店",
-        "Grade": 1,
+        "Grade": 2,
         "Category": 4,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0
@@ -41,7 +41,7 @@
 
     "60001":{
         "StoreName": "私たちの店",
-        "Grade": 1,
+        "Grade": 4,
         "Category": 2,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
         "WaitingPeople": 0
