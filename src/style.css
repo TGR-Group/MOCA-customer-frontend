@@ -39,19 +39,6 @@ h1 {
   margin: 1.0em 0;
 }
 
-button {
-  border: 1px solid transparent;
-  background-color: #e7e7e7;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 .card {
   padding: 2em;

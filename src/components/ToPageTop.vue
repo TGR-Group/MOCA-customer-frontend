@@ -18,6 +18,10 @@
         z-index: 2;
     }
 
+    .pagetop:hover {
+        background: #a0a0a0d8;
+    }
+
     .pagetop__arrow {
         height: 10px;
         width: 10px;
