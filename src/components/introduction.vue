@@ -8,29 +8,23 @@
     const StoreIDs = ref(Object.keys(StoreDatas.value));
 
     const CategoryChecked = ref([]);
-    const CategoryAll = ref(0);
+
+    const CategoryAll = computed(() => {
+        var result1 = 0;
+        for (var i of CategoryChecked.value) {
+            result1 = (result1 | Number(i));
+        }
+        return result1;
+    });
 
     const GradeChecked = ref([]);
     const GradeAll = computed(() => {
-        var result2 = ref(0);
+        var result2 = 0;
         for (var i of GradeChecked.value) {
-            result2.value = (result2.value | Number(i));
+            result2 = (result2 | Number(i));
         }
-        return result2.value;
+        return result2;
     });
-
-    const ShowBox = computed (() => {
-        var result3 = ref({});
-        for (var StoreID in StoreDatas.value) {
-            console.log(StoreID);
-            console.log(StoreDatas.value[StoreID].Category);
-            if ((StoreDatas.value[StoreID].Category & CategoryAll) || (StoreDatas.value[StoreID].Grade & GradeAll)) {
-                result3.value[StoreID] = true;
-            }
-        }
-        return result3.value;
-    }
-);
 
     const AccordionOpen = ref(false);
 </script>
@@ -39,9 +33,6 @@
     <div>
         <h1>出し物紹介</h1>
     </div>
-    {{ CategoryChecked }}
-    {{ CategoryAll }}
-    {{ ShowBox }}
     <div class="NarrowDownSummary"><button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">絞り込み</button>
         <div v-show="AccordionOpen" class="SelectCategory CheckBox">
 
@@ -86,8 +77,8 @@
         </div>
     </div>
 
-    <div class="StoreBox" v-for="StoreID in StoreIDs" :key="StoreID">
-        <StoreDiscriptionBox v-show="(StoreDatas[StoreID].Category & CategoryAll) || (StoreDatas[StoreID].Grade & GradeAll)" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
+    <div class="StoreBox" v-for="StoreID in StoreIDs" >
+        <StoreDiscriptionBox v-show="(StoreDatas[StoreID].Category & CategoryAll) != 0 || (StoreDatas[StoreID].Grade & GradeAll) != 0" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
     </div>
 </template>
 
