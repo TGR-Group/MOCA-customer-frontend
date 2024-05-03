@@ -78,7 +78,7 @@
     </div>
 
     <div class="StoreBox" v-for="StoreID in StoreIDs" >
-        <StoreDiscriptionBox v-show="(StoreDatas[StoreID].Category & CategoryAll) != 0 || (StoreDatas[StoreID].Grade & GradeAll) != 0" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
+        <StoreDiscriptionBox v-show="(StoreDatas[StoreID].Category & CategoryAll) != 0 || (StoreDatas[StoreID].Grade & GradeAll) != 0 || (CategoryAll + GradeAll) == 0" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
     </div>
 </template>
 
@@ -103,6 +103,7 @@
     }
     .NarrowDownSummary {
         font-size: 1.5em;
+        margin: auto;
     }
     .Accordion {
         cursor: pointer;
