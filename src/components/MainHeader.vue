@@ -17,5 +17,6 @@ background-color: #232525; /* ヘッダーの背景色を指定する */
 color: #ffffff; /* フォントの色を指定する */
 margin: auto;
 font-size: 180%;
+z-index: 100;
 }
 </style>
