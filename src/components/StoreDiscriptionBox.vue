@@ -1,7 +1,4 @@
 <script setup>
-    import { ref } from "vue";
-import router from "../routes";
-
     const props = defineProps({
         StoreID: {
             type: String,

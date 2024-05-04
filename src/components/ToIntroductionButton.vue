@@ -1,11 +1,4 @@
 <script setup>
-import { useRoute, useRouter } from "vue-router";
-
-const route = useRoute();
-const router = useRouter();
-const ToIntroduction = () => {
-    router.push("/introduction");
-};
 </script>
 
 <template>
