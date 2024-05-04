@@ -46,7 +46,7 @@ const ToIntroduction = () => {
 .ButtonText {
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    margin: 0.2em auto;
     text-align: center;
     justify-content: center;
 }
