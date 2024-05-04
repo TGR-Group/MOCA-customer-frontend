@@ -48,7 +48,7 @@ import router from "../routes";
         height: fit-content;
         grid-template-columns: 4fr 1fr;
         grid-template-rows: 1fr 2fr;
-        background-color: v-bind(BackGroundColor);
+        background-color: #ffffff;
         border-radius: 1.5em;
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         font-weight: bold;

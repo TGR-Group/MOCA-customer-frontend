@@ -34,47 +34,59 @@
     <div>
         <h1>出し物紹介</h1>
     </div>
-    <div class="NarrowDownSummary"><button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">絞り込み</button>
+    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']"><button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">絞り込み</button>
         <div v-show="AccordionOpen" class="SelectCategory CheckBox">
 
-            <input type="checkbox" id="food" v-model="CategoryChecked" value=64 />
-            <label for="food">食販</label>
+            <div class="CheckBoxTitle">
+                カテゴリ
+            </div>
 
-            <input type="checkbox" id="cafe" v-model="CategoryChecked" value=32 />
-            <label for="cafe">飲食店</label>
+            <div>
+                <input type="checkbox" id="food" v-model="CategoryChecked" value=64 />
+                <label for="food">食販</label>
 
-            <input type="checkbox" id="shop" v-model="CategoryChecked" value=16 />
-            <label for="shop">物販</label>
+                <input type="checkbox" id="cafe" v-model="CategoryChecked" value=32 />
+                <label for="cafe">飲食店</label>
 
-            <input type="checkbox" id="attraction" v-model="CategoryChecked" value=8  />
-            <label for="attraction">体験型</label>
+                <input type="checkbox" id="shop" v-model="CategoryChecked" value=16 />
+                <label for="shop">物販</label>
 
-            <input type="checkbox" id="display" v-model="CategoryChecked" value=4  />
-            <label for="display">展示</label>
+                <input type="checkbox" id="attraction" v-model="CategoryChecked" value=8  />
+                <label for="attraction">体験型</label>
 
-            <input type="checkbox" id="event" v-model="CategoryChecked" value=2  />
-            <label for="event">イベント</label>
+                <input type="checkbox" id="display" v-model="CategoryChecked" value=4  />
+                <label for="display">展示</label>
 
-            <input type="checkbox" id="other" v-model="CategoryChecked" value=1  />
-            <label for="other">その他</label>
+                <input type="checkbox" id="event" v-model="CategoryChecked" value=2  />
+                <label for="event">イベント</label>
+
+                <input type="checkbox" id="other" v-model="CategoryChecked" value=1  />
+                <label for="other">その他</label>
+            </div>
         </div>
 
         <div v-show="AccordionOpen" class="SelectGrade CheckBox">
 
-            <input type="checkbox" id="first" v-model="GradeChecked" value=16 />
-            <label for="firdt">1年生</label>
+            <div class="CheckBoxTitle">
+                学年など
+            </div>
 
-            <input type="checkbox" id="second" v-model="GradeChecked" value=8 />
-            <label for="second">2年生</label>
+            <div>
+                <input type="checkbox" id="first" v-model="GradeChecked" value=16 />
+                <label for="firdt">1年生</label>
 
-            <input type="checkbox" id="third" v-model="GradeChecked" value=4 />
-            <label for="third">3年生</label>
+                <input type="checkbox" id="second" v-model="GradeChecked" value=8 />
+                <label for="second">2年生</label>
 
-            <input type="checkbox" id="club" v-model="GradeChecked" value=2  />
-            <label for="club">部活</label>
+                <input type="checkbox" id="third" v-model="GradeChecked" value=4 />
+                <label for="third">3年生</label>
 
-            <input type="checkbox" id="other" v-model="GradeChecked" value=1  />
-            <label for="other">その他</label>
+                <input type="checkbox" id="club" v-model="GradeChecked" value=2  />
+                <label for="club">部活</label>
+
+                <input type="checkbox" id="other" v-model="GradeChecked" value=1  />
+                <label for="other">その他</label>
+            </div>
         </div>
     </div>
 
@@ -86,7 +98,21 @@
 <style>
 
     .CheckBox{
-        padding: auto;
+        width: 100%;
+        max-height: 9em;
+        margin: auto;
+        height: fit-content;
+        background-color: #ffffff;
+        box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        padding: 0.5em;
+        display: flex;
+        flex-flow: column;
+
+    }
+    .CheckBoxTitle{
+        font-size: 1.5em;
+        margin: auto;
     }
 
     *,
@@ -103,8 +129,15 @@
         height: fit-content;
     }
     .NarrowDownSummary {
-        font-size: 1.5em;
+        width: fit-content;
+        max-width: 80%;
         margin: auto;
+        height: fit-content;
+        background-color: #ffffff;
+        box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0.5em;
     }
     .Accordion {
         cursor: pointer;
@@ -117,7 +150,7 @@
         border-bottom: 3px solid rgb(88, 88, 88);
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, 3);
-        margin: auto;
+        margin: 0 auto 0.5em;
         padding: auto 0.1em;
         align-items: center;
         text-align: center;
@@ -127,5 +160,11 @@
         color: #ffffff;
         background: rgb(158, 158, 158);
         border-bottom: 1px solid rgb(88, 88, 88);
+    }
+    .SelectCategory {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
     }
 </style>
