@@ -59,21 +59,21 @@ import router from "../routes";
     .StoreName {
         top: 0%;
         left: 0%;
-        font-size: 2.0em;
+        font-size: 1.8em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 1 / 2;
         line-height: 1em;
         height: fit-content;
     }
     .StoreState {
         left: 100%;
-        font-size: 1.5em;
+        font-size: 1.2em;
         font-weight: bold;
         grid-column: 2;
-        grid-row: 1 / 2;
+        grid-row: 1 / 3;
         top: 0;
         bottom: 0;
         margin: auto;
@@ -84,12 +84,12 @@ import router from "../routes";
         word-break: break-all;
         overflow: auto;
         grid-column: 1;
-        grid-row: 2 / 3;
+        grid-row: 2 / 4;
         height: 75%;
     }
     .ToDetail {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 3;
         display: flex;
         width: 100%;
         color: #fff;

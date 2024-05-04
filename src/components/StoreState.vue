@@ -96,7 +96,7 @@
     .StoreName {
         top: 0%;
         left: 0%;
-        font-size: 2.0em;
+        font-size: 1.8em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
@@ -107,7 +107,7 @@
     }
     .StoreState {
         left: 100%;
-        font-size: 1.5em;
+        font-size: 1.2em;
         font-weight: bold;
         grid-column: 2;
         grid-row: 1 / 3;

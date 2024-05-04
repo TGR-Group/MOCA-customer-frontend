@@ -26,7 +26,7 @@ const ToIntroduction = () => {
 .ToIntroductionButton {
     display: flex;
     width: 50%;
-    font-size: 250%;
+    font-size: 150%;
     color: #fff;
     background: #00bff8;
     border-bottom: 5px solid #0090bb;

@@ -45,7 +45,7 @@
     height: fit-content;
     width: fit-content;
     text-align: center;
-    font-size: 2.7em;
+    font-size: 2.0em;
     font-weight: bold;
     color: #000000;
     background-color: #ffffff;

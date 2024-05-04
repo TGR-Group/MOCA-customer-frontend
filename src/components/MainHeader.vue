@@ -16,7 +16,7 @@ padding: 10px; /* ヘッダーの余白を指定する(上下左右) */
 background-color: #232525; /* ヘッダーの背景色を指定する */
 color: #ffffff; /* フォントの色を指定する */
 margin: auto;
-font-size: 180%;
+font-size: 150%;
 z-index: 100;
 }
 </style>
