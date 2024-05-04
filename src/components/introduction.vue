@@ -10,21 +10,22 @@
     const CategoryChecked = ref([]);
 
     const CategoryAll = computed(() => {
-        var result1 = 0;
+        var result = 0;
         for (var i of CategoryChecked.value) {
-            result1 = (result1 | Number(i));
+            result = (result | Number(i));
         }
-        return result1;
+        return result;
     });
 
     const GradeChecked = ref([]);
     const GradeAll = computed(() => {
-        var result2 = 0;
+        var result = 0;
         for (var i of GradeChecked.value) {
-            result2 = (result2 | Number(i));
+            result = (result | Number(i));
         }
-        return result2;
+        return result;
     });
+
 
     const AccordionOpen = ref(false);
 </script>
@@ -78,7 +79,7 @@
     </div>
 
     <div class="StoreBox" v-for="StoreID in StoreIDs" >
-        <StoreDiscriptionBox v-show="(StoreDatas[StoreID].Category & CategoryAll) != 0 || (StoreDatas[StoreID].Grade & GradeAll) != 0 || (CategoryAll + GradeAll) == 0" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
+        <StoreDiscriptionBox v-show="CategoryAll == 0 && (StoreDatas[StoreID].Grade & GradeAll) != 0 || (StoreDatas[StoreID].Category & CategoryAll) != 0 && GradeAll == 0 || (StoreDatas[StoreID].Category & CategoryAll) != 0 && (StoreDatas[StoreID].Grade & GradeAll) != 0 || (CategoryAll + GradeAll) == 0" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
     </div>
 </template>
 
@@ -113,7 +114,7 @@
         background-color: rgb(158, 158, 158);
         display: flex;
         width: auto;
-        border-bottom: 5px solid rgb(88, 88, 88);
+        border-bottom: 3px solid rgb(88, 88, 88);
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, 3);
         margin: auto;
@@ -125,6 +126,6 @@
     .Accordion:hover {
         color: #ffffff;
         background: rgb(158, 158, 158);
-        border-bottom: 2px solid rgb(88, 88, 88);
+        border-bottom: 1px solid rgb(88, 88, 88);
     }
 </style>
