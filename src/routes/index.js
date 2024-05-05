@@ -1,9 +1,10 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
-    { path: "/introduction", component: () => import("../components/introduction.vue") },
-    { path: "/", component: () => import("../components/dashboard.vue") },
-    { path: "/introduction/detail/:StoreID", component: () => import("../components/StoreDetail.vue") },
+    { path: '/introduction', component: () => import('../components/introduction.vue') },
+    { path: '/', component: () => import('../components/dashboard.vue') },
+    { path: '/introduction/detail/:StoreID', component: () => import('../components/StoreDetail.vue') },
+    { path: '/:pathMatch(.*)*', component: () => import('../components/NotFound.vue')}
 ]
 
 const router = createRouter({
