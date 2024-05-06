@@ -42,26 +42,40 @@
             </div>
 
             <div>
-                <input type="checkbox" id="food" v-model="CategoryChecked" value=64 />
-                <label for="food">食販</label>
+                <label for="food">
+                    <input type="checkbox" id="food" v-model="CategoryChecked" value=64 />
+                        食販
+                </label>
 
-                <input type="checkbox" id="cafe" v-model="CategoryChecked" value=32 />
-                <label for="cafe">飲食店</label>
+                <label for="cafe">
+                    <input type="checkbox" id="cafe" v-model="CategoryChecked" value=32 />
+                        飲食店
+                </label>
 
-                <input type="checkbox" id="shop" v-model="CategoryChecked" value=16 />
-                <label for="shop">物販</label>
+                <label for="shop">
+                    <input type="checkbox" id="shop" v-model="CategoryChecked" value=16 />
+                        物販
+                </label>
 
-                <input type="checkbox" id="attraction" v-model="CategoryChecked" value=8  />
-                <label for="attraction">体験型</label>
+                <label for="attraction">
+                    <input type="checkbox" id="attraction" v-model="CategoryChecked" value=8  />
+                        体験型
+                </label>
 
-                <input type="checkbox" id="display" v-model="CategoryChecked" value=4  />
-                <label for="display">展示</label>
+                <label for="display">
+                    <input type="checkbox" id="display" v-model="CategoryChecked" value=4  />
+                        展示
+                </label>
 
-                <input type="checkbox" id="event" v-model="CategoryChecked" value=2  />
-                <label for="event">イベント</label>
+                <label for="event">
+                    <input type="checkbox" id="event" v-model="CategoryChecked" value=2  />
+                        イベント
+                </label>
 
-                <input type="checkbox" id="other" v-model="CategoryChecked" value=1  />
-                <label for="other">その他</label>
+                <label for="other">
+                    <input type="checkbox" id="other" v-model="CategoryChecked" value=1  />
+                        その他
+                </label>
             </div>
         </div>
 
@@ -72,20 +86,31 @@
             </div>
 
             <div>
-                <input type="checkbox" id="first" v-model="GradeChecked" value=16 />
-                <label for="firdt">1年生</label>
+                <label for="firdt">
+                    <input type="checkbox" id="first" v-model="GradeChecked" value=16 />
+                        1年生
+                </label>
 
-                <input type="checkbox" id="second" v-model="GradeChecked" value=8 />
-                <label for="second">2年生</label>
+                <label for="second">
+                    <input type="checkbox" id="second" v-model="GradeChecked" value=8 />
+                        2年生
+                </label>
 
-                <input type="checkbox" id="third" v-model="GradeChecked" value=4 />
-                <label for="third">3年生</label>
+                <label for="third">
+                    <input type="checkbox" id="third" v-model="GradeChecked" value=4 />
+                        3年生
+                </label>
 
-                <input type="checkbox" id="club" v-model="GradeChecked" value=2  />
-                <label for="club">部活</label>
+                <label for="club">
+                    <input type="checkbox" id="club" v-model="GradeChecked" value=2  />
+                        部活
+                </label>
 
-                <input type="checkbox" id="other" v-model="GradeChecked" value=1  />
-                <label for="other">その他</label>
+                <label for="other">
+                    <input type="checkbox" id="other" v-model="GradeChecked" value=1  />
+                    その他
+                </label>
+
             </div>
         </div>
     </div>
@@ -108,6 +133,8 @@
         padding: 0.5em;
         display: flex;
         flex-flow: column;
+        word-wrap: break-word;
+        word-break: break-all;
 
     }
     .CheckBoxTitle{
@@ -166,5 +193,9 @@
         flex-wrap: wrap;
         justify-content: center;
         margin: auto;
+    }
+    label {
+        word-wrap: break-word;
+        word-break: break-all;
     }
 </style>
