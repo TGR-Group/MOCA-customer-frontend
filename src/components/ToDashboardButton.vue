@@ -1,7 +1,7 @@
 <template>
-    <router-link to="/introduction" class="btn col-6 ToIntroductionButton">
+    <router-link to="/" class="btn col-6 ToIntroductionButton">
         <span class="ButtonText">
-            <img src="/src/assets/search.svg" height="30em" /> 出し物紹介へ
+            <img src="/src/assets/home.svg" height="30em" /> HOMEへ
         </span>
     </router-link>
 </template>
