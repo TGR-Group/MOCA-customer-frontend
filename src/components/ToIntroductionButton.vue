@@ -22,7 +22,6 @@
     border-bottom: 5px solid #0090bb;
     -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-    margin: 0 auto;
     align-items: center;
     text-align: center;
 }

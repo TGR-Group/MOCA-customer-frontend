@@ -41,7 +41,7 @@
                 カテゴリ
             </div>
 
-            <div>
+            <div class="CategoryBox">
                 <label for="food">
                     <input type="checkbox" id="food" v-model="CategoryChecked" value=64 />
                         食販
@@ -85,7 +85,7 @@
                 学年など
             </div>
 
-            <div>
+            <div class="GradeBox">
                 <label for="firdt">
                     <input type="checkbox" id="first" v-model="GradeChecked" value=16 />
                         1年生
@@ -133,12 +133,25 @@
         padding: 0.5em;
         display: flex;
         flex-flow: column;
-        word-wrap: break-word;
-        word-break: break-all;
+        flex-wrap: wrap;
 
     }
     .CheckBoxTitle{
         font-size: 1.5em;
+        margin: auto;
+    }
+
+    .CategoryBox{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .GradeBox{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         margin: auto;
     }
 
@@ -195,7 +208,6 @@
         margin: auto;
     }
     label {
-        word-wrap: normal;
-        overflow-wrap: break-word;
+        white-space: nowrap;
     }
 </style>

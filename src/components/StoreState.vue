@@ -12,7 +12,7 @@
         StoreID: {
             type: String,
             required: true,
-        }, 
+        },
         UserData: {
             type: Object,
             required: true,
