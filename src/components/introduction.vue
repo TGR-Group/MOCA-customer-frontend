@@ -72,8 +72,8 @@
                         イベント
                 </label>
 
-                <label for="other">
-                    <input type="checkbox" id="other" v-model="CategoryChecked" value=1  />
+                <label for="OtherCategory">
+                    <input type="checkbox" id="OtherCategory" v-model="CategoryChecked" value=1  />
                         その他
                 </label>
             </div>
@@ -106,9 +106,9 @@
                         部活
                 </label>
 
-                <label for="other">
-                    <input type="checkbox" id="other" v-model="GradeChecked" value=1  />
-                    その他
+                <label for="OtherGrade">
+                    <input type="checkbox" id="OtherGrade" v-model="GradeChecked" value=1  />
+                その他
                 </label>
 
             </div>
@@ -195,7 +195,7 @@
         margin: auto;
     }
     label {
-        word-wrap: break-word;
-        word-break: break-all;
+        word-wrap: normal;
+        overflow-wrap: break-word;
     }
 </style>
