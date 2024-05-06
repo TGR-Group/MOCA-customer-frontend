@@ -61,7 +61,7 @@
 
             <div class="CategoryBox">
 
-                <div v-for="(Category, CategoryID) in Categorys" :key="CategoryID">
+                <div v-for="(Category, CategoryID) in Categorys" :key="'Category' + CategoryID">
                     <label :for="'Category' + Category">
                         <input type="checkbox" :id="'Category' + Category" v-model="CategoryChecked" :value="CategoryID" />
                         {{ Category }}
@@ -78,7 +78,7 @@
 
             <div class="GradeBox">
 
-                <div v-for="(Grade, GradeID) in Grades" :key="GradeID">
+                <div v-for="(Grade, GradeID) in Grades" :key="'Grade' + GradeID">
                     <label :for="'Grade' + GradeID">
                         <input type="checkbox" :id="'Grade' + GradeID" v-model="GradeChecked" :value="GradeID" />
                         {{ Grade }}
