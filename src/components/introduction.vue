@@ -27,6 +27,24 @@
     });
 
 
+    const Categorys = ref({
+        64: "その他",
+        32: "イベント",
+        16: "展示",
+        8: "体験型",
+        4: "物販",
+        2: "飲食店",
+        1: "食販"
+    });
+
+    const Grades = ref({
+        16: "その他",
+        8: "部活",
+        4: "3年生",
+        2: "2年生",
+        1: "1年生"
+    });
+
     const AccordionOpen = ref(false);
 </script>
 
@@ -42,40 +60,13 @@
             </div>
 
             <div class="CategoryBox">
-                <label for="food">
-                    <input type="checkbox" id="food" v-model="CategoryChecked" value=64 />
-                        食販
-                </label>
 
-                <label for="cafe">
-                    <input type="checkbox" id="cafe" v-model="CategoryChecked" value=32 />
-                        飲食店
-                </label>
-
-                <label for="shop">
-                    <input type="checkbox" id="shop" v-model="CategoryChecked" value=16 />
-                        物販
-                </label>
-
-                <label for="attraction">
-                    <input type="checkbox" id="attraction" v-model="CategoryChecked" value=8  />
-                        体験型
-                </label>
-
-                <label for="display">
-                    <input type="checkbox" id="display" v-model="CategoryChecked" value=4  />
-                        展示
-                </label>
-
-                <label for="event">
-                    <input type="checkbox" id="event" v-model="CategoryChecked" value=2  />
-                        イベント
-                </label>
-
-                <label for="OtherCategory">
-                    <input type="checkbox" id="OtherCategory" v-model="CategoryChecked" value=1  />
-                        その他
-                </label>
+                <div v-for="(Category, CategoryID) in Categorys" :key="CategoryID">
+                    <label :for="'Category' + Category">
+                        <input type="checkbox" :id="'Category' + Category" v-model="CategoryChecked" :value="CategoryID" />
+                        {{ Category }}
+                    </label>
+                </div>
             </div>
         </div>
 
@@ -86,32 +77,14 @@
             </div>
 
             <div class="GradeBox">
-                <label for="firdt">
-                    <input type="checkbox" id="first" v-model="GradeChecked" value=16 />
-                        1年生
-                </label>
 
-                <label for="second">
-                    <input type="checkbox" id="second" v-model="GradeChecked" value=8 />
-                        2年生
-                </label>
-
-                <label for="third">
-                    <input type="checkbox" id="third" v-model="GradeChecked" value=4 />
-                        3年生
-                </label>
-
-                <label for="club">
-                    <input type="checkbox" id="club" v-model="GradeChecked" value=2  />
-                        部活
-                </label>
-
-                <label for="OtherGrade">
-                    <input type="checkbox" id="OtherGrade" v-model="GradeChecked" value=1  />
-                その他
-                </label>
-
-            </div>
+                <div v-for="(Grade, GradeID) in Grades" :key="GradeID">
+                    <label :for="'Grade' + GradeID">
+                        <input type="checkbox" :id="'Grade' + GradeID" v-model="GradeChecked" :value="GradeID" />
+                        {{ Grade }}
+                    </label>
+                </div>
+           </div>
         </div>
     </div>
 
