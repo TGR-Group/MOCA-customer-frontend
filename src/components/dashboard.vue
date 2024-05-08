@@ -51,7 +51,7 @@
     background-color: #ffffff;
     padding: 0.3em;
     border-radius: 0.5em;
-    box-shadow: 0 0 0.5em #000000;
+    box-shadow: 0 0 0.9em rgba(0, 0, 0, 0.5);
 }
 .NoResearved {
     margin: 10em 0;

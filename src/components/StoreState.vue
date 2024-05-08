@@ -30,9 +30,9 @@
     if(ReserveData.value.CalledOver){
         BackGroundColor.value = '#888888';
     }else if (ReserveData.value.Called) {
-        BackGroundColor.value = '#ff0000';
+        BackGroundColor.value = '#ff000088';
     }else if (ReserveData.value.WaitingPeople <= 5) {
-        BackGroundColor.value = '#ffff00';
+        BackGroundColor.value = '#ffff0088';
     }
 
     /////////////////////////////////////////////////////////////////////////////////

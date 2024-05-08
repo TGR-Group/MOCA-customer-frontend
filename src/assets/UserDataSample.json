@@ -1,12 +1,6 @@
 {
     "MC00001":{
         "ReservedStore": {
-            "10001":
-            {
-                "Called": false,
-                "CalledOver": false,
-                "CalledOverTime": null
-            },
             "20001":
             {
                 "Called": false,
