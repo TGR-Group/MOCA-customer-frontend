@@ -22,16 +22,18 @@
             required: true,
         }
     });
+
+    props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
 </script>
 
 <template>
     <div class="StoreBox" @click="StoreBoxClick">
 
-        <div class="StoreName">{{ props.StoreData.StoreName }}</div>
+        <div class="StoreName">{{ props.StoreData.name }}</div>
 
         <img class="StoreImage" :src="props.StoreData.StoreImage" alt="StoreImage" />
 
-        <div class="StoreDiscription">{{ props.StoreData.StoreDescription }}</div>
+        <div class="StoreDiscription">{{ props.StoreData.description }}</div>
 
         <div class="StoreState">
             {{ props.StoreData.WaitingPeople }} 人待ち

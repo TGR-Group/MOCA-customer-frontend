@@ -1,30 +1,7 @@
-{
-    "MC00001":{
-        "ReservedStore": {
-            "20001":
-            {
-                "Called": false,
-                "CalledOver": false,
-                "CalledOverTime": null
-            },
-            "30001":
-            {
-                "Called": true,
-                "CalledOver": true,
-                "CalledOverTime": 1714506334209
-            },
-            "40001":
-            {
-                "Called": false,
-                "CalledOver": false,
-                "CalledOverTime": null
-            },
-            "50001":
-            {
-                "Called": true,
-                "CalledOver": false,
-                "CalledOverTime": 1714508134209
-            }
-        }
+[
+    {
+        "id": "MC00001",
+        "token": "c1239714-fb28-a3e6-e779-8c059a91239c",
+        "email": 1715349271040
     }
-}
+]

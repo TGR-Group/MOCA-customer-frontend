@@ -4,12 +4,13 @@
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import UserDataSample from '../assets/UserDataSample.json';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
+    import QueueSample from '../assets/QueuesSample.json';
 
     const VisitorID = "MC00001";
 
-    const UserData = ref(UserDataSample);
+    const Queues = ref(QueueSample);
 
-    const ResearvedStoreIDs = ref(Object.keys(UserData.value[VisitorID].ReservedStore));
+    const UserData = ref(UserDataSample);
 
     const QRIsActive = ref(false);
 
@@ -17,9 +18,6 @@
     const QRTop = window.outerHeight / 2 - QRSize / 2 + "px";
     const QRLeft = window.outerWidth / 2 - QRSize / 2 + "px";
 
-    for (const i of ResearvedStoreIDs.value){
-        //残り時間でソートする
-    }
 </script>
 
 <template>
@@ -30,12 +28,12 @@
         ID:{{ VisitorID }}
     </div>
 
-    <div class="NoResearved" v-if="ResearvedStoreIDs.length == 0">
+    <div class="NoResearved" v-if="Queues.length == 0">
         <h2>予約店舗がありません</h2>
     </div>
     <div v-else>
-        <div class="StoreBox" v-for="ResearvedStoreID in ResearvedStoreIDs" :key="ResearvedStoreID">
-            <StoreState :VisitorID=VisitorID :StoreID=ResearvedStoreID :UserData=UserData />
+        <div class="StoreBox" v-for="Queue in Queues" :key="Queue.programId">
+            <StoreState :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
         </div>
     </div>
     <div class="ToIntroductionButton">

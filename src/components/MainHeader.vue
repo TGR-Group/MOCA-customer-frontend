@@ -126,7 +126,8 @@ z-index: 100;
 .menu li {
   list-style: none;
   line-height: 1;
-  padding: 1rem;
+  padding: 1rem 1rem 0.5rem;
+  border-bottom: solid;
 }
 .menu {
   background-color: rgba(197, 197, 197, 0.929);
@@ -139,10 +140,12 @@ z-index: 100;
   left: 0;
 }
 .menu a {
-  color: rgb(66, 66, 66);
+  display: block;
+  color: rgb(55, 55, 55);
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 0 2rem;
+  padding: 0 0rem;
+  width: 100%;
 }
 .menu ul{
   margin: 1rem;

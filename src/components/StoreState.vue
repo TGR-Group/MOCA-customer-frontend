@@ -24,23 +24,26 @@
             type: Object,
             required: true,
         },
+        Queue: {
+            type: Object,
+            required: true,
+        }
 
     });
 
-    const ReserveData = ref(StoreDatas.value[props.StoreID]);
-
-    ReserveData.value.Called = ref(props.UserData[props.VisitorID].ReservedStore[props.StoreID].Called);
-    ReserveData.value.CalledOver = ref(props.UserData[props.VisitorID].ReservedStore[props.StoreID].CalledOver);
+    const ReserveData = ref(StoreDatas.value.find( d => {
+        return d.id === props.StoreID
+    }));
 
     const BackGroundColor = ref('#ffffff');
 
-    if(ReserveData.value.CalledOver){
+    if(props.Queue.status == 'canceled'){
         BackGroundColor.value = '#888888';
-    }else if (ReserveData.value.Called) {
+    }else if (props.Queue.status == 'called') {
         BackGroundColor.value = '#ff000088';
-    }else if (ReserveData.value.WaitingPeople <= 5) {
+    }/*else if (ReserveData.value.WaitingPeople <= 5) {
         BackGroundColor.value = '#ffff0088';
-    }
+    }*/
 
     /////////////////////////////////////////////////////////////////////////////////
 
@@ -49,7 +52,7 @@
     const AfterThirtyMinutes = ref(30 * 60 * 1000 + NowGetTime.value);
 
     const RemainingTime = ref(null);
-    if (ReserveData.value.Called) {
+    if (props.Queue.status == 'called') {
         ReserveData.value.CalledOverTime = AfterThirtyMinutes.value - (945 * 1000);
         RemainingTime.value = Math.floor((ReserveData.value.CalledOverTime - NowGetTime.value) / 1000 / 60);
     }
@@ -59,17 +62,17 @@
 <template>
     <div class="StoreBox" @click="StoreBoxClick">
 
-        <div class="StoreName">{{ ReserveData.StoreName }}</div>
+        <div class="StoreName">{{ ReserveData.name }}</div>
 
-        <div class="StoreDiscription">{{ ReserveData.StoreDescription }}</div>
+        <div class="StoreDiscription">{{ ReserveData.description }}</div>
 
         <div class="StoreState">
 
 
-            <div v-if="ReserveData.CalledOver">
+            <div v-if="props.Queue.status == 'cancelled'">
                 呼び出し終了
             </div>
-            <div v-else-if="ReserveData.Called">
+            <div v-else-if="props.Queue.status == 'called'">
                 呼び出し済み<br>残り{{ RemainingTime }}分
             </div>
             <div v-else>

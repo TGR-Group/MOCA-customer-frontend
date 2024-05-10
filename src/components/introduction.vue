@@ -27,29 +27,29 @@
     });
 
 
-    const Categorys = ref({
-        64: "その他",
-        32: "イベント",
-        16: "展示",
-        8: "体験型",
-        4: "物販",
-        2: "飲食店",
-        1: "食販"
-    });
+    const Categorys = {
+        食販: 1,
+        飲食店: 2,
+        物販: 4,
+        体験型: 8,
+        展示: 16,
+        イベント: 32,
+        その他: 64
+   };
 
-    const Grades = ref({
-        16: "その他",
-        8: "部活",
-        4: "3年生",
-        2: "2年生",
-        1: "1年生"
-    });
+    const Grades = {
+        '1年生': 1,
+        '2年生': 2,
+        '3年生': 4,
+        部活: 8,
+        その他: 16
+    };
 
     const DisplayStoreList = computed(() => {
         var result = [];
-        for (var i of StoreIDs.value) {
-            if (CategoryAll.value == 0 && (StoreDatas.value[i].Grade & GradeAll.value) != 0 || (StoreDatas.value[i].Category & CategoryAll.value) != 0 && GradeAll.value == 0 || (StoreDatas.value[i].Category & CategoryAll.value) != 0 && (StoreDatas.value[i].Grade & GradeAll.value) != 0 || (CategoryAll.value + GradeAll.value) == 0) {
-                result.push(i);
+        for (var i in StoreIDs.value) {
+            if (CategoryAll.value == 0 && (Grades[StoreDatas.value[i].grade] & GradeAll.value) != 0 || (Categorys[StoreDatas.value[i].category] & CategoryAll.value) != 0 && GradeAll.value == 0 || (Categorys[StoreDatas.value[i].category] & CategoryAll.value) != 0 && (Grades[StoreDatas.value[i].grade] & GradeAll.value) != 0 || (CategoryAll.value + GradeAll.value) == 0) {
+                result.push(StoreDatas.value[i].id);
             }
         }
         return result;
@@ -71,9 +71,9 @@
 
             <div class="CategoryBox">
 
-                <div v-for="(Category, CategoryID) in Categorys" :key="'Category' + CategoryID">
-                    <label :for="'Category' + Category">
-                        <input type="checkbox" :id="'Category' + Category" v-model="CategoryChecked" :value="CategoryID" />
+                <div v-for="(CategoryId, Category) in Categorys" :key="'Category' + Category">
+                    <label :for="'Category' + CategoryId">
+                        <input type="checkbox" :id="'Category' + CategoryId" v-model="CategoryChecked" :value="CategoryId" />
                         {{ Category }}
                     </label>
                 </div>
@@ -88,9 +88,9 @@
 
             <div class="GradeBox">
 
-                <div v-for="(Grade, GradeID) in Grades" :key="'Grade' + GradeID">
-                    <label :for="'Grade' + GradeID">
-                        <input type="checkbox" :id="'Grade' + GradeID" v-model="GradeChecked" :value="GradeID" />
+                <div v-for="(GradeId, Grade) in Grades" :key="'Grade' + Grade">
+                    <label :for="'Grade' + Grade">
+                        <input type="checkbox" :id="'Grade' + Grade" v-model="GradeChecked" :value="GradeId" />
                         {{ Grade }}
                     </label>
                 </div>
@@ -98,8 +98,8 @@
         </div>
     </div>
     <div class="StoreBoxes">
-        <div class="IntroStoreBox" v-for="StoreID in DisplayStoreList" >
-            <StoreDiscriptionBox  :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
+        <div class="IntroStoreBox" v-for="StoreID of DisplayStoreList" >
+            <StoreDiscriptionBox  :StoreID="StoreID" :StoreData="StoreDatas.find(d =>{return d.id == StoreID})"  />
         </div>
     </div>
 </template>
