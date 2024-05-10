@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "@vuex-orm/core": "^0.36.4",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2"
