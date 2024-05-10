@@ -58,7 +58,7 @@
         margin: 0.5em auto;
         height: fit-content;
         background-color: #ffffff;
-        border-radius: 1.5em;
+        border-radius: 0.5em;
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         font-weight: bold;
         text-decoration: none;
@@ -104,19 +104,19 @@
         color: #fff;
         border: none;
         background: #00bff8;
-        border-bottom: 5px solid #0090bb;
+        border-bottom: 3px solid #0090bb;
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         margin: auto;
         align-items: center;
         text-align: center;
         justify-content:center;
-        margin: 0.5em auto;
+        margin: 0.5em 0.1em 0.5em auto;
     }
     .ReserveBtn:hover {
         color: #ffffff;
         background: #00bff8;
-        border-bottom: 2px solid #0090bb;
+        border-bottom: 0px solid #0090bb;
     }
     .ToDetail {
         display: flex;
@@ -124,10 +124,10 @@
         font-size: 1.2em;
         color: #fff;
         background: #00bff8;
-        border-bottom: 5px solid #0090bb;
+        border-bottom: 3px solid #0090bb;
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        margin: auto;
+        margin: 0.5em 0.1em 0.5em auto;
         align-items: center;
         text-align: center;
         justify-content:center;
@@ -136,6 +136,6 @@
     .ToDetail:hover {
         color: #ffffff;
         background: #00bff8;
-        border-bottom: 2px solid #0090bb;
+        border-bottom: 0px solid #0090bb;
     }
 </style>

@@ -120,7 +120,6 @@
     }
 
     .CheckBox{
-        width: 100%;
         max-height: 9em;
         margin: auto;
         height: fit-content;
