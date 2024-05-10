@@ -4,6 +4,7 @@
         "Grade": 1,
         "Category": 64,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 3
     },
 
@@ -12,6 +13,7 @@
         "Grade": 4,
         "Category": 32,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 1
     },
 
@@ -20,6 +22,7 @@
         "Grade": 8,
         "Category": 16,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 0
     },
 
@@ -28,6 +31,7 @@
         "Grade": 2,
         "Category": 8,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 17
     },
 
@@ -36,6 +40,7 @@
         "Grade": 2,
         "Category": 4,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 0
     },
 
@@ -44,6 +49,7 @@
         "Grade": 4,
         "Category": 2,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 0
     },
 
@@ -52,6 +58,7 @@
         "Grade": 1,
         "Category": 1,
         "StoreDescription": "This is my...qwaesedrfhjgkuhlj;lknbhvjhdrytufyihijkjbhgcfxgstrdyttioijkjbhvjgdtrytuyoihljghftuytuihlkhjfuyiuihljhgdt",
+        "StoreImage": "https://placehold.jp/160x100.png",
         "WaitingPeople": 0
     }
 }

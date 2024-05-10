@@ -45,6 +45,16 @@
         1: "1年生"
     });
 
+    const DisplayStoreList = computed(() => {
+        var result = [];
+        for (var i of StoreIDs.value) {
+            if (CategoryAll.value == 0 && (StoreDatas.value[i].Grade & GradeAll.value) != 0 || (StoreDatas.value[i].Category & CategoryAll.value) != 0 && GradeAll.value == 0 || (StoreDatas.value[i].Category & CategoryAll.value) != 0 && (StoreDatas.value[i].Grade & GradeAll.value) != 0 || (CategoryAll.value + GradeAll.value) == 0) {
+                result.push(i);
+            }
+        }
+        return result;
+    });
+
     const AccordionOpen = ref(false);
 </script>
 
@@ -87,13 +97,27 @@
            </div>
         </div>
     </div>
-
-    <div class="StoreBox" v-for="StoreID in StoreIDs" >
-        <StoreDiscriptionBox v-show="CategoryAll == 0 && (StoreDatas[StoreID].Grade & GradeAll) != 0 || (StoreDatas[StoreID].Category & CategoryAll) != 0 && GradeAll == 0 || (StoreDatas[StoreID].Category & CategoryAll) != 0 && (StoreDatas[StoreID].Grade & GradeAll) != 0 || (CategoryAll + GradeAll) == 0" :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
+    <div class="StoreBoxes">
+        <div class="IntroStoreBox" v-for="StoreID in DisplayStoreList" >
+            <StoreDiscriptionBox  :StoreID="StoreID" :StoreData=StoreDatas[StoreID]  />
+        </div>
     </div>
 </template>
 
-<style>
+<style scoped>
+
+    .StoreBoxes {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1em;
+        margin: auto;
+        justify-content:center;
+    }
+    .IntroStoreBox {
+        max-width: 45%;
+        flex-shrink: 0;
+        width: 15em;
+    }
 
     .CheckBox{
         width: 100%;
