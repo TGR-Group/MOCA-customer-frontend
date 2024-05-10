@@ -1,4 +1,11 @@
 <script setup>
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+    const StoreBoxClick = () => {
+        router.push('/introduction/detail/' + props.StoreID);
+    }
+
     const props = defineProps({
         StoreID: {
             type: String,
@@ -12,7 +19,7 @@
 </script>
 
 <template>
-    <div class="StoreBox">
+    <div class="StoreBox" @click="StoreBoxClick">
 
         <div class="StoreName">{{ props.StoreData.StoreName }}</div>
 
@@ -86,9 +93,11 @@
     .StoreDiscription {
         font-size: 0.8em;
         font-weight: bold;
+        max-height: 3.0em;
+        flex-basis: 3em;
         word-break: break-all;
         overflow: auto;
-        height: 75%;
+        margin: auto auto;
     }
     .StoreImage {
         align-items: center;

@@ -1,6 +1,13 @@
 <script setup>
     import { ref } from 'vue';
     import StoreDatasSample from '../assets/StoreDatasSample.json';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+    const StoreBoxClick = () => {
+        router.push('/introduction/detail/' + props.StoreID);
+    }
+
 
     const StoreDatas = ref(StoreDatasSample);
 
@@ -50,7 +57,7 @@
 </script>
 
 <template>
-    <div class="StoreBox">
+    <div class="StoreBox" @click="StoreBoxClick">
 
         <div class="StoreName">{{ ReserveData.StoreName }}</div>
 
