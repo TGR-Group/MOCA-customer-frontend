@@ -45,6 +45,7 @@
         BackGroundColor.value = '#ffff0088';
     }*/
 
+
     /////////////////////////////////////////////////////////////////////////////////
 
     const NowDate = ref(new Date());
@@ -69,7 +70,7 @@
         <div class="StoreState">
 
 
-            <div v-if="props.Queue.status == 'cancelled'">
+            <div v-if="props.Queue.status == 'canceled'">
                 呼び出し終了
             </div>
             <div v-else-if="props.Queue.status == 'called'">

@@ -2,8 +2,8 @@
 
     {
         "id": "144bf05a-f83d-7e38-be23-10dfeed8abb6",
-        "name": "あ",
-        "description": "This is あ",
+        "name": "1-1foods",
+        "description": "おいしい物がたくさん！！",
         "category": "食販",
         "grade": "1年生",
         "className": "1-1"
@@ -11,8 +11,8 @@
 
     {
         "id": "6fe917dd-cfa5-3cd4-501a-8f2340df80a4",
-        "name": "い",
-        "description": "This is い",
+        "name": "2-1カフェ",
+        "description": "落ち着いたカフェです。",
         "category": "飲食店",
         "grade": "2年生",
         "className": "2-1"
@@ -31,8 +31,8 @@
 
     {
         "id": "0563690c-c063-2453-09e6-1784067a8135",
-        "name": "え",
-        "description": "This is え",
+        "name": "1-2house",
+        "description": "お化け屋敷",
         "category": "体験型",
         "grade": "1年生",
         "className": "1-2"
