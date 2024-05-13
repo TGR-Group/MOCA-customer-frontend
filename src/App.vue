@@ -1,12 +1,14 @@
 <script setup>
 import MainHeader from './components/MainHeader.vue';
 import ToPageTop from './components/ToPageTop.vue';
+import MainFooter from './components/MainFooter.vue';
 </script>
 
 <template>
   <MainHeader />
   <ToPageTop />
   <router-view></router-view>
+  <MainFooter />
 </template>
 
 <style scoped>
