@@ -1,9 +1,11 @@
 <template>
-    <router-link to="/introduction" class="btn col-6 ToIntroductionButton">
-        <span class="ButtonText">
-            <img src="/src/assets/search.svg" height="30em" /> 出し物紹介へ
-        </span>
-    </router-link>
+    <div style="height: 4em; display: flex; align-items: end;">
+        <router-link to="/introduction" class="btn col-6 ToIntroductionButton">
+            <span class="ButtonText">
+                <img src="/src/assets/search.svg" height="30em" /> 出し物紹介へ
+            </span>
+        </router-link>
+    </div>
 </template>
 
 <style scoped>
@@ -24,6 +26,7 @@
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     align-items: center;
     text-align: center;
+    margin: 0 auto;
 }
 
 .ToIntroductionButton:hover {

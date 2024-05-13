@@ -62,7 +62,7 @@
     <div>
         <h1>出し物紹介</h1>
     </div>
-    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']"><button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">絞り込み</button>
+    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']"><div style="height: 4em; display: flex; align-items: end;"><button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">絞り込み</button></div>
         <div v-show="AccordionOpen" class="SelectCategory CheckBox">
 
             <div class="CheckBoxTitle">
@@ -179,13 +179,14 @@
         cursor: pointer;
         font-size: 1.7em;
         border: none;
+        bottom: 0;
         color: #ffffff;
         background-color: rgb(158, 158, 158);
         display: flex;
         width: auto;
         border-bottom: 3px solid rgb(88, 88, 88);
-        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 3);
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 3);
+        -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 3);
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 3);
         margin: 0 auto 0.5em;
         padding: auto 0.1em;
         align-items: center;
@@ -195,7 +196,7 @@
     .Accordion:hover {
         color: #ffffff;
         background: rgb(158, 158, 158);
-        border-bottom: 1px solid rgb(88, 88, 88);
+        border-bottom: 0px solid rgb(88, 88, 88);
     }
     .SelectCategory {
         display: flex;

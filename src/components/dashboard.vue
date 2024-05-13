@@ -36,7 +36,7 @@
             <StoreState :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
         </div>
     </div>
-    <div class="ToIntroductionButton">
+    <div class="ToIntroductionButton_dashboard">
         <ToIntroductionButton />
     </div>
 
@@ -74,7 +74,7 @@
 }
 
 .IdBox {
-    margin: 0.5em auto;
+    margin: 1.9em auto 1.5em;
     height: fit-content;
     width: fit-content;
     text-align: center;
@@ -89,8 +89,9 @@
 .NoResearved {
     margin: 10em 0;
 }
-.ToIntroductionButton {
-    margin: 5em auto;
+.ToIntroductionButton_dashboard {
+    margin: 4.5em auto 5em;
     align-items: center;
+    text-align: center;
 }
 </style>

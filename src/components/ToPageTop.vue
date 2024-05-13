@@ -4,11 +4,11 @@
 
 <style scoped>
     .pagetop {
-        height: 50px;
-        width: 50px;
+        height: 3.8rem;
+        width: 3.8rem;
         position: fixed;
         right: 30px;
-        bottom: 30px;
+        bottom: 3.5rem;
         background: #a0a0a055;
         border: solid 2px #000;
         border-radius: 50%;
@@ -19,7 +19,7 @@
     }
 
     .pagetop:hover {
-        background: #a0a0a0d8;
+        background: #a0a0a07d;
     }
 
     .pagetop__arrow {
