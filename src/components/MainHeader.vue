@@ -52,9 +52,6 @@ margin: 0 0 auto;
   text-align: center;;
   color: #ffffff;
 }
-.HeaderTitle:hover {
-  font-size: 2.2em;
-}
 
 .MenuBackground{
   z-index: 110;
@@ -131,7 +128,7 @@ margin: 0 0 auto;
   border-bottom: solid;
 }
 .menu {
-  background-color: rgba(197, 197, 197, 0.929);
+  background-color: rgba(148, 231, 239, 0.929);
   z-index: 130;
   padding: 2rem 1rem;
   position: fixed;
