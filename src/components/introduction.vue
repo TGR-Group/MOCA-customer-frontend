@@ -28,21 +28,21 @@
 
 
     const Categorys = {
-        食販: 1,
-        飲食店: 2,
-        物販: 4,
-        体験型: 8,
-        展示: 16,
-        イベント: 32,
-        その他: 64
+        '食販': 1,
+        '飲食店': 2,
+        '物販': 4,
+        '体験型': 8,
+        '展示': 16,
+        'イベント': 32,
+        'その他': 64
    };
 
     const Grades = {
         '1年生': 1,
         '2年生': 2,
         '3年生': 4,
-        部活: 8,
-        その他: 16
+        '部活': 8,
+        'その他': 16
     };
 
     const DisplayStoreList = computed(() => {
@@ -62,7 +62,14 @@
     <div>
         <h1>出し物紹介</h1>
     </div>
-    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']"><div style="height: 4em; display: flex; align-items: end;"><button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">絞り込み</button></div>
+    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']">
+
+        <div style="height: 4em; display: flex; align-items: end;">
+            <button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">
+                <img src="../assets/AccordionIcon.svg" class="AccordionIcon" :style="{ Transform: [AccordionOpen ? '' : 'rotate(-90deg)']}" />絞り込み
+            </button>
+        </div>
+
         <div v-show="AccordionOpen" class="SelectCategory CheckBox">
 
             <div class="CheckBoxTitle">
@@ -130,7 +137,6 @@
         display: flex;
         flex-flow: column;
         flex-wrap: wrap;
-
     }
     .CheckBoxTitle{
         font-size: 1.5em;
@@ -206,5 +212,10 @@
     }
     label {
         white-space: nowrap;
+    }
+
+    .AccordionIcon {
+        height: 0.35em;
+        margin: 0 0.3em 0;
     }
 </style>
