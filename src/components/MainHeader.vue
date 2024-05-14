@@ -1,6 +1,5 @@
 <script setup>
     import { ref } from 'vue';
-import router from '../routes';
     const HamburgerIsActive = ref(false);
 </script>
 
@@ -19,7 +18,7 @@ import router from '../routes';
           <div class="MenuBackground" v-show="HamburgerIsActive" @click='HamburgerIsActive=!HamburgerIsActive'>
               <div class="menu">
                   <ul>
-                      <li><router-link to="/" @click.stop='HamburgerIsActive=!HamburgerIsActive'>ホーム</router-link></li>
+                      <li><router-link to="/#HOME" @click.stop='HamburgerIsActive=!HamburgerIsActive'>ホーム</router-link></li>
                       <li><router-link to="/introduction" @click.stop='HamburgerIsActive=!HamburgerIsActive'>出し物紹介</router-link></li>
                       <li><router-link to="/map" @click.stop='HamburgerIsActive=!HamburgerIsActive'>校内マップ</router-link></li>
                       <li><router-link to="/TimeTable" @click.stop='HamburgerIsActive=!HamburgerIsActive'>タイムテーブル</router-link></li>
@@ -61,6 +60,7 @@ margin: 0 0 auto;
   z-index: 110;
   height: 100vh;
   width: 100vw;
+  background-color: rgba(0, 0, 0, 0.395);
   position: fixed;
   top: 0;
   left: 0;

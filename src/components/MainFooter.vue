@@ -3,7 +3,7 @@ import router from '../routes';
 <template>
     <div class="Footer">
         <div class="FooterToHomeBg" />
-            <router-link to="/" class="FooterToHome" >HOME</router-link>
+            <router-link to="/#HOME" class="FooterToHome" >HOME</router-link>
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
     <div style="height: 7em; display: flex; align-items: end;">
-        <router-link to="/" class="btn col-6 ToDashboardButton">
+        <router-link to="/#HOME" class="btn col-6 ToDashboardButton">
             <span class="ButtonText">
                 <img src="/src/assets/home.svg" style="height: 2.7rem; padding: 0 0.5em 0 0" /> HOMEへ
             </span>
