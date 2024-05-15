@@ -20,6 +20,9 @@
 
     const date = new Date();
 
+    const showStoreList = ref(Queues.value.filter((Queue) => {
+        return (!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || Queue.status == 'wait');
+    }));
 </script>
 
 <template>
@@ -30,12 +33,12 @@
         ID:{{ VisitorID }}
     </div>
 
-    <div class="NoResearved" v-if="Queues.length == 0">
+    <div class="NoResearved" v-if="showStoreList.length == 0">
         <h2>予約店舗がありません</h2>
     </div>
     <div v-else>
-        <div class="StoreBox" v-for="Queue in Queues" :key="Queue.programId">
-            <StoreState v-if="!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || !Queue.calledAt " :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
+        <div class="StoreBox" v-for="Queue in showStoreList" :key="Queue.programId">
+            <StoreState :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
         </div>
     </div>
     <div class="ToIntroductionButton_dashboard">
