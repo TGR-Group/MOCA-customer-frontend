@@ -11,7 +11,9 @@
   "dependencies": {
     "@chenfengyuan/vue-qrcode": "^2.0.0",
     "@vuex-orm/core": "^0.36.4",
+    "axios": "^1.6.8",
     "vue": "^3.4.26",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
