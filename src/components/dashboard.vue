@@ -18,6 +18,8 @@
     const QRTop = window.outerHeight / 2 - QRSize / 2 + "px";
     const QRLeft = window.outerWidth / 2 - QRSize / 2 + "px";
 
+    const date = new Date();
+
 </script>
 
 <template>
@@ -33,7 +35,7 @@
     </div>
     <div v-else>
         <div class="StoreBox" v-for="Queue in Queues" :key="Queue.programId">
-            <StoreState :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
+            <StoreState v-if="!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || !Queue.calledAt " :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
         </div>
     </div>
     <div class="ToIntroductionButton_dashboard">

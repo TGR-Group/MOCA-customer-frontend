@@ -8,7 +8,7 @@
         router.push('/introduction/detail/' + props.StoreID);
     }
 
-
+    const ThirtyMinutes = 30 * 60 * 1000;
     const StoreDatas = ref(StoreDatasSample);
 
     const props = defineProps({
@@ -50,12 +50,10 @@
 
     const NowDate = ref(new Date());
     const NowGetTime = ref(NowDate.value.getTime());
-    const AfterThirtyMinutes = ref(30 * 60 * 1000 + NowGetTime.value);
 
     const RemainingTime = ref(null);
     if (props.Queue.status == 'called') {
-        ReserveData.value.CalledOverTime = AfterThirtyMinutes.value - (945 * 1000);
-        RemainingTime.value = Math.floor((ReserveData.value.CalledOverTime - NowGetTime.value) / 1000 / 60);
+        RemainingTime.value = Math.floor((props.Queue.calledAt + ThirtyMinutes - NowGetTime.value) / 1000 / 60);
     }
 
 </script>
