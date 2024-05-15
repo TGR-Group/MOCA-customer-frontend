@@ -37,7 +37,10 @@
 
     const BackGroundColor = ref('#ffffff');
 
-    if(props.Queue.status == 'canceled'){
+    const NowDate = ref(new Date());
+    const NowGetTime = ref(NowDate.value.getTime());
+
+    if((props.Queue.calledAt + ThirtyMinutes - NowGetTime.value) / 1000 / 60 + 5 > 0 && props.Queue.status == 'over'){
         BackGroundColor.value = '#888888';
     }else if (props.Queue.status == 'called') {
         BackGroundColor.value = '#ff000088';
@@ -48,8 +51,6 @@
 
     /////////////////////////////////////////////////////////////////////////////////
 
-    const NowDate = ref(new Date());
-    const NowGetTime = ref(NowDate.value.getTime());
 
     const RemainingTime = ref(null);
     if (props.Queue.status == 'called') {
@@ -68,7 +69,7 @@
         <div class="StoreState">
 
 
-            <div v-if="props.Queue.status == 'canceled'">
+            <div v-if="props.Queue.status == 'over'">
                 呼び出し終了
             </div>
             <div v-else-if="props.Queue.status == 'called'">
