@@ -5,4 +5,4 @@ import './style.css'
 import App from './App.vue'
 import router from './routes/index.js'
 
-const app = createApp(App).use(VueAxios, axios, router).mount('#app')
+const app = createApp(App).use(router, VueAxios, axios ).mount('#app')
