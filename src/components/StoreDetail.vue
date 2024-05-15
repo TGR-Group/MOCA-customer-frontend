@@ -2,6 +2,7 @@
     import { ref } from 'vue';
     import { useRoute, useRouter } from "vue-router";
     import StoreDatasSample from '../assets/StoreDatasSample.json';
+    import NotFound from './NotFound.vue';
 
     const StoreDatas = ref(StoreDatasSample);
 
@@ -10,14 +11,13 @@
 
     const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}))
 
-    if (StoreData.value == undefined){
-        StoreData.value = {name: "該当する店舗がありません"}
-        router.push('/NotFound')
-    }
 </script>
 
 <template>
-    <div>
+    <div v-if="StoreData">
         <h1>{{ StoreData.name }}詳細</h1>
+    </div>
+    <div v-else>
+        <NotFound />
     </div>
 </template>
