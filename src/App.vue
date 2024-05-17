@@ -7,7 +7,7 @@ import MainFooter from './components/MainFooter.vue';
 <template>
   <MainHeader />
   <ToPageTop />
-  <div style="margin: 6rem auto;">
+  <div style="margin: 6rem auto 9rem;">
     <router-view />
   </div>
   <MainFooter />
