@@ -88,7 +88,7 @@
         {
             "tableName": "体育館1日目",
             "venueName":"体育館",
-            "venueMap":"/map/#体育館",
+            "venueMap":"/SchoolMap/#体育館",
             "year":2024,
             "month":7,
             "day":1,
@@ -136,7 +136,7 @@
         {
             "tableName": "体育館2日目",
             "venueName":"体育館",
-            "venueMap":"/map/#体育館",
+            "venueMap":"/SchoolMap/#体育館",
             "year":2024,
             "month":7,
             "day":2,

@@ -5,6 +5,7 @@ const routes = [
     { path: '/', component: () => import('../components/dashboard.vue') },
     { path: '/introduction/detail/:StoreID', component: () => import('../components/StoreDetail.vue') },
     { path: '/TimeTable', component: () => import('../components/TimeTable.vue') },
+    { path: '/SchoolMap', component: () => import('../components/SchoolMap.vue') },
     { path: '/:pathMatch(.*)*', component: () => import('../components/NotFound.vue')}
 ]
 
