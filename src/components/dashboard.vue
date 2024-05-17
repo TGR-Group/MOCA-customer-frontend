@@ -35,6 +35,8 @@
         ID:{{ VisitorID }}
     </div>
 
+    <h2>予約状況</h2>    
+
     <div class="NoResearved" v-if="showStoreList.length == 0">
         <h2>予約店舗がありません</h2>
     </div>
@@ -53,11 +55,17 @@
         </div>
     </div>
 
+    <h2>タイムテーブル</h2>    
+
     <timeTableComponent class="timeTableComponent" v-for="data in timeTableData.wholeTimeTable" :timeTable="data" />
 
 </template>
 
 <style>
+h2 {
+    margin: 07rem auto 3rem auto;
+    text-align: center;
+}
 .timeTableComponent {
     margin: 2rem auto;
     display: flex;

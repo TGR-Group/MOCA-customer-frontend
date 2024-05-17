@@ -23,22 +23,70 @@ const formatTime = (time) => {
   <div class="timeTable">
     <div class="tableName">{{ timeTable.tableName }}</div>
     <div class="tableDate">{{ timeTable.month }}月{{ timeTable.day }}日</div>
-    <table>
-      <tr v-for="item in timeTable.table" :key="item.content" class="timeTableList">
-        <td>{{ item.content }}</td>
-        <td>{{ formatTime(item.start) }}~{{ formatTime(item.end) }}</td>
-      </tr>
-    </table>
+      <ul style="width: 95%;">
+        <li v-for="item in timeTable.table" :key="item.content" class="timeTableList">
+          <div class="timeTableTime">
+            <div class="timeTableTimeStart">
+              {{ formatTime(item.start) }}
+            </div>
+            <div class="timeTableTimeEnd">
+              {{ formatTime(item.end) }}
+            </div>
+          </div>
+          <div class="timeTableContent">
+            {{ item.content }} 
+          </div>
+        </li>
+    </ul>
   </div>
 </template>
 
 <style scoped>
     .timeTable {
-        width: fit-content;
+        width: 75%;
         display: flex;
         flex-flow: column;
+        -webkit-box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
+    }
+
+    .timeTable .tableName {
+        text-align: center;
+        font-size: 1.5em;
+        padding: 0.2em;
+    }
+    .tableDate {
+        text-align: center;
+        font-size: 1.2em;
+        padding: 0.2em;
+    }
+
+    .timeTableTimeStart:after{
+        content: '〜';
     }
     .timeTableList{
-        border-bottom: 5px solid;
+        display: flex;
+        flex-flow: row;
+        
+        justify-content: center;
+        width: 100%;
+        border-bottom: 1px solid;
+        text-align: center;
+    }
+    .timeTableTime{
+        width: 50%;
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+    }
+    .timeTableContent{
+        width: 50%;
+    }
+    ul{
+        padding-left:0;
+    }
+
+    li{
+        list-style:none;
     }
 </style>

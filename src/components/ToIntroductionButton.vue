@@ -21,7 +21,7 @@
     font-size: 150%;
     color: #fff;
     background: #00bff8;
-    border-bottom: 5px solid #0090bb;
+    border-bottom: 3px solid #0090bb;
     -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     align-items: center;
@@ -32,7 +32,7 @@
 .ToIntroductionButton:hover {
   color: #ffffff;
   background: #00bff8;
-  border-bottom: 2px solid #0090bb;
+  border-bottom: 0px solid #0090bb;
 }
 
 .ButtonText {
