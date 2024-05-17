@@ -1,5 +1,35 @@
+<script setup>
+import { onMounted, ref } from 'vue'
+
+const buttonActive = ref(false)
+
+let scroll = 0
+
+const toPageTop = () => {
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  })
+}
+
+const scrollWindow = () => {
+  const top = 50 //topから100pxスクロールしたらボタン登場
+  scroll = window.scrollY //垂直方向
+
+  if (top <= scroll) {
+    buttonActive.value = true
+  } else {
+    buttonActive.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', scrollWindow)
+})
+</script>
+
 <template>
-    <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
+    <button v-show="buttonActive" class="pagetop" @click="toPageTop"><div class="pagetop__arrow"></div></button>
 </template>
 
 <style scoped>
@@ -16,8 +46,17 @@
         justify-content: center;
         align-items: center;
         z-index: 2;
+        animation: fadein 500ms ease-out forwards;
     }
 
+    @keyframes fadein {
+        0% {
+            opacity: 0
+        }
+        100% {
+            opacity: 1
+        }
+    }
     .pagetop:hover {
         background: #a0a0a07d;
     }
