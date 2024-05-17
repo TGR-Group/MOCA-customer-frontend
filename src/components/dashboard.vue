@@ -5,6 +5,8 @@
     import UserDataSample from '../assets/UserDataSample.json';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import QueueSample from '../assets/QueuesSample.json';
+    import timeTableData from '../assets/TimeTables.json';
+    import timeTableComponent from './TimeTable.vue';
 
     const VisitorID = "MC00001";
 
@@ -51,9 +53,17 @@
         </div>
     </div>
 
+    <timeTableComponent class="timeTableComponent" v-for="data in timeTableData.wholeTimeTable" :timeTable="data" />
+
 </template>
 
 <style>
+.timeTableComponent {
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .StoreBox {
     margin: 1.0em 0;
     height: fit-content;
