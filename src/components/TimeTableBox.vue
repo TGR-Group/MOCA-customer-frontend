@@ -20,7 +20,10 @@ const formatTime = (time) => {
 <template>
   <div class="timeTable">
     <div class="tableName">{{ timeTable.tableName }}</div>
-    <div class="tableDate">{{ timeTable.month }}月{{ timeTable.day }}日</div>
+    <div class="tableDate">日付：{{ timeTable.month }}月{{ timeTable.day }}日</div>
+    <div v-if="timeTable.venueName">
+      場所：<router-link :to="timeTable.venueMap">{{ timeTable.venueName }}</router-link>
+    </div>
       <ul style="width: 95%;">
         <li v-for="item in timeTable.table" :key="item.content" class="timeTableList">
           <div class="timeTableTime">
@@ -31,8 +34,11 @@ const formatTime = (time) => {
               {{ formatTime(item.end) }}
             </div>
           </div>
-          <div class="timeTableContent">
+          <router-link v-if="item.pageLink" :to="item.pageLink" class="timeTableContent">
             {{ item.content }} 
+          </router-link>
+          <div v-else class="timeTableContent">
+            {{ item.content }}
           </div>
         </li>
     </ul>
@@ -44,6 +50,7 @@ const formatTime = (time) => {
         width: 75%;
         display: flex;
         flex-flow: column;
+        color: black;
         -webkit-box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
     }

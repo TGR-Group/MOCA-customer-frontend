@@ -84,10 +84,11 @@
         }
     ],
 
-    "eachPlace":[
+    "eachVenueTimeTable":[
         {
             "tableName": "体育館1日目",
-            "placeName":"体育館",
+            "venueName":"体育館",
+            "venueMap":"/map/#体育館",
             "year":2024,
             "month":7,
             "day":1,
@@ -102,7 +103,7 @@
                         "hour":14,
                         "minute":0
                     },
-                    "pageLink":""
+                    "pageLink":"/introduction/detail/9e0e27bf-6b5f-b9f2-c79e-c905a834c13c"
                 },
                 {
                     "content": "片付け・準備",
@@ -127,14 +128,15 @@
                         "hour":15,
                         "minute":0
                     },
-                    "pageLink":""
+                    "pageLink":"/introduction/detail/9e0e27bf-6b5f-b9f2-c79e-c905a834c13c"
                 }
             ],
             "annotation":""
         },
         {
             "tableName": "体育館2日目",
-            "placeName":"体育館",
+            "venueName":"体育館",
+            "venueMap":"/map/#体育館",
             "year":2024,
             "month":7,
             "day":2,
@@ -149,7 +151,7 @@
                         "hour":10,
                         "minute":30
                     },
-                    "pageLink":""
+                    "pageLink":"/introduction/detail/9e0e27bf-6b5f-b9f2-c79e-c905a834c13c"
                 },
                 {
                     "content": "片付け・準備",
@@ -174,7 +176,7 @@
                         "hour":11,
                         "minute":15
                     },
-                    "pageLink":""
+                    "pageLink":"/introduction/detail/9e0e27bf-6b5f-b9f2-c79e-c905a834c13c"
                 }
             ],
             "annotation":""

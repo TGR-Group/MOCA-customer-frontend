@@ -6,7 +6,7 @@
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import QueueSample from '../assets/QueuesSample.json';
     import timeTableData from '../assets/TimeTables.json';
-    import timeTableComponent from './TimeTableBox.vue';
+    import TimeTableBox from './TimeTableBox.vue';
 
     const VisitorID = "MC00001";
 
@@ -57,7 +57,7 @@
 
     <h2>タイムテーブル</h2>    
 
-    <timeTableComponent class="timeTableComponent" v-for="data in timeTableData.wholeTimeTable" :timeTable="data" />
+    <TimeTableBox class="timeTableComponent" v-for="data in timeTableData.wholeTimeTable" :timeTable="data" />
 
 </template>
 
