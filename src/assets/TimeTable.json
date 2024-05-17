@@ -129,7 +129,8 @@
                     },
                     "pageLink":""
                 }
-            ]
+            ],
+            "annotation":""
         },
         {
             "tableName": "体育館2日目",
@@ -175,7 +176,8 @@
                     },
                     "pageLink":""
                 }
-            ]
+            ],
+            "annotation":""
         }
     ]
 }
