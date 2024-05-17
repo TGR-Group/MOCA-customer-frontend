@@ -6,7 +6,7 @@
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import QueueSample from '../assets/QueuesSample.json';
     import timeTableData from '../assets/TimeTables.json';
-    import timeTableComponent from './TimeTable.vue';
+    import timeTableComponent from './TimeTableBox.vue';
 
     const VisitorID = "MC00001";
 
