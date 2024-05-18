@@ -3,7 +3,7 @@ import router from '../routes';
 <template>
     <div class="Footer">
         <div class="FooterToHomeBg" />
-            <router-link to="/#HOME" class="FooterToHome" >HOME</router-link>
+        <router-link to="/#HOME" class="FooterToHome" style="font-weight: 0; "><img src="/src/assets/home.svg" style="height: 3rem; padding:0; margin:0;" />HOME</router-link>
     </div>
 </template>
 
@@ -29,8 +29,9 @@ import router from '../routes';
 
     .FooterToHome {
         display: flex;
+        flex-flow: column;
         padding: auto;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         position: fixed;
         bottom: 0.6rem;
         width: 5rem;
