@@ -53,6 +53,7 @@ const formatTime = (time) => {
         color: black;
         -webkit-box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
+        border-radius: 5%;
     }
 
     .timeTable .tableName {
