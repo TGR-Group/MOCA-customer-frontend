@@ -35,7 +35,7 @@
         ID:{{ VisitorID }}
     </div>
 
-    <h2>予約状況</h2>    
+    <h2>予約状況</h2>
 
     <div class="NoResearved" v-if="showStoreList.length == 0">
         <h2>予約店舗がありません</h2>
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <h2>タイムテーブル</h2>    
+    <h2>タイムテーブル</h2>
 
     <TimeTableBox class="timeTableComponent" v-for="data in timeTableData.wholeTimeTable" :timeTable="data" />
 
