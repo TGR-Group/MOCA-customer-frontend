@@ -8,6 +8,7 @@
     import eventDetail from './storDetail/event.vue';
     import merchandiseSalesDetail from './storDetail/merchandiseSales.vue';
     import exhibitionDetail from './storDetail/exhibition.vue';
+    import attractionDetail from './storDetail/attraction.vue';
     import otherDetail from './storDetail/other.vue';
 
     const StoreDatas = ref(StoreDatasSample);
@@ -23,6 +24,7 @@
         '体験型': eventDetail,
         '展示': exhibitionDetail,
         'イベント': eventDetail,
+        '体験型': attractionDetail,
         'その他': otherDetail
     };
 
