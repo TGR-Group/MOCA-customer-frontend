@@ -2,7 +2,7 @@
     import TimeTableBox from './TimeTableBox.vue';
     import { inject } from 'vue';
 
-    const TimeTableData = inject('timeTables');
+    const timeTableData = inject('timeTables');
 </script>
 
 <template>
