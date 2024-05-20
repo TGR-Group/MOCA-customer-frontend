@@ -15,7 +15,7 @@
 
 <template>
     <div v-if="StoreData">
-        <h1>{{ StoreData.name }}詳細</h1>
+        <h1>{{ StoreData.name }}</h1>
     </div>
     <div v-else>
         <NotFound />
