@@ -1,21 +1,37 @@
 <script setup>
     import { ref } from 'vue';
-    import { useRoute, useRouter } from "vue-router";
+    import { useRoute } from "vue-router";
     import StoreDatasSample from '../assets/StoreDatasSample.json';
     import NotFound from './NotFound.vue';
+    import foodDetail from './storDetail/food.vue';
+    import cafeDetail from './storDetail/cafe.vue';
+    import eventDetail from './storDetail/event.vue';
+    import merchandiseSalesDetail from './storDetail/merchandiseSales.vue';
+    import exhibitionDetail from './storDetail/exhibition.vue';
+    import otherDetail from './storDetail/other.vue';
 
     const StoreDatas = ref(StoreDatasSample);
 
     const route = useRoute();
-    const router = useRouter();
 
     const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}))
+
+    const StoreCategory = {
+        '食販': foodDetail,
+        '飲食店': cafeDetail,
+        '物販': merchandiseSalesDetail,
+        '体験型': eventDetail,
+        '展示': exhibitionDetail,
+        'イベント': eventDetail,
+        'その他': otherDetail
+    };
 
 </script>
 
 <template>
     <div v-if="StoreData">
         <h1>{{ StoreData.name }}</h1>
+        <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" />
     </div>
     <div v-else>
         <NotFound />
