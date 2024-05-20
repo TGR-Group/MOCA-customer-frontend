@@ -1,18 +1,17 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, inject } from 'vue';
     import StoreState from './StoreState.vue';
     import ToIntroductionButton from './ToIntroductionButton.vue';
-    import UserDataSample from '../assets/UserDataSample.json';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
-    import QueueSample from '../assets/QueuesSample.json';
-    import timeTableData from '../assets/TimeTables.json';
     import TimeTableBox from './TimeTableBox.vue';
 
     const VisitorID = "MC00001";
 
-    const Queues = ref(QueueSample);
+    const Queues = ref(inject('queues'));
 
-    const UserData = ref(UserDataSample);
+    const UserData = ref(inject('userData'));
+
+    const timeTableData = ref(inject('timeTables'));
 
     const QRIsActive = ref(false);
 

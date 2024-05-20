@@ -1,7 +1,6 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, inject } from 'vue';
     import { useRoute } from "vue-router";
-    import StoreDatasSample from '../assets/StoreDatasSample.json';
     import NotFound from './NotFound.vue';
     import foodDetail from './storDetail/food.vue';
     import cafeDetail from './storDetail/cafe.vue';
@@ -11,7 +10,7 @@
     import attractionDetail from './storDetail/attraction.vue';
     import otherDetail from './storDetail/other.vue';
 
-    const StoreDatas = ref(StoreDatasSample);
+    const StoreDatas = ref(inject('storeDatas'));
 
     const route = useRoute();
 

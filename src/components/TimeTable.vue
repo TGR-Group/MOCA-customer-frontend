@@ -1,7 +1,8 @@
 <script setup>
     import TimeTableBox from './TimeTableBox.vue';
-    import timeTableData from '../assets/TimeTables.json';
+    import { inject } from 'vue';
 
+    const TimeTableData = inject('timeTables');
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script setup>
-    import { ref, computed } from 'vue';
+    import { ref, computed, inject } from 'vue';
     import StoreDatasSample from '../assets/StoreDatasSample.json';
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
 
-    const StoreDatas = ref(StoreDatasSample);
+    const StoreDatas = ref(inject('storeDatas'));
 
     const StoreIDs = ref(Object.keys(StoreDatas.value));
 

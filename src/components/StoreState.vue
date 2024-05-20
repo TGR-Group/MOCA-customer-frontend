@@ -1,6 +1,5 @@
 <script setup>
-    import { ref } from 'vue';
-    import StoreDatasSample from '../assets/StoreDatasSample.json';
+    import { ref, inject } from 'vue';
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
@@ -9,7 +8,7 @@
     }
 
     const ThirtyMinutes = 30 * 60 * 1000;
-    const StoreDatas = ref(StoreDatasSample);
+    const StoreDatas = ref(inject('storeDatas'));
 
     const props = defineProps({
         VisitorID: {
