@@ -5,6 +5,7 @@ import QueueSample from '../assets/QueuesSample.json';
 import timeTableData from '../assets/TimeTables.json';
 
 export const DB_URL = 'https://localhost:3000/';
+export const THIS_SITE_URL= 'https://localhost:5173/';
 /*
 axios.get(DB_URL+'/programs')
     .then(response => {
