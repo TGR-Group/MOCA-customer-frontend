@@ -3,9 +3,10 @@ import MainHeader from './components/MainHeader.vue';
 import ToPageTop from './components/ToPageTop.vue';
 import MainFooter from './components/MainFooter.vue';
 import { provide } from 'vue';
-import { storeDatas, DB_URL, queues, userData, timeTables } from './global/Datas.js';
+import { storeDatas, DB_URL, THIS_SITE_URL, queues, userData, timeTables } from './global/Datas.js';
 
-provide('DB_URL:', DB_URL);
+provide('DB_URL', DB_URL);
+provide('THIS_SITE_URL', THIS_SITE_URL);
 provide ('storeDatas', storeDatas);
 provide ('queues', queues);
 provide ('userData', userData);
