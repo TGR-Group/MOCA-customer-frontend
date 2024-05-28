@@ -35,7 +35,9 @@
 
         <div class="StoreDiscription">{{ props.StoreData.description }}</div>
 
-        <div class="StoreState">
+        <div class="StoreState" v-if="props.StoreData.WaitingPeople <= 0">
+            待ち時間なし
+        </div><div class="StoreState" v-else>
             {{ props.StoreData.WaitingPeople }} 人待ち
         </div>
 
@@ -82,7 +84,7 @@
     .StoreName {
         top: 0%;
         left: 0%;
-        font-size: 1.8em;
+        font-size: 1.9em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
@@ -91,13 +93,15 @@
     }
     .StoreState {
         left: 100%;
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: bold;
         top: 0;
         bottom: 0;
         margin: auto;
     }
     .StoreDiscription {
+        display: flex;
+        align-items: center;
         font-size: 0.8em;
         font-weight: bold;
         max-height: 3.0em;
@@ -115,42 +119,39 @@
         border-radius: 0.5em 0.5em 0 0;
     }
     .ReserveBtn {
+        background-color: #ffffff;
         display: flex;
         width: 33%;
         font-size: 1.2em;
-        color: #fff;
+        color: #363636;
         border: none;
-        background: #00bff8;
-        border-bottom: 2px solid #0090bb;
-        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        border-bottom: 2px solid #555555;
         align-items: center;
         text-align: center;
         justify-content:center;
+        border-radius: 0em;
         margin: 0.5em 0.7em 0.5em auto;
+        text-decoration: none;
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     }
     .ReserveBtn:hover {
-        color: #ffffff;
-        background: #00bff8;
-        border-bottom: 0px solid #0090bb;
+        color: #363636;
     }
     .ToDetail {
         display: flex;
         width: 33%;
         font-size: 1.2em;
-        color: #fff;
-        background: #00bff8;
-        border-bottom: 2px solid #0090bb;
-        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        color: #363636;
+        background: #ffffff;
+        border-bottom: 2px solid #555555;
         margin: 0.5em auto 0.5em v-bind("ReserveIsActive ? '0.7em' : 'auto'");
         align-items: center;
         text-align: center;
         justify-content:center;
+        border-radius: 0%;
+        text-decoration: none;
     }
     .ToDetail:hover {
-        color: #ffffff;
-        background: #00bff8;
-        border-bottom: 0px solid #0090bb;
+        color: #363636;
     }
 </style>
