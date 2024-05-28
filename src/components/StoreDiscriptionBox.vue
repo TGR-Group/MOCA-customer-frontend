@@ -29,9 +29,9 @@
 <template>
     <div class="StoreBox" @click="StoreBoxClick">
 
-        <div class="StoreName">{{ props.StoreData.name }}</div>
-
         <img class="StoreImage" :src="props.StoreData.StoreImage" alt="StoreImage" />
+
+        <div class="StoreName">{{ props.StoreData.name }}</div>
 
         <div class="StoreDiscription">{{ props.StoreData.description }}</div>
 
@@ -70,7 +70,6 @@
         margin: 0;
         display: flex;
         width: 100%;
-        margin: 0.5em auto;
         height: fit-content;
         background-color: #ffffff;
         border-radius: 0.5em;
@@ -113,6 +112,7 @@
         width: 100%;
         padding: 0;
         margin: 0;
+        border-radius: 0.5em 0.5em 0 0;
     }
     .ReserveBtn {
         display: flex;
@@ -121,7 +121,7 @@
         color: #fff;
         border: none;
         background: #00bff8;
-        border-bottom: 3px solid #0090bb;
+        border-bottom: 2px solid #0090bb;
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         align-items: center;
@@ -140,7 +140,7 @@
         font-size: 1.2em;
         color: #fff;
         background: #00bff8;
-        border-bottom: 3px solid #0090bb;
+        border-bottom: 2px solid #0090bb;
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         margin: 0.5em auto 0.5em v-bind("ReserveIsActive ? '0.7em' : 'auto'");

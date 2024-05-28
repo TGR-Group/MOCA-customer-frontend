@@ -62,7 +62,7 @@
     <div>
         <h1>出し物紹介</h1>
     </div>
-    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']">
+    <div :class="[AccordionOpen ? 'NarrowDownSummary' : '']" style="margin: 2rem auto;">
 
         <div style="height: 4em; display: flex; align-items: end;">
             <button class="Accordion btn" @click="AccordionOpen = !AccordionOpen">
@@ -116,14 +116,15 @@
     .StoreBoxes {
         display: flex;
         flex-flow: row wrap;
-        gap: 1em;
+        gap: 2rem;
         margin: auto;
         justify-content:center;
     }
     .IntroStoreBox {
-        max-width: 45%;
+        max-width: 40%;
         flex-shrink: 0;
         width: 15em;
+        margin: 0;
     }
 
     .CheckBox{
@@ -166,14 +167,10 @@
     .btn {
         padding: 0;
     }
-    .StoreBox {
-        margin: 1.5em 0;
-        height: fit-content;
-    }
     .NarrowDownSummary {
         width: fit-content;
         max-width: 80%;
-        margin: auto;
+        margin: 2rem auto;
         height: fit-content;
         background-color: #ffffff;
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
@@ -190,7 +187,7 @@
         background-color: rgb(158, 158, 158);
         display: flex;
         width: auto;
-        border-bottom: 3px solid rgb(88, 88, 88);
+        border-bottom: 2px solid rgb(88, 88, 88);
         -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 3);
         box-shadow: 0 0px 5px rgba(0, 0, 0, 3);
         margin: 0 auto 0.5em;

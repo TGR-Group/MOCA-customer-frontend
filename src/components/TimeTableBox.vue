@@ -35,7 +35,7 @@ const formatTime = (time) => {
             </div>
           </div>
           <router-link v-if="item.pageLink" :to="item.pageLink" class="timeTableContent">
-            {{ item.content }} 
+            {{ item.content }}
           </router-link>
           <div v-else class="timeTableContent">
             {{ item.content }}
@@ -53,7 +53,7 @@ const formatTime = (time) => {
         color: black;
         -webkit-box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
-        border-radius: 5%;
+        border-radius: 1em;
     }
 
     .timeTable .tableName {
@@ -73,7 +73,6 @@ const formatTime = (time) => {
     .timeTableList{
         display: flex;
         flex-flow: row;
-        
         justify-content: center;
         width: 100%;
         border-bottom: 1px solid;

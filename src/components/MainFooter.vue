@@ -3,7 +3,7 @@ import router from '../routes';
 <template>
     <div class="Footer">
         <div class="FooterToHomeBg" />
-        <router-link to="/#HOME" class="FooterToHome" style="font-weight: 0; "><img src="/src/assets/home.svg" style="height: 3rem; padding:0; margin:0;" />HOME</router-link>
+        <router-link to="/#HOME" class="FooterToHome" style="font-weight: 0; text-align:start;"><img src="/src/assets/home.svg" style="width: 3rem; height: fit-content; padding:0; margin:0;" />HOME</router-link>
     </div>
 </template>
 
@@ -34,8 +34,8 @@ import router from '../routes';
         font-size: 1.1rem;
         position: fixed;
         bottom: 0.6rem;
-        width: 5rem;
-        height: 5rem;
+        width: 5.2rem;
+        height: 5.2rem;
         border-radius: 50%;
         color: rgb(34, 34, 34);
         background-color: rgb(165, 226, 252);
@@ -49,8 +49,8 @@ import router from '../routes';
         display: flex;
         position: fixed;
         bottom: 2.7rem;
-        height: 2.8rem;
-        width: 5.6rem;
+        height: 3.0rem;
+        width: 6.0rem;
         border-radius: 50% / 100% 100% 0 0;
         color: rgb(34, 34, 34);
         background-color: #ffffff;
