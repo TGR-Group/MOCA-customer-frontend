@@ -42,10 +42,10 @@
         </div>
 
         <div class="buttons">
-            <button class="btn col-6 ReserveBtn" v-if="ReserveIsActive" @click.stop="Reserve">
+            <button class="ReserveBtn btn col-6" v-if="ReserveIsActive" @click.stop="Reserve">
                 並ぶ
             </button>
-            <router-link :to="'/introduction/detail/' + props.StoreID" class="btn col-6 ToDetail">
+            <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
                 詳しく
             </router-link>
         </div>
@@ -123,7 +123,6 @@
         display: flex;
         width: 33%;
         font-size: 1.2em;
-        color: #363636;
         border: none;
         border-bottom: 2px solid #555555;
         align-items: center;
@@ -133,15 +132,15 @@
         margin: 0.5em 0.7em 0.5em auto;
         text-decoration: none;
         font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        color: #3d3d3d;
     }
     .ReserveBtn:hover {
-        color: #363636;
+        color: #3d3d3d;
     }
     .ToDetail {
         display: flex;
         width: 33%;
         font-size: 1.2em;
-        color: #363636;
         background: #ffffff;
         border-bottom: 2px solid #555555;
         margin: 0.5em auto 0.5em v-bind("ReserveIsActive ? '0.7em' : 'auto'");
@@ -150,8 +149,9 @@
         justify-content:center;
         border-radius: 0%;
         text-decoration: none;
+        color: #3d3d3d;
     }
     .ToDetail:hover {
-        color: #363636;
+        color: #3d3d3d;
     }
 </style>
