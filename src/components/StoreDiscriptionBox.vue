@@ -1,4 +1,5 @@
 <script setup>
+    import { ref } from 'vue';
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
@@ -6,7 +7,7 @@
         router.push('/introduction/detail/' + props.StoreID);
     }
 
-    const ReserveIsActive = true;
+    const ReserveIsActive = ref(true);
 
     const Reserve = () => {
         console.log('Reserve');
@@ -24,6 +25,9 @@
     });
 
     props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
+
+    props.StoreData.CrowdingSituation = ref("混雑中");
+
 </script>
 
 <template>
@@ -45,6 +49,9 @@
             <button class="ReserveBtn btn col-6" v-if="ReserveIsActive" @click.stop="Reserve">
                 並ぶ
             </button>
+            <div class="ReserveBtn btn col-6" v-else>
+                {{ props.StoreData.CrowdingSituation }}
+            </div>
             <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
                 詳しく
             </router-link>
@@ -64,9 +71,9 @@
     }
     .buttons {
         display: flex;
-        gap: 0.1em;
-        margin: 0.1em auto;
-        width: 100%;
+        margin: 1.2rem auto 1.0rem auto;
+        width: 75%;
+        justify-content: space-between;
     }
     .StoreBox {
         margin: 0;
@@ -78,37 +85,51 @@
         box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         font-weight: bold;
         text-decoration: none;
-        gap: 0.5em;
+        gap: 0.0em;
         flex-flow: column;
+        justify-content: center;
+        align-content: center;
     }
     .StoreName {
-        top: 0%;
-        left: 0%;
+        display: flex;
+        width: 75%;
+        justify-content: start;
+        align-items: stretch;
+        margin: auto auto;
         font-size: 1.9em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
         line-height: 1em;
         height: fit-content;
+        padding: 0.5em 0 0 0;
     }
     .StoreState {
+        display: flex;
+        width: 75%;
+        justify-content: start;
+        align-items: stretch;
+        margin: auto auto;
         left: 100%;
         font-size: 1.1em;
         font-weight: bold;
         top: 0;
         bottom: 0;
-        margin: auto;
     }
     .StoreDiscription {
         display: flex;
-        align-items: center;
+        width: 75%;
+        align-items: stretch;
         font-size: 0.8em;
         font-weight: bold;
         max-height: 3.0em;
         flex-basis: 3em;
         word-break: break-all;
         overflow: auto;
+        justify-content: start;
         margin: auto auto;
+        border-top: 1px solid #555555;
+        border-bottom: 1px solid #555555;
     }
     .StoreImage {
         align-items: center;
@@ -120,16 +141,13 @@
     }
     .ReserveBtn {
         background-color: #ffffff;
-        display: flex;
-        width: 33%;
+        display: block;
+        width: fit-content;
         font-size: 1.2em;
         border: none;
-        border-bottom: 2px solid #555555;
-        align-items: center;
-        text-align: center;
-        justify-content:center;
+        border-bottom: 0px solid #555555;
+        text-align: left;
         border-radius: 0em;
-        margin: 0.5em 0.7em 0.5em auto;
         text-decoration: none;
         font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
         color: #3d3d3d;
@@ -138,15 +156,12 @@
         color: #3d3d3d;
     }
     .ToDetail {
-        display: flex;
-        width: 33%;
+        display: block;
+        width: fit-content;
         font-size: 1.2em;
         background: #ffffff;
-        border-bottom: 2px solid #555555;
-        margin: 0.5em auto 0.5em v-bind("ReserveIsActive ? '0.7em' : 'auto'");
-        align-items: center;
-        text-align: center;
-        justify-content:center;
+        border-bottom: 0px solid #555555;
+        text-align: right;
         border-radius: 0%;
         text-decoration: none;
         color: #3d3d3d;
