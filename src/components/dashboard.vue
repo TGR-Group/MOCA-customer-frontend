@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, inject } from 'vue';
+    import { ref, inject, onUpdated } from 'vue';
     import StoreState from './StoreState.vue';
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
@@ -16,8 +16,13 @@
     const QRIsActive = ref(false);
 
     const QRSize = 200;
-    const QRTop = window.outerHeight / 2 - QRSize / 2 + "px";
-    const QRLeft = window.outerWidth / 2 - QRSize / 2 + "px";
+    const QRTop = ref(window.outerHeight / 2 - QRSize / 2 + "px");
+    const QRLeft = ref(window.outerWidth / 2 - QRSize / 2 + "px");
+
+    onUpdated(() => {
+        QRTop.value = window.outerHeight / 2 - QRSize / 2 + "px";
+        QRLeft.value = window.outerWidth / 2 - QRSize / 2 + "px";
+    });
 
     const date = new Date();
 
