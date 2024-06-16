@@ -1,6 +1,7 @@
 <script setup>
     import { ref, inject } from 'vue';
     import { useRouter } from 'vue-router';
+    import { delateQueue } from '../global/dbFunctions.js'
 
     const router = useRouter();
     const StoreBoxClick = () => {
@@ -56,6 +57,9 @@
         RemainingTime.value = Math.floor((props.Queue.calledAt + ThirtyMinutes - NowGetTime.value) / 1000 / 60);
     }
 
+    const cancel = () => {
+        delateQueue(props.StoreID);
+    }
 </script>
 
 <template>
@@ -81,18 +85,28 @@
 
         </div>
 
+        <div v-if="props.Queue.status != 'over'" class="cancelButton" @click.stop="cancel">
+            キャンセル
+        </div>
+
     </div>
 </template>
 
 
 <style scoped>
+    .cancelButton {
+        margin: auto;
+        font-size: 1.2em;
+        cursor: pointer;
+        grid-row: 2 / 3;
+    }
     .StoreBox {
         display: grid;
         width: 80%;
         max-height: 9em;
         margin: 0.5em auto;
         height: fit-content;
-        grid-template-columns: 4fr 1fr;
+        grid-template-columns: 7fr 3fr;
         grid-template-rows: 1fr 2fr;
         background-color: v-bind(BackGroundColor);
         border-radius: 1.5em;
@@ -119,7 +133,7 @@
         font-size: 1.2em;
         font-weight: bold;
         grid-column: 2;
-        grid-row: 1 / 3;
+        grid-row: 1;
         top: 0;
         bottom: 0;
         margin: auto;

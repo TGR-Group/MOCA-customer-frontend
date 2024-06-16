@@ -5,9 +5,7 @@
 
 <template>
     <div class="Header">
-      <div style="height: 3.3em">
-        <router-link to="/" class="HeaderTitle">MOCA</router-link>
-      </div>
+      <router-link to="/" class="HeaderTitle"><span style="font-size: 0.5em;">MOCA for</span>染谷祭</router-link>
       <div class="HamburgerBtn" @click='HamburgerIsActive=!HamburgerIsActive'>
           <span class="line line_01" v-bind:class="{'BtnLine01':HamburgerIsActive}"></span>
           <span class="line line_02" v-bind:class="{'BtnLine02':HamburgerIsActive}"></span>
@@ -32,12 +30,15 @@
 
 <style scoped>
 .Header {
+display: flex;
+justify-content: center;
+align-items: center;
 position: fixed; /* ヘッダーを固定する */
 top: 0; /* 上部から配置の基準位置を決める */
 left: 0; /* 左から配置の基準位置を決める */
 width: 100%; /* ヘッダーの横幅を指定する */
-height: fit-content; /* ヘッダーの高さを指定する */
-background-color: #cee3e3; /* ヘッダーの背景色を指定する */
+height: 5.0rem; /* ヘッダーの高さを指定する */
+background-color: #3c1a09; /* ヘッダーの背景色を指定する */
 color: #ffffff; /* フォントの色を指定する */
 font-size: 150%;
 z-index: 100;
@@ -45,9 +46,11 @@ margin: 0 0 auto;
 }
 
 .HeaderTitle {
-  padding: auto;
+  font-family: "Noto Serif CJK JP";
+  font-weight:900;
   margin: auto;
-  font-size: 2em;
+  height: fit-content;
+  font-size: 1.5em;
   vertical-align:  middle;
   text-align: center;;
   color: #ffffff;
@@ -64,41 +67,40 @@ margin: 0 0 auto;
 }
 /*ボタン*/
 .HamburgerBtn {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap:0.7rem;
   position: fixed; /*常に最上部に表示したいので固定*/
   top: 0;
   left: 0;
-  width: 70px;
-  height: 72px;
+  width: 5rem;
+  height: 5rem;
   cursor: pointer;
   z-index: 150;
 }
 
 .HamburgerBtn .line {
-  position: absolute;
-  top: 0;
-  left: 20px;
-  width: 32px;
+  width: 55%;
   height: 2px;
-  background: #333333;
+  background: #cdcdcd;
   text-align: center;
 }
 
 .HamburgerBtn .line_01 {
-  top: 16px;
   transition: 0.4s ease;
 }
 .HamburgerBtn .line_02 {
-  top: 26px;
   transition: 0.4s ease;
 }
 .HamburgerBtn .line_03 {
-  top: 36px;
   transition: 0.4s ease;
 }
 
 
 .BtnLine01 {
-  transform: translateY(10px) rotate(-45deg);
+  transform: translateY(0.8rem) rotate(-45deg);
   transition: 0.4s ease;
 }
 .BtnLine02 {
@@ -106,7 +108,7 @@ margin: 0 0 auto;
   opacity: 0;
 }
 .BtnLine03 {
-  transform: translateY(-10px) rotate(45deg);
+  transform: translateY(-0.8rem) rotate(45deg);
   transition: 0.4s ease;
 }
 
@@ -125,10 +127,10 @@ margin: 0 0 auto;
   list-style: none;
   line-height: 1;
   padding: 1rem 1rem 0.5rem;
-  border-bottom: solid;
+  border-bottom: solid #c0c0c0;
 }
 .menu {
-  background-color: rgba(148, 231, 239, 0.929);
+  background-color: #3c1a09f3;
   z-index: 130;
   padding: 2rem 1rem;
   position: fixed;
@@ -139,7 +141,7 @@ margin: 0 0 auto;
 }
 .menu a {
   display: block;
-  color: rgb(55, 55, 55);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 1.2rem;
   padding: 0 0rem;

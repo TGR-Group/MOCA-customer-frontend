@@ -12,13 +12,15 @@
 </script>
 
 <template>
-    <div class="menuBox" @click="menuBoxClick">
+    <div class="menuBox">
 
-        <img class="menuImage" :src="props.menuData.menuImage" alt="menuImage" />
+        <img class="menuImage" :src="props.menuData.img" alt="menuImage" />
 
         <div class="menuName">{{ props.menuData.name }}</div>
 
         <div class="menuDiscription">{{ props.menuData.discription }}</div>
+
+        <div class="menuPrice">\{{ props.menuData.price }}</div>
 
     </div>
 </template>
@@ -30,8 +32,6 @@
         width: 100%;
         height: fit-content;
         background-color: #ffffff;
-        border-radius: 0.5em;
-        box-shadow: 0 0em 0.7em 0.2em rgba(0, 0, 0, 0.2);
         font-weight: bold;
         text-decoration: none;
         gap: 0.0em;
@@ -41,11 +41,11 @@
     }
     .menuName {
         display: flex;
-        width: 75%;
+        width: 90%;
         justify-content: start;
         align-items: stretch;
         margin: auto auto;
-        font-size: 1.9em;
+        font-size: 1.4em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
@@ -55,18 +55,18 @@
     }
     .menuDiscription {
         display: flex;
-        width: 75%;
-        align-items: stretch;
+        width: 90%;
         font-size: 0.8em;
         font-weight: bold;
-        max-height: 3.0em;
-        flex-basis: 3em;
+        flex-basis: 5em;
+        align-items: center;
+        text-align: justify;
         word-break: break-all;
         overflow: auto;
-        justify-content: start;
+        justify-content: left;
         margin: auto auto;
-        border-top: 1px solid #555555;
-        border-bottom: 1px solid #555555;
+        border-top: 2px solid #555555;
+        border-bottom: 2px solid #555555;
     }
     .menuImage {
         align-items: center;
@@ -75,5 +75,18 @@
         padding: 0;
         margin: 0;
         border-radius: 0.5em 0.5em 0 0;
+    }
+    .menuPrice {
+        display: flex;
+        width: 90%;
+        align-items: stretch;
+        font-size: 1.2em;
+        font-weight: bold;
+        max-height: 3.0em;
+        flex-basis: 3em;
+        word-break: break-all;
+        overflow: auto;
+        justify-content: start;
+        margin: auto auto;
     }
 </style>

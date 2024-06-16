@@ -11,7 +11,8 @@
     const ReserveIsActive = ref(true);
 
     const Reserve = () => {
-        registerQueue();
+        registerQueue(props.StoreID);
+        router.push('/');
     }
 
     const props = defineProps({

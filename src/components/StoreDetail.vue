@@ -16,9 +16,13 @@
 
     const route = useRoute();
 
-    const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}))
+    const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}));
 
-    StoreData.value.menu = storeDataDetail[StoreData.value.name].menu;
+    StoreData.value.img = storeDataDetail[StoreData.value.name].img;
+
+    if (storeDataDetail[StoreData.value.name].menu) {
+        StoreData.value.menu = storeDataDetail[StoreData.value.name].menu;
+    }
 
     const StoreCategory = {
         '食販': foodDetail,
@@ -36,7 +40,10 @@
 <template>
     <div v-if="StoreData">
         <h1>{{ StoreData.name }}</h1>
-        <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" />
+        <section>
+            <img :src="StoreData.img" alt="storeImage" width="76.8%" style="margin: auto auto 2.5em auto;" />
+        </section>
+        <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" margin="auto" />
     </div>
     <div v-else>
         <NotFound />
