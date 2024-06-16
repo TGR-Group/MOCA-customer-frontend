@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  moca_front_api:
+    internal: true
+  moca_front_access:
+    internal: false
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: "/usr/share/nginx/html"
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - moca_front_api
+      - moca_front_access
+    ports:
+      - 8833:80
+    tty: true
+    restart: always
