@@ -17,7 +17,19 @@ services:
     networks:
       - moca_front_api
       - moca_front_access
-    ports:
-      - 8833:80
+    expose:
+      - 80
+    tty: true
+    restart: always
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    env_file:
+      - config.env
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - moca_front_access
+    command: tunnel run
     tty: true
     restart: always
