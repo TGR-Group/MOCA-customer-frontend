@@ -3,7 +3,7 @@ import MainHeader from './components/MainHeader.vue';
 import ToPageTop from './components/ToPageTop.vue';
 import MainFooter from './components/MainFooter.vue';
 import { ref,provide } from 'vue';
-import { storeDatas, DB_URL, THIS_SITE_URL, queues, timeTables,  } from './global/constDatas.js';
+import { storeDatas, DB_URL, THIS_SITE_URL, queues, timeTables, storeDataDetail } from './global/constDatas.js';
 
 
 provide('DB_URL', DB_URL);
@@ -11,6 +11,7 @@ provide('THIS_SITE_URL', THIS_SITE_URL);
 provide ('storeDatas', storeDatas);
 provide ('queues', queues);
 provide ('timeTables', timeTables);
+provide ('storeDataDetail', storeDataDetail);
 </script>
 
 <template>
@@ -19,7 +20,7 @@ provide ('timeTables', timeTables);
   <div style="margin: 6rem auto 9rem;">
     <router-view />
   </div>
-  <MainFooter />
+  <!--<MainFooter />-->
 </template>
 
 <style scoped>

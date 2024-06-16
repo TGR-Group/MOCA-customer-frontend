@@ -38,7 +38,7 @@
 
         <div class="StoreName">{{ props.StoreData.name }}</div>
 
-        <div class="StoreDiscription">{{ props.StoreData.description }}</div>
+        <div class="StoreDiscription">{{ props.StoreData.summary }}</div>
 
         <div class="StoreState" v-if="props.StoreData.WaitingPeople <= 0">
             待ち時間なし

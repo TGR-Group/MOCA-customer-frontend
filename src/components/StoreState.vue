@@ -63,7 +63,7 @@
 
         <div class="StoreName">{{ ReserveData.name }}</div>
 
-        <div class="StoreDiscription">{{ ReserveData.description }}</div>
+        <div class="StoreDiscription">{{ ReserveData.summary }}</div>
 
         <div class="StoreState">
 

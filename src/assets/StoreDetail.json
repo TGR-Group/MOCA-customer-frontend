@@ -1,0 +1,19 @@
+{
+     "ネネチキン": {
+        "class": "3年6組",
+        "menu": [{
+            "name": "フライドチキン",
+            "img": "images/fried_chicken.jpg",
+            "price": 300
+        }, {
+            "name": "ヤンニョムチキン",
+            "img": "images/yangnyeom_chicken.jpg",
+            "price": 350
+        }, {
+            "name": "チーズボール",
+            "img": "images/cheese_ball.jpg",
+            "price": 200
+        }],
+        "description": "皆さんこんにちは3年6組ではネネチキン様の食べ物を販売中です！とてもおいしいのでぜひ足を運んでください！まってます！！！"
+    }
+}

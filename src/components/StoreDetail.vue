@@ -12,9 +12,13 @@
 
     const StoreDatas = ref(inject('storeDatas'));
 
+    const storeDataDetail = inject('storeDataDetail');
+
     const route = useRoute();
 
     const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}))
+
+    StoreData.value.menu = storeDataDetail[StoreData.value.name].menu;
 
     const StoreCategory = {
         '食販': foodDetail,

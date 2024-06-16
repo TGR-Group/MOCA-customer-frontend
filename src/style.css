@@ -37,6 +37,12 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2.5em;
+  line-height: 1.1;
+  text-align: center;
+}
+
 
 .card {
   padding: 2em;
