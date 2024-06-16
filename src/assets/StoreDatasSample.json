@@ -7,7 +7,8 @@
         "description": "皆さんこんにちは3年6組ではネネチキン様の食べ物を販売中です！とてもおいしいのでぜひ足を運んでください！まってます！！！",
         "category": "食販",
         "grade": "1年生",
-        "className": "1-1"
+        "className": "1-1",
+        "waitEnabled": true
     },
 
     {
@@ -17,7 +18,8 @@
         "description": "",
         "category": "飲食店",
         "grade": "2年生",
-        "className": "2-1"
+        "className": "2-1",
+        "waitEnabled": true
     },
 
 
@@ -28,7 +30,8 @@
         "description": "",
         "category": "物販",
         "grade": "3年生",
-        "className": "1-1"
+        "className": "1-1",
+        "waitEnabled": true
     },
 
 
@@ -39,7 +42,8 @@
         "description": "",
         "category": "体験型",
         "grade": "1年生",
-        "className": "1-2"
+        "className": "1-2",
+        "waitEnabled": true
     },
 
 
@@ -50,7 +54,8 @@
         "description": "",
         "category": "展示",
         "grade": "2年生",
-        "className": "2-2"
+        "className": "2-2",
+        "waitEnabled": false
     },
 
 
@@ -61,7 +66,8 @@
         "description": "",
         "category": "イベント",
         "grade": "3年生",
-        "className": "3-2"
+        "className": "3-2",
+        "waitEnabled": false
     },
 
 
@@ -72,7 +78,8 @@
         "description": "",
         "category": "その他",
         "grade": "1年生",
-        "className": "1-3"
+        "className": "1-3",
+        "waitEnabled": false
     },
 
 
@@ -83,7 +90,8 @@
         "description": "",
         "category": "食販",
         "grade": "2年生",
-        "className": "2-3"
+        "className": "2-3",
+        "waitEnabled": false
     },
 
 
@@ -94,7 +102,8 @@
         "description": "",
         "category": "体験型",
         "grade": "部活",
-        "className": "TGR部"
+        "className": "TGR部",
+        "waitEnabled": true
     },
 
 
@@ -105,7 +114,8 @@
         "description": "",
         "category": "食販",
         "grade": "その他",
-        "className": "フードトラック"
+        "className": "フードトラック",
+        "waitEnabled": false
     }
 
 

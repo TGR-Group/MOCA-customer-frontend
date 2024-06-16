@@ -8,7 +8,6 @@
         router.push('/introduction/detail/' + props.StoreID);
     }
 
-    const ReserveIsActive = ref(true);
 
     const Reserve = () => {
         registerQueue(props.StoreID);
@@ -48,7 +47,7 @@
         </div>
 
         <div class="buttons">
-            <button class="ReserveBtn btn col-6" v-if="ReserveIsActive" @click.stop="Reserve">
+            <button class="ReserveBtn btn col-6" v-if="props.StoreData.waitEnabled" @click.stop="Reserve">
                 並ぶ
             </button>
             <div class="ReserveBtn btn col-6" v-else>
