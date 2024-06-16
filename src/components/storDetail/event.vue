@@ -11,6 +11,7 @@ const props = defineProps({
 
 <template>
 
+    <h2>タイムテーブル</h2>
 </template>
 
 <style scoped>

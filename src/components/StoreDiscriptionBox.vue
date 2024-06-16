@@ -1,6 +1,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import { registerQueue } from '../global/dbFunctions.js'
 
     const router = useRouter();
     const StoreBoxClick = () => {
@@ -10,7 +11,7 @@
     const ReserveIsActive = ref(true);
 
     const Reserve = () => {
-        console.log('Reserve');
+        registerQueue();
     }
 
     const props = defineProps({

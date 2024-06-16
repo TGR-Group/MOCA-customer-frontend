@@ -11,6 +11,7 @@ const props = defineProps({
 
 <template>
 
+    <h2>展示物一覧</h2>
 </template>
 
 <style scoped>

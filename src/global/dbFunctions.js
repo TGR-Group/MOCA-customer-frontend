@@ -1,10 +1,15 @@
 import { DB_URL } from "./constDatas";
 import axios from 'axios'
+
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = DB_URL;
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.withCredentials = true;
+
 export async function getUserData() {
     let userData = localStorage.getItem('userData');
     if (userData === null) {
-        await axios.post(DB_URL + '/register')
+        await axios.post('/register')
             .then(response => {
                     localStorage.setItem('userData', response.data);
                     console.log(response.data);

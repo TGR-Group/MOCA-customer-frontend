@@ -1,6 +1,5 @@
 <script setup>
     import { ref, computed, inject } from 'vue';
-    import StoreDatasSample from '../assets/StoreDatasSample.json';
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
 
     const StoreDatas = ref(inject('storeDatas'));

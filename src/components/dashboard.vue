@@ -4,12 +4,13 @@
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import TimeTableBox from './TimeTableBox.vue';
+    import { getUserData } from '../global/dbFunctions.js';
 
-    const VisitorID = "MC00001";
+    const userData = ref(getUserData());
+
+    console.log(userData);
 
     const Queues = ref(inject('queues'));
-
-    const UserData = ref(inject('userData'));
 
     const timeTableData = ref(inject('timeTables'));
 
