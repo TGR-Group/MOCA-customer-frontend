@@ -2,6 +2,8 @@
     import { ref, inject } from 'vue';
     import { useRoute, useRouter } from "vue-router";
     import { registerQueue } from '../global/dbFunctions.js'
+    import { getStoreDatas } from '../global/dbFunctions.js';
+    import SetInterval from '../plugins/SetInterval/index.js';
     import NotFound from './NotFound.vue';
     import foodDetail from './storDetail/food.vue';
     import cafeDetail from './storDetail/cafe.vue';
@@ -11,7 +13,14 @@
     import attractionDetail from './storDetail/attraction.vue';
     import otherDetail from './storDetail/other.vue';
 
-    const StoreDatas = ref(inject('storeDatas'));
+    const StoreDatas = ref(getStoreDatas());
+
+    const polling = setInterval(() => {
+        if(router.currentRoute.path !== '/') return
+        if (document.visibilityState === 'visible') {
+            StoreDatas.value = getStoreDatas();
+        }
+    }, 60000);
 
     const storeDataDetail = inject('storeDataDetail');
 
@@ -44,6 +53,9 @@
         'その他': otherDetail
     };
 
+    onUnmounted(() => {
+        clearInterval(polling);
+    });
 </script>
 
 <template>

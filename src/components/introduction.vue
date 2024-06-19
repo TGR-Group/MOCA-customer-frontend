@@ -1,8 +1,16 @@
 <script setup>
-    import { ref, computed, inject } from 'vue';
+    import { ref, computed } from 'vue';
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
+    import { getStoreDatas } from '../global/dbFunctions.js';
 
-    const StoreDatas = ref(inject('storeDatas'));
+    const StoreDatas = ref(getStoreDatas());
+
+    const polling = setInterval(() => {
+        if(router.currentRoute.path !== '/') return
+        if (document.visibilityState === 'visible') {
+            StoreDatas.value = getStoreDatas();
+        }
+    }, 60000);
 
     const StoreIDs = ref(Object.keys(StoreDatas.value));
 
@@ -55,6 +63,10 @@
     });
 
     const AccordionOpen = ref(false);
+
+    onUnmounted(() => {
+        clearInterval(polling);
+    });
 </script>
 
 <template>

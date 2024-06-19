@@ -4,13 +4,18 @@
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import TimeTableBox from './TimeTableBox.vue';
-    import { getUserData } from '../global/dbFunctions.js';
+    import { getUserData, getQueue } from '../global/dbFunctions.js';
 
     const userData = ref(getUserData());
+    const Queues = ref(getQueue());
 
-    console.log(userData);
-
-    const Queues = ref(inject('queues'));
+    const polling = setInterval(() => {
+        if(router.currentRoute.path !== '/') return
+        if (document.visibilityState === 'visible') {
+            userData.value = getUserData();
+            Queues.value = getQueue();
+        }
+    }, 60000);
 
     const timeTableData = ref(inject('timeTables'));
 
@@ -30,6 +35,10 @@
     const showStoreList = ref(Queues.value.filter((Queue) => {
         return (!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || Queue.status == 'wait');
     }));
+
+    onUnmounted(() => {
+        clearInterval(polling);
+    });
 </script>
 
 <template>
@@ -37,7 +46,7 @@
     <h1>HOME</h1>
 
     <div class="IdBox" @click="QRIsActive = !QRIsActive">
-        ID:{{ VisitorID }}
+        ID:{{ userData.screenId }}
     </div>
 
     <h2>予約状況</h2>
@@ -47,7 +56,7 @@
     </div>
     <div v-else>
         <div class="StoreBox" v-for="Queue in showStoreList" :key="Queue.programId">
-            <StoreState :VisitorID=VisitorID :StoreID=Queue.programId :UserData=UserData :Queue=Queue />
+            <StoreState :VisitorID=userData.screenId :StoreID=Queue.programId :UserData=userData :Queue=Queue />
         </div>
     </div>
     <div class="ToIntroductionButton_dashboard">
@@ -56,7 +65,7 @@
 
     <div class="QRBackground" v-show="QRIsActive" @click="QRIsActive = !QRIsActive">
         <div class="QRBox">
-            <VueQrcode :value="VisitorID" :options="{ width: QRSize }" />
+            <VueQrcode :value="userData.screenId" :options="{ width: QRSize }" />
         </div>
     </div>
 

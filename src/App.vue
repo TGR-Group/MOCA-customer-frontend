@@ -8,8 +8,6 @@ import { storeDatas, DB_URL, THIS_SITE_URL, queues, timeTables, storeDataDetail 
 
 provide('DB_URL', DB_URL);
 provide('THIS_SITE_URL', THIS_SITE_URL);
-provide ('storeDatas', storeDatas);
-provide ('queues', queues);
 provide ('timeTables', timeTables);
 provide ('storeDataDetail', storeDataDetail);
 </script>
