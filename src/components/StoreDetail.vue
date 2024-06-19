@@ -20,11 +20,13 @@
 
     const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}));
 
-    StoreData.value.img = storeDataDetail[StoreData.value.name].img;
-
     const Reserve = () => {
         registerQueue(StoreData.value.id);
         router.push('/');
+    }
+
+    if (storeDataDetail[StoreData.value.name].img){
+        StoreData.value.img = storeDataDetail[StoreData.value.name].img;
     }
 
     if (storeDataDetail[StoreData.value.name].menu) {
@@ -48,7 +50,8 @@
     <div v-if="StoreData">
         <h1>{{ StoreData.name }}</h1>
         <section>
-            <img :src="StoreData.img" alt="storeImage" width="76.8%" style="margin: auto auto 2.5em auto;" />
+            <img :src="StoreData.img" v-if="StoreData.img" alt="storeImage" width="76.8%" style="margin: auto;" />
+            <p class="StoreDiscription">{{ StoreData.discription }}</p>
         </section>
         <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" margin="auto" />
         <div style="height: 7em; display: flex; align-items: end;">
@@ -68,6 +71,13 @@
 *:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
+}
+.StoreDiscription {
+    width: 76.8%;
+    margin: auto auto 2rem auto;
+    text-align: left;
+    padding: 0%;
+    word-break: break-all;
 }
 .reserveButton {
     display: flex;
