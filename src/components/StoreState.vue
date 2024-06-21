@@ -1,7 +1,8 @@
 <script setup>
-    import { ref, inject } from 'vue';
+    import { ref, onUnmounted } from 'vue';
     import { useRouter } from 'vue-router';
     import { delateQueue } from '../global/dbFunctions.js'
+    import { getStoreDataDetail } from '../global/dbFunctions.js';
 
     const router = useRouter();
     const StoreBoxClick = () => {
@@ -9,7 +10,6 @@
     }
 
     const ThirtyMinutes = 30 * 60 * 1000;
-    const StoreDatas = ref(inject('storeDatas'));
 
     const props = defineProps({
         VisitorID: {
@@ -31,22 +31,29 @@
 
     });
 
-    const ReserveData = ref(StoreDatas.value.find( d => {
-        return d.id === props.StoreID
-    }));
+    const ReserveData = ref(getStoreDataDetail(props.StoreID));
+
+    const polling = setInterval(() => {
+        if (router.currentRoute.path !== '/') return
+        if (document.visibilityState === 'visible') {
+            ReserveData.value = getStoreDataDetail(props.StoreID);
+        }
+    }, 60000);
 
     const BackGroundColor = ref('#ffffff');
 
     const NowDate = ref(new Date());
     const NowGetTime = ref(NowDate.value.getTime());
 
+    const waitingCount = ref(math.floor(Queue.waitingCount / 60000));
+
     if((props.Queue.calledAt + ThirtyMinutes - NowGetTime.value) / 1000 / 60 + 5 > 0 && props.Queue.status == 'over'){
         BackGroundColor.value = '#888888';
     }else if (props.Queue.status == 'called') {
         BackGroundColor.value = '#ff000088';
-    }/*else if (ReserveData.value.WaitingPeople <= 5) {
+    }else if ( waitingCount.value <= 5) {
         BackGroundColor.value = '#ffff0088';
-    }*/
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -60,6 +67,10 @@
     const cancel = () => {
         delateQueue(props.StoreID);
     }
+
+    onUnmounted(() => {
+        clearInterval(polling);
+    });
 </script>
 
 <template>
@@ -79,7 +90,7 @@
                 呼び出し済み<br>残り{{ RemainingTime }}分
             </div>
             <div v-else>
-                {{ ReserveData.WaitingPeople }} 人待ち
+                {{ waitingCount }} 分待ち
 
             </div>
 
