@@ -24,7 +24,6 @@ const pollingQueueFunc = () => {for (let i = 0; i < Queues.value.length; i++) {
 }
 
 const polling = setInterval(() => {
-  if(router.currentRoute.path !== '/') return
   if (document.visibilityState === 'visible') {
     Queues.value = getQueue();
   }

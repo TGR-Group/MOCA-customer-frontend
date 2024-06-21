@@ -1,12 +1,15 @@
 <script setup>
     import { ref, computed, onUnmounted } from 'vue';
+    import { useRouter } from 'vue-router';
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
     import { getStoreDatas } from '../global/dbFunctions.js';
 
     const StoreDatas = ref(getStoreDatas());
 
+    const router = useRouter();
+
     const polling = setInterval(() => {
-        if(router.currentRoute.path !== '/') return
+        if(router.currentRoute.path !== '/introduction') return
         if (document.visibilityState === 'visible') {
             StoreDatas.value = getStoreDatas();
         }

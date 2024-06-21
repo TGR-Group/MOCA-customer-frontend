@@ -16,7 +16,7 @@
     const StoreDatas = ref(getStoreDatas());
 
     const polling = setInterval(() => {
-        if(router.currentRoute.path !== '/') return
+        if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
         if (document.visibilityState === 'visible') {
             StoreDatas.value = getStoreDatas();
         }
