@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, computed } from 'vue';
+    import { ref, computed, onUnmounted } from 'vue';
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
     import { getStoreDatas } from '../global/dbFunctions.js';
 

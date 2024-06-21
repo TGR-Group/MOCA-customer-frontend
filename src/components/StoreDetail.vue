@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, inject } from 'vue';
+    import { ref, inject, onUnmounted } from 'vue';
     import { useRoute, useRouter } from "vue-router";
     import { registerQueue } from '../global/dbFunctions.js'
     import { getStoreDatas } from '../global/dbFunctions.js';
@@ -34,12 +34,12 @@
         router.push('/');
     }
 
-    if (storeDataDetail[StoreData.value.name].img){
-        StoreData.value.img = storeDataDetail[StoreData.value.name].img;
+    if (storeDataDetail[StoreData.value.id].img){
+        StoreData.value.img = storeDataDetail[StoreData.value.id].img;
     }
 
-    if (storeDataDetail[StoreData.value.name].menu) {
-        StoreData.value.menu = storeDataDetail[StoreData.value.name].menu;
+    if (storeDataDetail[StoreData.value.id].menu) {
+        StoreData.value.menu = storeDataDetail[StoreData.value.id].menu;
     }
 
     const StoreCategory = {

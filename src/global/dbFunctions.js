@@ -51,6 +51,9 @@ export async function getStoreDataDetail(id) {
 }
 
 export async function getQueue() {
+    if (localStorage.getItem('userData') === null) {
+        await getUserData();
+    }
     await axios.get(DB_URL + '/visitor/queue',{
         headers: {
             'Authorization': localStorage.getItem('userData').token,
@@ -67,6 +70,9 @@ export async function getQueue() {
 }
 
 export async function registerQueue(id) {
+    if (localStorage.getItem('userData') === null) {
+        await getUserData();
+    }
     await axios.post(DB_URL + '/visitor/wait',{
             headers: {
                 'Authorization': localStorage.getItem('userData').token,
@@ -85,6 +91,9 @@ export async function registerQueue(id) {
 }
 
 export async function delateQueue(id) {
+    if (localStorage.getItem('userData') === null) {
+        await getUserData();
+    }
     await axios.put(DB_URL + '/visitor/cancel',{
             headers: {
                 'Authorization': localStorage.getItem('userData').token,

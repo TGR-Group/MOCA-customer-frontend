@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, inject, onUpdated } from 'vue';
+    import { ref, inject, onUpdated, onUnmounted } from 'vue';
     import StoreState from './StoreState.vue';
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
@@ -7,13 +7,12 @@
     import { getUserData, getQueue } from '../global/dbFunctions.js';
 
     const userData = ref(getUserData());
-    const Queues = ref(getQueue());
+    const Queues = inject('Queues');
 
     const polling = setInterval(() => {
         if(router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
             userData.value = getUserData();
-            Queues.value = getQueue();
         }
     }, 60000);
 
@@ -32,9 +31,14 @@
 
     const date = new Date();
 
-    const showStoreList = ref(Queues.value.filter((Queue) => {
-        return (!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || Queue.status == 'wait');
-    }));
+    const showStoreList = ref([]);
+    try {
+        showStoreList.value = Queues.filter((Queue) => {
+            return (!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || Queue.status == 'wait');
+        });
+    } catch (e) {
+        console.log(e);
+    }
 
     onUnmounted(() => {
         clearInterval(polling);
@@ -52,7 +56,7 @@
     <h2>予約状況</h2>
 
     <div class="NoResearved" v-if="showStoreList.length == 0">
-        <h2>予約店舗がありません</h2>
+        <p>予約店舗がありません</p>
     </div>
     <div v-else>
         <div class="StoreBox" v-for="Queue in showStoreList" :key="Queue.programId">
@@ -79,6 +83,10 @@
 h2 {
     margin: 07rem auto 3rem auto;
     text-align: center;
+}
+.NoResearved {
+    margin: 0;
+    font-size: medium;
 }
 .timeTableComponent {
     margin: 2rem auto;
@@ -122,9 +130,6 @@ h2 {
     padding: 0.3em;
     border-radius: 0.5em;
     box-shadow: 0 0 0.9em rgba(0, 0, 0, 0.5);
-}
-.NoResearved {
-    margin: 10em 0;
 }
 .ToIntroductionButton_dashboard {
     margin: 4.5em auto 5em;
