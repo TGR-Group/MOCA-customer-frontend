@@ -2,14 +2,49 @@
 import MainHeader from './components/MainHeader.vue';
 import ToPageTop from './components/ToPageTop.vue';
 import MainFooter from './components/MainFooter.vue';
-import { ref,provide } from 'vue';
-import { storeDatas, DB_URL, THIS_SITE_URL, queues, timeTables, storeDataDetail } from './global/constDatas.js';
+import callNotification from './components/callNotification.vue';
+import { ref, provide, readonly, onUnmounted } from 'vue';
+import { getQueue } from './global/dbFunctions.js';
+import { DB_URL, THIS_SITE_URL, timeTables, storeDataDetail } from './global/constDatas.js';
+import CallNotification from './components/callNotification.vue';
 
+const Queues = ref(getQueue());
+const showCallNotification = ref(false);
+const callNotificationData = ref(null);
 
-provide('DB_URL', DB_URL);
-provide('THIS_SITE_URL', THIS_SITE_URL);
-provide ('timeTables', timeTables);
-provide ('storeDataDetail', storeDataDetail);
+const pollingQueueFunc = () => {for (let i = 0; i < Queues.value.length; i++) {
+    if (!Queues.value[i].callNotification) {
+      Queues.value[i].callNotification = false;
+    }
+    if (Queues.value[i].callNotification = true && Queues.value[i].status == 'called') {
+      showCallNotification.value = true;
+      callNotificationData.value = Queues.value[i];
+    }
+  }
+}
+
+const polling = setInterval(() => {
+  if(router.currentRoute.path !== '/') return
+  if (document.visibilityState === 'visible') {
+    Queues.value = getQueue();
+  }
+  pollingQueueFunc();
+}, 60000);
+
+const checkNotification = () => {
+  showCallNotification.value = false;
+  callNotificationData.value = null;
+}
+
+provide('Queues', readonly(Queues));
+provide('DB_URL', readonly(DB_URL));
+provide('THIS_SITE_URL', readonly(THIS_SITE_URL));
+provide ('timeTables', readonly(timeTables));
+provide ('storeDataDetail', readonly(storeDataDetail));
+
+onUnmounted(() => {
+    clearInterval(polling);
+});
 </script>
 
 <template>
@@ -18,6 +53,7 @@ provide ('storeDataDetail', storeDataDetail);
   <div style="margin: 6rem auto 9rem;">
     <router-view />
   </div>
+  <CallNotification @checkNotification="checkNotification" v-if="showCallNotification" :storeId="callNotificationData.programId" />
   <!--<MainFooter />-->
 </template>
 

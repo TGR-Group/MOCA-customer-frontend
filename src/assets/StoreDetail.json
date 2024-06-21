@@ -1,7 +1,9 @@
 {
-     "ネネチキン": {
+     "144bf05a-f83d-7e38-be23-10dfeed8abb6": {
+        "name": "ネネチキン",
         "class": "3年6組",
         "img": "/src/assets/img/ネネチキン/shop.jpg",
+        "place": "3年6組の教室",
         "menu": [{
             "id": 1,
             "name": "フライドチキン",
