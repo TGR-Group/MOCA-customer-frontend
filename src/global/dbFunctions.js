@@ -7,11 +7,11 @@ axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.withCredentials = true;
 
 export async function getUserData() {
-    let userData = localStorage.getItem('userData');
+    let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null) {
         await axios.post('/register')
             .then(response => {
-                    localStorage.setItem('userData', response.data);
+                    localStorage.setItem('userData', JSON.stringify(response.data));
                     console.log(response.data);
                     userData = response.data;
                 })
@@ -51,12 +51,13 @@ export async function getStoreDataDetail(id) {
 }
 
 export async function getQueue() {
-    if (localStorage.getItem('userData') === null) {
-        await getUserData();
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData === null) {
+        userData = await getUserData();
     }
     await axios.get(DB_URL + '/visitor/queue',{
         headers: {
-            'Authorization': localStorage.getItem('userData').token,
+            'Authorization': userData.token,
         },})
         .then(response => {
                 const queue = response.data;
@@ -70,12 +71,13 @@ export async function getQueue() {
 }
 
 export async function registerQueue(id) {
-    if (localStorage.getItem('userData') === null) {
-        await getUserData();
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData === null) {
+        userData = await getUserData();
     }
     await axios.post(DB_URL + '/visitor/wait',{
             headers: {
-                'Authorization': localStorage.getItem('userData').token,
+                'Authorization': userData.token,
             },
             programId: id,
         })
@@ -91,12 +93,13 @@ export async function registerQueue(id) {
 }
 
 export async function delateQueue(id) {
+    let userData = JSON.parse(localStorage.getItem('userData'));
     if (localStorage.getItem('userData') === null) {
-        await getUserData();
+        userData = await getUserData();
     }
     await axios.put(DB_URL + '/visitor/cancel',{
             headers: {
-                'Authorization': localStorage.getItem('userData').token,
+                'Authorization': userData.token,
             },
             programId: id,
         })
