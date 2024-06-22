@@ -25,7 +25,7 @@ const formatTime = (time) => {
       場所：<router-link :to="timeTable.venueMap">{{ timeTable.venueName }}</router-link>
     </div>
       <ul style="width: 95%;">
-        <li v-for="item in timeTable.table" :key="item.content" class="timeTableList">
+        <li v-for="item in timeTable.table" :key="item.content" class="timeTableList" :class="{'listHighlight' : item.highlight}">
           <div class="timeTableTime">
             <div class="timeTableTimeStart">
               {{ formatTime(item.start) }}
@@ -77,6 +77,9 @@ const formatTime = (time) => {
         width: 100%;
         border-bottom: 1px solid;
         text-align: center;
+    }
+    .listHighlight{
+        background-color: #8af57e;
     }
     .timeTableTime{
         width: 50%;
