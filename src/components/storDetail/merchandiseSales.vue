@@ -1,4 +1,5 @@
 <script setup>
+import menuBox from './menuBox.vue';
 
 const props = defineProps({
     storeData: {
@@ -10,8 +11,15 @@ const props = defineProps({
 </script>
 
 <template>
-
+    <section>
     <h2>商品一覧</h2>
+    <div class="storeDetailMenuBoxes">
+        <div class="storeDetailMenuBox" v-for="menuData of props.storeData.menu" >
+            <menuBox  :storeName="props.storeData.name" :menuData="menuData"  />
+        </div>
+    </div>
+
+    </section>
 </template>
 
 <style scoped>

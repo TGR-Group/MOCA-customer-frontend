@@ -12,6 +12,9 @@ const props = defineProps({
 
 <template>
 
+    <p>所要時間：{{ props.storeData.requiredTime }}</p>
+    <p>人数：{{ props.storeData.numberOfPeople }}</p>
+
 </template>
 
 <style scoped>

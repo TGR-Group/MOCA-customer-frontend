@@ -10,8 +10,18 @@ const props = defineProps({
 </script>
 
 <template>
+    <section>
 
-    <h2>menu</h2>
+    <h2 class="h2_menu">メニュー</h2>
+
+    <div class="storeDetailMenuBoxes">
+        <div class="storeDetailMenuBox" v-for="menuData of props.storeData.menu" >
+            <menuBox  :storeName="props.storeData.name" :menuData="menuData"  />
+        </div>
+    </div>
+
+    </section>
+
 </template>
 
 <style scoped>

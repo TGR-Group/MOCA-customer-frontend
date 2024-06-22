@@ -1,9 +1,8 @@
 <script setup>
-    import { ref, inject, onUnmounted } from 'vue';
+    import { ref, inject, onUnmounted, computed } from 'vue';
     import { useRoute, useRouter } from "vue-router";
     import { registerQueue } from '../global/dbFunctions.js'
     import { getStoreDatas } from '../global/dbFunctions.js';
-    import SetInterval from '../plugins/SetInterval/index.js';
     import NotFound from './NotFound.vue';
     import foodDetail from './storDetail/food.vue';
     import cafeDetail from './storDetail/cafe.vue';
@@ -27,7 +26,7 @@
     const route = useRoute();
     const router = useRouter();
 
-    const StoreData = ref(StoreDatas.value.find( d => {return d.id == route.params.StoreID}));
+    const StoreData = computed(() => {return StoreDatas.value.find( d => {return d.id == route.params.StoreID})});
 
     const Reserve = () => {
         registerQueue(StoreData.value.id);
@@ -66,6 +65,7 @@
             <p class="StoreDiscription">{{ StoreData.discription }}</p>
         </section>
         <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" margin="auto" />
+        <p>場所：{{ StoreData.place }}</p>
         <div style="height: 7em; display: flex; align-items: end;">
             <button v-if="StoreData.waitEnabled" class="reserveButton" @click="Reserve">
                 <span class="ButtonText">並ぶ</span>

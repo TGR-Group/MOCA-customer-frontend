@@ -15,7 +15,7 @@ const props = defineProps({
 
     <section>
 
-    <h2 id="h2_menu">メニュー</h2>
+    <h2 class="h2_menu">メニュー</h2>
 
     <div class="storeDetailMenuBoxes">
         <div class="storeDetailMenuBox" v-for="menuData of props.storeData.menu" >
