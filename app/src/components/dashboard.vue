@@ -4,15 +4,16 @@
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import TimeTableBox from './TimeTableBox.vue';
-    import { getUserData, getQueue } from '../global/dbFunctions.js';
+    import { getUserData } from '../global/dbFunctions.js';
 
-    const userData = ref(getUserData());
+    const userData = ref({});
+    async () => {userData.value = await getUserData();}
     const Queues = inject('Queues');
 
-    const polling = setInterval(() => {
+    const polling = setInterval(async () => {
         if(router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
-            userData.value = getUserData();
+            userData.value = await getUserData();
         }
     }, 60000);
 

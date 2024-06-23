@@ -1,8 +1,7 @@
 <script setup>
     import { ref, inject, onUnmounted, computed } from 'vue';
     import { useRoute, useRouter } from "vue-router";
-    import { registerQueue } from '../global/dbFunctions.js'
-    import { getStoreDataDetail } from '../global/dbFunctions.js';
+    import { getStoreDataDetail, registerQueue } from '../global/dbFunctions.js';
     import NotFound from './NotFound.vue';
     import foodDetail from './storDetail/food.vue';
     import cafeDetail from './storDetail/cafe.vue';
@@ -13,12 +12,13 @@
     import otherDetail from './storDetail/other.vue';
 
     const storeId = route.params.StoreID;
-    const StoreData = ref(getStoreDataDetail(storeId));
+    const StoreData = ref({});
+    async () => {StoreData.value = ref(await getStoreDataDetail(storeId));}
 
-    const polling = setInterval(() => {
+    const polling = setInterval(async() => {
         if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
         if (document.visibilityState === 'visible') {
-            StoreData.value = getStoreDataDetail(storeId);
+            StoreData.value = await getStoreDataDetail(storeId);
         }
     }, 60000);
 

@@ -1,8 +1,7 @@
 <script setup>
     import { ref, onUnmounted } from 'vue';
     import { useRouter } from 'vue-router';
-    import { delateQueue } from '../global/dbFunctions.js'
-    import { getStoreDataDetail } from '../global/dbFunctions.js';
+    import { delateQueue, getStoreDataDetail } from '../global/dbFunctions.js'
 
     const router = useRouter();
     const StoreBoxClick = () => {
@@ -31,12 +30,13 @@
 
     });
 
-    const ReserveData = ref(getStoreDataDetail(props.StoreID));
+    const ReserveData = ref({});
+    async () => {ReserveData.value = ref(await getStoreDataDetail(props.StoreID));}
 
-    const polling = setInterval(() => {
+    const polling = setInterval(async() => {
         if (router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
-            ReserveData.value = getStoreDataDetail(props.StoreID);
+            ReserveData.value = await getStoreDataDetail(props.StoreID);
         }
     }, 60000);
 
