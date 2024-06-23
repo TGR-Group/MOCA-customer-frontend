@@ -5,7 +5,7 @@ import MainFooter from './components/MainFooter.vue';
 import callNotification from './components/callNotification.vue';
 import { ref, provide, readonly, onUnmounted } from 'vue';
 import { getQueue } from './global/dbFunctions.js';
-import { DB_URL, THIS_SITE_URL, timeTables, storeDataDetail } from './global/constDatas.js';
+import { timeTables, storeDataDetail } from './global/constDatas.js';
 import CallNotification from './components/callNotification.vue';
 
 const Queues = ref(getQueue());
@@ -36,8 +36,8 @@ const checkNotification = () => {
 }
 
 provide('Queues', readonly(Queues));
-provide('DB_URL', readonly(DB_URL));
-provide('THIS_SITE_URL', readonly(THIS_SITE_URL));
+provide('DB_URL', readonly(import.meta.env.VITE_API_URL));
+provide('THIS_SITE_URL', readonly(import.meta.env.VITE_THIS_SITE_URL));
 provide ('timeTables', readonly(timeTables));
 provide ('storeDataDetail', readonly(storeDataDetail));
 

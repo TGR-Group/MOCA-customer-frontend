@@ -4,7 +4,7 @@ import QueueSample from '../assets/QueuesSample.json';
 import timeTableData from '../assets/TimeTables.json';
 import StoreDataDetail from '../assets/StoreDetail.json';
 
-export const DB_URL = 'https://api.project-moca.com';
+export const API_URL = 'https://api.project-moca.com';
 export const THIS_SITE_URL= 'https://app.project-moca.com/';
 /*
 axios.get(DB_URL+'/programs')
