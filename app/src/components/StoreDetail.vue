@@ -31,7 +31,9 @@
 
     const storeDataDetail = inject('storeDataDetail');
 
-
+    const waitingTime = computed(() => {
+        return Math.floor(StoreData.value.waitingCount / 60000);
+    });
 
     const Reserve = () => {
         registerQueue(StoreData.value.id);
@@ -58,7 +60,6 @@
         '体験型': attractionDetail,
         'その他': otherDetail
     };
-
     onUnmounted(() => {
         clearInterval(polling);
     });
@@ -67,12 +68,19 @@
 <template>
     <div v-if="StoreData">
         <h1>{{ StoreData.name }}</h1>
-        <section>
-            <img :src="StoreData.img" v-if="StoreData.img" alt="storeImage" width="76.8%" style="margin: auto;" />
+        <div class="storeInfo">
+            <img :src="StoreData.img" v-if="StoreData.img" alt="storeImage" width="100%" style="margin: auto;" />
             <p class="StoreDiscription">{{ StoreData.discription }}</p>
-        </section>
+            <p class="storePlace">
+                <span v-if="StoreData.grade=='部活'">部活：</span><span v-else>クラス：</span>{{ StoreData.className }}<br>
+                <span>場所：{{ StoreData.place }}<br></span>
+                <span>待ち時間：{{ waitingTime }}分待ち<br></span>
+                <span v-if="StoreData.requiredTime">所要時間：{{ StoreData.requiredTime }}分<br></span>
+                <span v-if="StoreData.numberOfPeople">人数：{{ StoreData.numberOfPeople }}人<br></span>
+            </p>
+        </div>
+
         <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" margin="auto" />
-        <p>場所：{{ StoreData.place }}</p>
         <div style="height: 7em; display: flex; align-items: end;">
             <button v-if="StoreData.waitEnabled" class="reserveButton" @click="Reserve">
                 <span class="ButtonText">並ぶ</span>
@@ -85,6 +93,9 @@
 </template>
 
 <style scoped>
+h2 {
+    margin: auto;
+}
 *,
 *:before,
 *:after {
@@ -92,7 +103,7 @@
   box-sizing: inherit;
 }
 .StoreDiscription {
-    width: 76.8%;
+    width: 100%;
     margin: auto auto 2rem auto;
     text-align: left;
     padding: 0%;
@@ -124,5 +135,11 @@
     margin: 0.2em auto;
     text-align: center;
     justify-content: center;
+}
+.storeInfo {
+    width: 80%;
+    margin: 2em auto;
+    font-size: 1.2em;
+    text-align: left;
 }
 </style>

@@ -31,7 +31,6 @@ const props = defineProps({
     h2{
         width: 76.8%;
         margin: auto ;
-        background-color: #dc936f;
     }
     .storeDetailMenuBoxes {
         display: flex;
