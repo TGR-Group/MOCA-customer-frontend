@@ -74,7 +74,16 @@
 
     <h2>タイムテーブル</h2>
 
+    <h3>
+        全体の日程
+    </h3>
     <TimeTableBox class="timeTableComponent" v-for="data in timeTableData.wholeTimeTable" :timeTable="data" />
+
+    <h3>
+        会場別の日程
+    </h3>
+    <TimeTableBox class="timeTableComponent" v-for="data in timeTableData.eachVenueTimeTable" :timeTable="data" />
+
 
 </template>
 

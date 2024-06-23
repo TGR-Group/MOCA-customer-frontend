@@ -43,6 +43,10 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
 
 .card {
   padding: 2em;
