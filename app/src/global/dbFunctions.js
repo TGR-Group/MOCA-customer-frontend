@@ -12,11 +12,11 @@ axios.defaults.baseURL = DB_URL;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.withCredentials = true;
 
-export function getUserData() {
+export async function getUserData() {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0) {
     /*** 本番用
-            axios.post('/register')
+            await axios.post('/register')
                 .then(response => {
                     localStorage.setItem('userData', JSON.stringify(response.data));
                     console.log(response.data);
@@ -32,9 +32,9 @@ export function getUserData() {
     return userData;
 };
 
-export function getStoreDatas() {
+export async function getStoreDatas() {
     /***
-        axios.get(DB_URL + '/programs')
+        await axios.get(DB_URL + '/programs')
             .then(response => {
                 const storeDatas = response.data;
             })
@@ -47,10 +47,10 @@ export function getStoreDatas() {
     return storeDatas;
 }
 
-export function getStoreDataDetail(id) {
+export async function getStoreDataDetail(id) {
     /***
     let storeDataDetail = {};
-        axios.get(DB_URL + '/programs/' + id)
+        await axios.get(DB_URL + '/programs/' + id)
             .then(response => {
                 storeDataDetail = response.data;
             })
@@ -63,13 +63,13 @@ export function getStoreDataDetail(id) {
     return storeDataDetail;
 }
 
-export function getQueue() {
+export async function getQueue() {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
         userData =  getUserData();
     }
     /***
-        axios.get(DB_URL + '/visitor/queue',{
+        await axios.get(DB_URL + '/visitor/queue',{
         headers: {
             'Authorization': `Bearer ${userData.token}`,
         },})
@@ -86,7 +86,7 @@ export function getQueue() {
     return queue;
 }
 
-export function registerQueue(id) {
+export async function registerQueue(id) {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
         userData =  getUserData();
@@ -112,7 +112,7 @@ export function registerQueue(id) {
     return result;
 }
 
-export function delateQueue(id) {
+export async function delateQueue(id) {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
         userData =  getUserData();

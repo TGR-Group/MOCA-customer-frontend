@@ -4,18 +4,25 @@
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
     import { getStoreDatas } from '../global/dbFunctions.js';
 
-    const StoreDatas = ref(getStoreDatas());
+    const StoreDatas = ref(null);
+    const StoreIDs = ref(null);
+    getStoreDatas().then((data) => {
+        StoreDatas.value = data;
+        StoreIDs.value = Object.keys(StoreDatas.value);
+    });
 
     const router = useRouter();
 
     const polling = setInterval(() => {
         if(router.currentRoute.path !== '/introduction') return
         if (document.visibilityState === 'visible') {
-            StoreDatas.value = getStoreDatas();
+            getStoreDatas().then((data) => {
+                StoreDatas.value = data;
+                StoreIDs.value = Object.keys(StoreDatas.value);
+            });
         }
     }, 60000);
 
-    const StoreIDs = ref(Object.keys(StoreDatas.value));
 
     const CategoryChecked = ref([]);
 
@@ -119,7 +126,7 @@
         </div>
     </div>
     <div class="StoreBoxes">
-        <div class="IntroStoreBox" v-for="StoreID of DisplayStoreList" >
+        <div class="IntroStoreBox" v-if="StoreDatas" v-for="StoreID of DisplayStoreList" >
             <StoreDiscriptionBox  :StoreID="StoreID" :StoreData="StoreDatas.find(d =>{return d.id == StoreID})"  />
         </div>
     </div>

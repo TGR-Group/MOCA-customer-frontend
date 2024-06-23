@@ -30,12 +30,17 @@
 
     });
 
-    const ReserveData = ref(getStoreDataDetail(props.StoreID));
+    const ReserveData = ref(null);
+    getStoreDataDetail(props.StoreID).then((data) => {
+        ReserveData.value = data;
+    });
 
     const polling = setInterval(() => {
         if (router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
-            ReserveData.value = getStoreDataDetail(props.StoreID);
+            getStoreDataDetail(props.StoreID).then((data) => {
+                ReserveData.value = data;
+            });
         }
     }, 60000);
 
@@ -73,7 +78,7 @@
 </script>
 
 <template>
-    <div class="StoreBox" @click="StoreBoxClick">
+    <div v-if="ReserveData" class="StoreBox" @click="StoreBoxClick">
 
         <div class="StoreName">{{ ReserveData.name }}</div>
 

@@ -15,12 +15,17 @@
     const router = useRouter();
 
     const storeId = route.params.StoreID;
-    const StoreData = ref(getStoreDataDetail(storeId));
+    const StoreData = ref(null);
+    getStoreDataDetail(storeId).then((data) => {
+        StoreData.value = data;
+    });
 
     const polling = setInterval(() => {
         if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
         if (document.visibilityState === 'visible') {
-            StoreData.value = getStoreDataDetail(storeId);
+            getStoreDataDetail(storeId).then((data) => {
+                StoreData.value = data;
+            });
         }
     }, 60000);
 

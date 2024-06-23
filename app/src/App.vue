@@ -8,7 +8,10 @@ import { getQueue } from './global/dbFunctions.js';
 import { timeTables, storeDataDetail } from './global/constDatas.js';
 import CallNotification from './components/callNotification.vue';
 
-const Queues = ref(getQueue());
+const Queues = ref(null);
+getQueue().then((data) => {
+  Queues.value = data;
+});
 const showCallNotification = ref(false);
 const callNotificationData = ref(null);
 
@@ -25,7 +28,9 @@ const pollingQueueFunc = () => {for (let i = 0; i < Queues.value.length; i++) {
 
 const polling = setInterval(() => {
   if (document.visibilityState === 'visible') {
-    Queues.value = getQueue();
+    getQueue().then((data) => {
+      Queues.value = data;
+    });
   }
   pollingQueueFunc();
 }, 60000);
@@ -35,7 +40,7 @@ const checkNotification = () => {
   callNotificationData.value = null;
 }
 
-provide('Queues', readonly(Queues.value));
+provide('Queues', readonly(Queues));
 provide('DB_URL', readonly(import.meta.env.VITE_API_URL));
 provide('THIS_SITE_URL', readonly(import.meta.env.VITE_THIS_SITE_URL));
 provide ('timeTables', readonly(timeTables));

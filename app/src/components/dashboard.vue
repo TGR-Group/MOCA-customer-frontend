@@ -6,13 +6,18 @@
     import TimeTableBox from './TimeTableBox.vue';
     import { getUserData } from '../global/dbFunctions.js';
 
-    const userData = ref(getUserData());
+    const userData = ref(null);
+    getUserData().then((data) => {
+        userData.value = data;
+    });
     const Queues = inject('Queues');
 
     const polling = setInterval(() => {
         if(router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
-            userData.value =  getUserData();
+            getUserData().then((data) => {
+                userData.value = data;
+            });
         }
     }, 60000);
 
@@ -31,8 +36,13 @@
 
     const date = new Date();
 
-    const showStoreList = ref(Queues.filter(Queue => (Queue.status === 'wait' || Queue.status === 'called')));
-    computed(() => {showStoreList.value = Queues.filter(Queue => (Queue.status === 'wait' || Queue.status === 'called'));})
+    const showStoreList = computed(() => {
+        if (Queues){
+            return Queues.value.filter(Queue => (Queue.status === 'wait' || Queue.status === 'called'));
+        }else{
+            return [];
+        }
+    })
 
     const reserveIsActve = ref(parseInt(sessionStorage.getItem("reserve"),10));
     const Demo = setInterval(() => {
@@ -48,7 +58,7 @@
 
     <h1>HOME</h1>
 
-    <div class="IdBox" @click="QRIsActive = !QRIsActive">
+    <div class="IdBox" v-if="userData" @click="QRIsActive = !QRIsActive">
         ID:{{ userData.screenId }}
     </div>
 
