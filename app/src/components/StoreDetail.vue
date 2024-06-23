@@ -11,21 +11,21 @@
     import attractionDetail from './storDetail/attraction.vue';
     import otherDetail from './storDetail/other.vue';
 
-    const storeId = route.params.StoreID;
-    const StoreData = ref({});
-    async () => {StoreData.value = ref(await getStoreDataDetail(storeId));}
+    const route = useRoute();
+    const router = useRouter();
 
-    const polling = setInterval(async() => {
+    const storeId = route.params.StoreID;
+    const StoreData = ref(getStoreDataDetail(storeId));
+
+    const polling = setInterval(() => {
         if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
         if (document.visibilityState === 'visible') {
-            StoreData.value = await getStoreDataDetail(storeId);
+            StoreData.value = getStoreDataDetail(storeId);
         }
     }, 60000);
 
     const storeDataDetail = inject('storeDataDetail');
 
-    const route = useRoute();
-    const router = useRouter();
 
 
     const Reserve = () => {
@@ -33,6 +33,7 @@
         router.push('/');
     }
 
+    /***
     if (storeDataDetail[StoreData.value.id].img){
         StoreData.value.img = storeDataDetail[StoreData.value.id].img;
     }
@@ -40,6 +41,7 @@
     if (storeDataDetail[StoreData.value.id].menu) {
         StoreData.value.menu = storeDataDetail[StoreData.value.id].menu;
     }
+    ***/
 
     const StoreCategory = {
         '食販': foodDetail,

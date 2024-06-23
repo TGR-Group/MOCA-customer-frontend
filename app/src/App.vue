@@ -35,7 +35,7 @@ const checkNotification = () => {
   callNotificationData.value = null;
 }
 
-provide('Queues', readonly(Queues));
+provide('Queues', readonly(Queues.value));
 provide('DB_URL', readonly(import.meta.env.VITE_API_URL));
 provide('THIS_SITE_URL', readonly(import.meta.env.VITE_THIS_SITE_URL));
 provide ('timeTables', readonly(timeTables));
@@ -44,6 +44,8 @@ provide ('storeDataDetail', readonly(storeDataDetail));
 onUnmounted(() => {
     clearInterval(polling);
 });
+//Demo
+    sessionStorage.setItem("reserve", 0);
 </script>
 
 <template>

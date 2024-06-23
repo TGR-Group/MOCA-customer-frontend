@@ -1,5 +1,12 @@
 {
      "144bf05a-f83d-7e38-be23-10dfeed8abb6": {
+        "name": "ネネチキン",
+        "summary": "おいしい物がたくさん！！",
+        "discription": "皆さんこんにちは3年6組ではネネチキン様の食べ物を販売中です！とてもおいしいのでぜひ足を運んでください！まってます！！！",
+        "category": "食販",
+        "grade": "1年生",
+        "className": "1-1",
+        "waitEnabled": true,
         "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/shop.jpg",
         "place": "3年6組の教室",
         "menu": [{

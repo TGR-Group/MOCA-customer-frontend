@@ -1,19 +1,18 @@
 <script setup>
-    import { ref, inject, onUpdated, onUnmounted } from 'vue';
+    import { ref, inject, onUpdated, onUnmounted, computed } from 'vue';
     import StoreState from './StoreState.vue';
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import TimeTableBox from './TimeTableBox.vue';
     import { getUserData } from '../global/dbFunctions.js';
 
-    const userData = ref({});
-    async () => {userData.value = await getUserData();}
+    const userData = ref(getUserData());
     const Queues = inject('Queues');
 
-    const polling = setInterval(async () => {
+    const polling = setInterval(() => {
         if(router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
-            userData.value = await getUserData();
+            userData.value =  getUserData();
         }
     }, 60000);
 
@@ -32,17 +31,16 @@
 
     const date = new Date();
 
-    const showStoreList = ref([]);
-    try {
-        showStoreList.value = Queues.filter((Queue) => {
-            return (!(Queue.calledAt + (35 * 60 * 1000) < date.getTime()) || Queue.status == 'wait');
-        });
-    } catch (e) {
-        console.log(e);
-    }
+    const showStoreList = ref(Queues.filter(Queue => (Queue.status === 'wait' || Queue.status === 'called')));
+    computed(() => {showStoreList.value = Queues.filter(Queue => (Queue.status === 'wait' || Queue.status === 'called'));})
 
+    const reserveIsActve = ref(parseInt(sessionStorage.getItem("reserve"),10));
+    const Demo = setInterval(() => {
+        reserveIsActve.value = parseInt(sessionStorage.getItem("reserve"),10);
+    }, 100);
     onUnmounted(() => {
         clearInterval(polling);
+        clearInterval(Demo);
     });
 </script>
 
@@ -56,7 +54,7 @@
 
     <h2>予約状況</h2>
 
-    <div class="NoResearved" v-if="showStoreList.length == 0">
+    <div class="NoResearved" v-if="/***showStoreList.length == 0 ||*/ !reserveIsActve">
         <p>予約店舗がありません</p>
     </div>
     <div v-else>

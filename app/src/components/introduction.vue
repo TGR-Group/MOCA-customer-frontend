@@ -4,15 +4,14 @@
     import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
     import { getStoreDatas } from '../global/dbFunctions.js';
 
-    const StoreDatas = ref({});
-    async () => {StoreDatas.value = ref(await getStoreDatas());}
+    const StoreDatas = ref(getStoreDatas());
 
     const router = useRouter();
 
-    const polling = setInterval(async () => {
+    const polling = setInterval(() => {
         if(router.currentRoute.path !== '/introduction') return
         if (document.visibilityState === 'visible') {
-            StoreDatas.value = await getStoreDatas();
+            StoreDatas.value = getStoreDatas();
         }
     }, 60000);
 

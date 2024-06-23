@@ -30,13 +30,12 @@
 
     });
 
-    const ReserveData = ref({});
-    async () => {ReserveData.value = ref(await getStoreDataDetail(props.StoreID));}
+    const ReserveData = ref(getStoreDataDetail(props.StoreID));
 
-    const polling = setInterval(async() => {
+    const polling = setInterval(() => {
         if (router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
-            ReserveData.value = await getStoreDataDetail(props.StoreID);
+            ReserveData.value = getStoreDataDetail(props.StoreID);
         }
     }, 60000);
 
@@ -45,7 +44,7 @@
     const NowDate = ref(new Date());
     const NowGetTime = ref(NowDate.value.getTime());
 
-    const waitingCount = ref(math.floor(Queue.waitingCount / 60000));
+    const waitingCount = ref(Math.floor(props.Queue.waitingCount / 60000));
 
     if((props.Queue.calledAt + ThirtyMinutes - NowGetTime.value) / 1000 / 60 + 5 > 0 && props.Queue.status == 'over'){
         BackGroundColor.value = '#888888';
