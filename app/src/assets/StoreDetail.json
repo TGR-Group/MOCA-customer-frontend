@@ -1,7 +1,5 @@
 {
      "144bf05a-f83d-7e38-be23-10dfeed8abb6": {
-        "name": "ネネチキン",
-        "class": "3年6組",
         "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/shop.jpg",
         "place": "3年6組の教室",
         "menu": [{
@@ -22,7 +20,6 @@
             "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/cheese_ball.png",
             "discription": "おいしいチーズボールです！ぜひ食べてみてください！",
             "price": 200
-        }],
-        "description": "皆さんこんにちは3年6組では144bf05a-f83d-7e38-be23-10dfeed8abb6様の食べ物を販売中です！とてもおいしいのでぜひ足を運んでください！まってます！！！"
+        }]
     }
 }

@@ -2,7 +2,7 @@
     import { ref, inject, onUnmounted, computed } from 'vue';
     import { useRoute, useRouter } from "vue-router";
     import { registerQueue } from '../global/dbFunctions.js'
-    import { getStoreDatas } from '../global/dbFunctions.js';
+    import { getStoreDataDetail } from '../global/dbFunctions.js';
     import NotFound from './NotFound.vue';
     import foodDetail from './storDetail/food.vue';
     import cafeDetail from './storDetail/cafe.vue';
@@ -12,12 +12,13 @@
     import attractionDetail from './storDetail/attraction.vue';
     import otherDetail from './storDetail/other.vue';
 
-    const StoreDatas = ref(getStoreDatas());
+    const storeId = route.params.StoreID;
+    const StoreData = ref(getStoreDataDetail(storeId));
 
     const polling = setInterval(() => {
         if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
         if (document.visibilityState === 'visible') {
-            StoreDatas.value = getStoreDatas();
+            StoreData.value = getStoreDataDetail(storeId);
         }
     }, 60000);
 
@@ -26,7 +27,6 @@
     const route = useRoute();
     const router = useRouter();
 
-    const StoreData = computed(() => {return StoreDatas.value.find( d => {return d.id == route.params.StoreID})});
 
     const Reserve = () => {
         registerQueue(StoreData.value.id);

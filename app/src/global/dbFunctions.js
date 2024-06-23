@@ -57,7 +57,7 @@ export async function getQueue() {
     }
     await axios.get(DB_URL + '/visitor/queue',{
         headers: {
-            'Authorization': userData.token,
+            'Authorization': `Bearer ${userData.token}`,
         },})
         .then(response => {
                 const queue = response.data;
@@ -77,7 +77,7 @@ export async function registerQueue(id) {
     }
     await axios.post(DB_URL + '/visitor/wait',{
             headers: {
-                'Authorization': userData.token,
+                'Authorization': `Bearer ${userData.token}`,
             },
             programId: id,
         })
@@ -99,7 +99,7 @@ export async function delateQueue(id) {
     }
     await axios.put(DB_URL + '/visitor/cancel',{
             headers: {
-                'Authorization': userData.token,
+                'Authorization': `Bearer ${userData.token}`,
             },
             programId: id,
         })
