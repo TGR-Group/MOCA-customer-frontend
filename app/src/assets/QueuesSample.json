@@ -4,6 +4,7 @@
         "success": true,
         "status": "wait",
         "programId": "144bf05a-f83d-7e38-be23-10dfeed8abb6",
+        "waitingCount": 1800000,
         "calledAt": null
     },
 
