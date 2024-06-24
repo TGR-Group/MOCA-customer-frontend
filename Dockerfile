@@ -1,9 +1,9 @@
 # Frontend builder
 FROM node:latest AS build
-# Change work directory
-WORKDIR /app
 # Copy files
 COPY ./ ./
+# Change work directory
+WORKDIR /app
 # Build
 RUN npm install && npm run build
 # Web Server
