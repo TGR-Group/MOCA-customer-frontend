@@ -11,7 +11,6 @@ import CallNotification from './components/callNotification.vue';
 const Queues = ref(null);
 getQueue().then((data) => {
   Queues.value = data.queue;
-  console.log(Queues.value);
 });
 const showCallNotification = ref(false);
 const callNotificationData = ref(null);
