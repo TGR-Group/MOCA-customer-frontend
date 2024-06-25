@@ -8,24 +8,24 @@
         "className": "3年6組",
         "waitEnabled": true,
         "waitingCount": 60000,
-        "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/shop.jpg",
+        "img": "/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/shop.jpg",
         "place": "3年6組の教室",
         "menu": [{
             "id": 1,
             "name": "フライドチキン",
-            "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/fried_chicken.png",
+            "img": "/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/fried_chicken.png",
             "discription": "おいしいフライドチキンです！ぜひ食べてみてください！",
             "price": 300
         }, {
             "id": 2,
             "name": "ヤンニョムチキン",
-            "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/yangnyeom_chicken.png",
+            "img": "/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/yangnyeom_chicken.png",
             "discription": "おいしいヤンニョムチキンです！ぜひ食べてみてください！",
             "price": 350
         }, {
             "id": 3,
             "name": "チーズボール",
-            "img": "/src/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/cheese_ball.png",
+            "img": "/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/menu/cheese_ball.png",
             "discription": "おいしいチーズボールです！ぜひ食べてみてください！",
             "price": 200
         }]

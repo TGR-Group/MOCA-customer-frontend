@@ -6,6 +6,8 @@ COPY ./ ./
 WORKDIR /app
 # Build
 RUN npm install && npm run build
+# Copy image to dists
+RUN cp -rf ./src/assets/img/* ./dist/assets/img/
 # Web Server
 FROM nginx:latest
 # Change work directory
