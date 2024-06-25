@@ -34,7 +34,7 @@
 <template>
     <div class="StoreBox" @click="StoreBoxClick">
 
-        <img class="StoreImage" :src="props.StoreData.StoreImage" alt="StoreImage" />
+        <img v-if="props.StoreData.StoreImage" class="StoreImage" :src="props.StoreData.StoreImage" alt="StoreImage" />
 
         <div class="StoreName">{{ props.StoreData.name }}</div>
 
