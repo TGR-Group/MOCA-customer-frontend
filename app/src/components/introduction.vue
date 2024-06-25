@@ -8,7 +8,9 @@
     const StoreIDs = ref(null);
     getStoreDatas().then((data) => {
         StoreDatas.value = data;
-        StoreIDs.value = Object.keys(StoreDatas.value);
+        if (StoreDatas.value) {
+            StoreIDs.value = Object.keys(StoreDatas.value);
+        }
     });
 
     const router = useRouter();
@@ -18,7 +20,9 @@
         if (document.visibilityState === 'visible') {
             getStoreDatas().then((data) => {
                 StoreDatas.value = data;
-                StoreIDs.value = Object.keys(StoreDatas.value);
+                if (StoreDatas.value) {
+                    StoreIDs.value = Object.keys(StoreDatas.value);
+                }
             });
         }
     }, 60000);
@@ -126,7 +130,7 @@
         </div>
     </div>
     <div class="StoreBoxes">
-        <div class="IntroStoreBox" v-if="StoreDatas" v-for="StoreID of DisplayStoreList" >
+        <div class="IntroStoreBox" v-if="StoreDatas && DisplayStoreList" v-for="StoreID of DisplayStoreList" >
             <StoreDiscriptionBox  :StoreID="StoreID" :StoreData="StoreDatas.find(d =>{return d.id == StoreID})"  />
         </div>
     </div>

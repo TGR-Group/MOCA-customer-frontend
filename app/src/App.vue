@@ -10,7 +10,8 @@ import CallNotification from './components/callNotification.vue';
 
 const Queues = ref(null);
 getQueue().then((data) => {
-  Queues.value = data;
+  Queues.value = data.queue;
+  console.log(Queues.value);
 });
 const showCallNotification = ref(false);
 const callNotificationData = ref(null);
@@ -29,7 +30,7 @@ const pollingQueueFunc = () => {for (let i = 0; i < Queues.value.length; i++) {
 const polling = setInterval(() => {
   if (document.visibilityState === 'visible') {
     getQueue().then((data) => {
-      Queues.value = data;
+      Queues.value = data.queue;
     });
   }
   pollingQueueFunc();
