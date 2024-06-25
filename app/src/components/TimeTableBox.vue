@@ -27,11 +27,8 @@ const formatTime = (time) => {
       <ul style="width: 95%;">
         <li v-for="item in timeTable.table" :key="item.content" class="timeTableList" :class="{'listHighlight' : item.highlight}">
           <div class="timeTableTime">
-            <div class="timeTableTimeStart">
-              {{ formatTime(item.start) }}
-            </div>
-            <div class="timeTableTimeEnd">
-              {{ formatTime(item.end) }}
+            <div class="timeTableTimeContent">
+              {{ formatTime(item.start) }}~{{ formatTime(item.end) }}
             </div>
           </div>
           <router-link v-if="item.pageLink" :to="item.pageLink" class="timeTableContent">
@@ -67,9 +64,6 @@ const formatTime = (time) => {
         padding: 0.2em;
     }
 
-    .timeTableTimeStart:after{
-        content: '〜';
-    }
     .timeTableList{
         display: flex;
         flex-flow: row;
@@ -86,6 +80,10 @@ const formatTime = (time) => {
         display: flex;
         flex-flow: row;
         justify-content: center;
+    }
+    .timeTableTimeContent{
+        width: 6em;
+        text-align: left;
     }
     .timeTableContent{
         width: 50%;

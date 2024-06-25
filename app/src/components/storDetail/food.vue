@@ -1,5 +1,6 @@
 <script setup>
-import menuBox from './menuBox.vue';
+import simplifiedMenuBox from './simplifiedMenuBox.vue';
+import SimplifiedMenuBox from './simplifiedMenuBox.vue';
 
 const props = defineProps({
     storeData: {
@@ -17,10 +18,8 @@ const props = defineProps({
 
     <h2 class="h2_menu">メニュー</h2>
 
-    <div class="storeDetailMenuBoxes">
-        <div class="storeDetailMenuBox" v-for="menuData of props.storeData.menu" >
-            <menuBox  :storeName="props.storeData.name" :menuData="menuData"  />
-        </div>
+    <div class="storeDetailMenuBox">
+        <SimplifiedMenuBox :menuData="props.storeData.menu"  />
     </div>
 
     </section>
@@ -32,19 +31,8 @@ const props = defineProps({
         width: 76.8%;
         margin: auto ;
     }
-    .storeDetailMenuBoxes {
-        display: flex;
-        width: 80%;
-        flex-flow: row wrap;
-        gap: 0rem;
-        margin: auto;
-        justify-content:normal;
-    }
 
     .storeDetailMenuBox {
-        max-width: 50%;
-        flex-shrink: 0;
-        width: 15em;
-        margin: 0;
+        width: 60%;
     }
 </style>

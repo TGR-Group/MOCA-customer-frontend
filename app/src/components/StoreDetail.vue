@@ -73,8 +73,6 @@
                 <span v-if="StoreData.grade=='部活'">部活：</span><span v-else>クラス：</span>{{ StoreData.className }}<br>
                 <span>場所：{{ StoreData.place }}<br></span>
                 <span>待ち時間：{{ waitingTime }}分待ち<br></span>
-                <span v-if="StoreData.requiredTime">所要時間：{{ StoreData.requiredTime }}分<br></span>
-                <span v-if="StoreData.numberOfPeople">人数：{{ StoreData.numberOfPeople }}人<br></span>
             </p>
         </div>
 

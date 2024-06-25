@@ -13,15 +13,20 @@ const props = defineProps({
 <template>
     <section>
     <h2>商品一覧</h2>
-    <div class="storeDetailMenuBoxes">
-        <div class="storeDetailMenuBox" v-for="menuData of props.storeData.menu" >
-            <menuBox  :storeName="props.storeData.name" :menuData="menuData"  />
-        </div>
+    <div class="storeDetailMenuBox">
+        <SimplifiedMenuBox :menuData="props.storeData.menu"  />
     </div>
-
     </section>
 </template>
 
 <style scoped>
 
+    h2{
+        width: 76.8%;
+        margin: auto ;
+    }
+
+    .storeDetailMenuBox {
+        width: 60%;
+    }
 </style>
