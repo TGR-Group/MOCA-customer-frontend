@@ -15,7 +15,6 @@ axios.defaults.withCredentials = true;
 export async function getUserData() {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0) {
-    /*** 本番用
             await axios.post('/register')
                 .then(response => {
                     localStorage.setItem('userData', JSON.stringify(response.data));
@@ -25,41 +24,33 @@ export async function getUserData() {
                 .catch(error => {
                     console.log(error);
                 });
-    ***/
-    /*** Demo用 ***/
-        userData = userDataSample;
     }
     return userData;
 };
 
 export async function getStoreDatas() {
-    /***
-        await axios.get(DB_URL + '/programs')
-            .then(response => {
-                const storeDatas = response.data;
-            })
-            .catch(error => {
-                const storeDatas = undefined;
-                console.log(error);
-            });
-    ***/
-    const storeDatas = storeDatasSample;
+    let storeDatas = [];
+    await axios.get(DB_URL + '/programs')
+        .then(response => {
+            storeDatas = response.data;
+        })
+        .catch(error => {
+            storeDatas = undefined;
+            console.log(error);
+        });
     return storeDatas;
 }
 
 export async function getStoreDataDetail(id) {
-    /***
     let storeDataDetail = {};
-        await axios.get(DB_URL + '/programs/' + id)
-            .then(response => {
-                storeDataDetail = response.data;
-            })
-            .catch(error => {
-                storeDataDetail = undefined;
-                console.log(error);
-            });
-    */
-    const storeDataDetail = storeDataDetailSample[id];
+    await axios.get(DB_URL + '/programs/' + id)
+        .then(response => {
+            storeDataDetail = response.data;
+        })
+        .catch(error => {
+            storeDataDetail = undefined;
+            console.log(error);
+        });
     return storeDataDetail;
 }
 
@@ -68,21 +59,18 @@ export async function getQueue() {
     if (userData === null || Object.keys(userData) === 0){
         userData =  getUserData();
     }
-    /***
-        await axios.get(DB_URL + '/visitor/queue',{
+    let queue = [];
+    await axios.get(DB_URL + '/visitor/queue',{
         headers: {
             'Authorization': `Bearer ${userData.token}`,
         },})
         .then(response => {
-                const queue = response.data;
+                queue = response.data;
             })
         .catch(error => {
-                const queue = undefined;
                 console.log(error);
 
             });
-            ***/
-    const queue = queueSample;
     return queue;
 }
 
@@ -91,24 +79,20 @@ export async function registerQueue(id) {
     if (userData === null || Object.keys(userData) === 0){
         userData =  getUserData();
     }
-    /***
-    axios.post(DB_URL + '/visitor/wait',{
+    let result = undefined;
+    await axios.post(DB_URL + '/visitor/wait',{
             headers: {
                 'Authorization': `Bearer ${userData.token}`,
             },
             programId: id,
         })
         .then(response => {
-                const result = response.data;
+                result = response.data;
             })
         .catch(error => {
-                const result = undefined;
                 console.log(error);
 
             });
-    ***/
-    const result = queueSample;
-    sessionStorage.setItem("reserve", 1);
     return result;
 }
 
@@ -117,23 +101,19 @@ export async function delateQueue(id) {
     if (userData === null || Object.keys(userData) === 0){
         userData =  getUserData();
     }
-    /***
-     axios.put(DB_URL + '/visitor/cancel',{
+    let result = undefined;
+    await axios.put(DB_URL + '/visitor/cancel',{
             headers: {
                 'Authorization': `Bearer ${userData.token}`,
             },
             programId: id,
         })
         .then(response => {
-                const result = response.data;
+                result = response.data;
             })
         .catch(error => {
-                const result = undefined;
                 console.log(error);
 
             });
-    ***/
-    const result = queueSample;
-    sessionStorage.setItem("reserve", 0);
     return result;
 }

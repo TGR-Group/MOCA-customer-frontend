@@ -12,7 +12,7 @@
     });
     const Queues = inject('Queues');
 
-    const polling = setInterval(() => {
+    const polling = setInterval( () => {
         if(router.currentRoute.path !== '/') return
         if (document.visibilityState === 'visible') {
             getUserData().then((data) => {
@@ -34,23 +34,16 @@
         QRLeft.value = window.outerWidth / 2 - QRSize / 2 + "px";
     });
 
-    const date = new Date();
-
     const showStoreList = computed(() => {
-        if (Queues){
+        if (Queues.value){
             return Queues.value.filter(Queue => (Queue.status === 'wait' || Queue.status === 'called'));
         }else{
             return [];
         }
     })
 
-    const reserveIsActve = ref(parseInt(sessionStorage.getItem("reserve"),10));
-    const Demo = setInterval(() => {
-        reserveIsActve.value = parseInt(sessionStorage.getItem("reserve"),10);
-    }, 100);
     onUnmounted(() => {
         clearInterval(polling);
-        clearInterval(Demo);
     });
 </script>
 
@@ -61,10 +54,13 @@
     <div class="IdBox" v-if="userData" @click="QRIsActive = !QRIsActive">
         ID:{{ userData.screenId }}
     </div>
+    <div class="IdBox" v-else>
+        ID:取得中
+    </div>
 
     <h2>予約状況</h2>
 
-    <div class="NoResearved" v-if="/***showStoreList.length == 0 ||*/ !reserveIsActve">
+    <div class="NoResearved" v-if="showStoreList.length == 0">
         <p>予約店舗がありません</p>
     </div>
     <div v-else>
@@ -76,7 +72,7 @@
         <ToIntroductionButton />
     </div>
 
-    <div class="QRBackground" v-show="QRIsActive" @click="QRIsActive = !QRIsActive">
+    <div class="QRBackground" v-if="userData" v-show="QRIsActive" @click="QRIsActive = !QRIsActive">
         <div class="QRBox">
             <VueQrcode :value="userData.screenId" :options="{ width: QRSize }" />
         </div>

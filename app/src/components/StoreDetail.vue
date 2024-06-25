@@ -40,7 +40,6 @@
         router.push('/');
     }
 
-    /***
     if (storeDataDetail[StoreData.value.id].img){
         StoreData.value.img = storeDataDetail[StoreData.value.id].img;
     }
@@ -48,7 +47,6 @@
     if (storeDataDetail[StoreData.value.id].menu) {
         StoreData.value.menu = storeDataDetail[StoreData.value.id].menu;
     }
-    ***/
 
     const StoreCategory = {
         '食販': foodDetail,
