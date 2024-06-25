@@ -49,8 +49,6 @@ provide ('storeDataDetail', readonly(storeDataDetail));
 onUnmounted(() => {
     clearInterval(polling);
 });
-//Demo
-    sessionStorage.setItem("reserve", 0);
 </script>
 
 <template>

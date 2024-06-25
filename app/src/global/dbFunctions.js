@@ -1,10 +1,5 @@
 import axios from 'axios'
 
-/**demo用 */
-import userDataSample  from '../assets/UserDataSample.json';
-import storeDatasSample  from '../assets/StoreDatasSample.json';
-import storeDataDetailSample  from '../assets/StoreDetail.json';
-import queueSample  from '../assets/QueuesSample.json';
 
 const DB_URL = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
