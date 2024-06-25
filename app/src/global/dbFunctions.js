@@ -99,7 +99,7 @@ export async function delateQueue(id) {
         userData =  getUserData();
     }
     let result = undefined;
-    await axios.put(DB_URL + '/visitor/cancel',{
+    await axios.post(DB_URL + '/visitor/cancel',{
         auth: {
             username: userData.id,
             password: userData.token,
