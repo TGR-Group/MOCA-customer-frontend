@@ -25,7 +25,7 @@ export async function getUserData() {
 
 export async function getStoreDatas() {
     let storeDatas = [];
-    await axios.get(DB_URL + '/programs')
+    await axios.get('/programs')
         .then(response => {
             storeDatas = response.data;
         })
@@ -38,7 +38,7 @@ export async function getStoreDatas() {
 
 export async function getStoreDataDetail(id) {
     let storeDataDetail = {};
-    await axios.get(DB_URL + '/programs/' + id)
+    await axios.get('/programs/' + id)
         .then(response => {
             storeDataDetail = response.data;
         })
@@ -55,7 +55,7 @@ export async function getQueue() {
         userData =  getUserData();
     }
     let queue = [];
-    await axios.get(DB_URL + '/visitor/queue',{
+    await axios.get('/visitor/queue',{
         auth: {
             username: userData.id,
             password: userData.token,
@@ -76,7 +76,7 @@ export async function registerQueue(id) {
         userData =  getUserData();
     }
     let result = undefined;
-    await axios.post(DB_URL + '/visitor/wait',{
+    await axios.post('/visitor/wait',{
         auth: {
             username: userData.id,
             password: userData.token,
@@ -99,7 +99,7 @@ export async function delateQueue(id) {
         userData =  getUserData();
     }
     let result = undefined;
-    await axios.post(DB_URL + '/visitor/cancel',{
+    await axios.post('/visitor/cancel',{
         auth: {
             username: userData.id,
             password: userData.token,
