@@ -76,7 +76,18 @@
             </p>
         </div>
 
-        <component :is="StoreCategory[StoreData.category]" :storeData="StoreData" margin="auto" />
+        <div v-if="StoreData.menu">
+            <h2>商品一覧</h2>
+            <div class="storeDetailMenuBox">
+                <SimplifiedMenuBox :menuData="StoreData.menu"  />
+            </div>
+        </div>
+
+        <div v-if="StoreData.timeTable && StoreData.timeTable.length > 0">
+            <h2>タイムテーブル</h2>
+            <TimeTableBox class="timeTableComponent"  v-for="data in StoreData.timeTable" :timeTable="data" />
+        </div>
+
         <div style="height: 7em; display: flex; align-items: end;">
             <button v-if="StoreData.waitEnabled" class="reserveButton" @click="Reserve">
                 <span class="ButtonText">並ぶ</span>
