@@ -1,13 +1,5 @@
 <template>
     <h1>校内マップ</h1>
 
-    <h2>第1体育館</h2>
-
-    <h2>第2体育館</h2>
-
-    <h2>染谷ホール</h2>
-
-    <h2>音楽室</h2>
-
-    <h2>格技室</h2>
+    <img src="/src/assets/img/schoolMap.png" alt="schoolMap" width="80%" style="margin: auto;" />
 </template>

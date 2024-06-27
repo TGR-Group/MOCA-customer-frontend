@@ -6,14 +6,14 @@
 <template>
     <div class="Header">
       <router-link to="/" class="HeaderTitle"><span style="font-size: 0.5em;">MOCA for</span>染谷祭</router-link>
-      <div class="HamburgerBtn" @click='HamburgerIsActive=!HamburgerIsActive'>
+      <div class="HamburgerBtn" @click.stop='HamburgerIsActive=!HamburgerIsActive'>
           <span class="line line_01" v-bind:class="{'BtnLine01':HamburgerIsActive}"></span>
           <span class="line line_02" v-bind:class="{'BtnLine02':HamburgerIsActive}"></span>
           <span class="line line_03" v-bind:class="{'BtnLine03':HamburgerIsActive}"></span>
       </div>
 
       <transition name="menu">
-          <div class="MenuBackground" v-show="HamburgerIsActive" @click='HamburgerIsActive=!HamburgerIsActive'>
+          <div class="MenuBackground" v-show="HamburgerIsActive" @click.stop='HamburgerIsActive=!HamburgerIsActive'>
               <div class="menu">
                   <ul>
                       <li><router-link to="/#HOME" @click.stop='HamburgerIsActive=!HamburgerIsActive'>ホーム</router-link></li>
