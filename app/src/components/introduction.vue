@@ -123,7 +123,7 @@
                 <div v-for="(GradeId, Grade) in Grades" :key="'Grade' + Grade">
                     <label :for="'Grade' + Grade">
                         <input type="checkbox" :id="'Grade' + Grade" v-model="GradeChecked" :value="GradeId" />
-                        {{ Grade }}
+                        <span v-if="Grade == '部活'">班活</span><span v-else>{{ Grade }}</span>
                     </label>
                 </div>
            </div>
