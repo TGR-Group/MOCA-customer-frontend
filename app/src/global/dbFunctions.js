@@ -54,7 +54,7 @@ export async function getQueue() {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
         await getUserData().then((data) => {
-        userData.value = data;
+        userData = data;
     });;
     }
     let queue = [];
@@ -77,7 +77,7 @@ export async function registerQueue(id) {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
         await getUserData().then((data) => {
-        userData.value = data;
+        userData = data;
     });;
     }
     let result = undefined;
@@ -102,7 +102,7 @@ export async function delateQueue(id) {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
         await getUserData().then((data) => {
-        userData.value = data;
+        userData = data;
     });;
     }
     let result = undefined;
