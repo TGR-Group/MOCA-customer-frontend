@@ -2,7 +2,6 @@ import axios from 'axios'
 
 
 const DB_URL = import.meta.env.VITE_API_URL;
-axios.defaults.withCredentials = true;
 axios.defaults.baseURL = DB_URL;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.withCredentials = true;
