@@ -6,20 +6,9 @@
     import TimeTableBox from './TimeTableBox.vue';
     import { getUserData } from '../global/dbFunctions.js';
 
-    const userData = ref(null);
-    getUserData().then((data) => {
-        userData.value = data;
-    });
+    const userData = inject('userData');
     const Queues = inject('Queues');
 
-    const polling = setInterval( () => {
-        if(router.currentRoute.path !== '/') return
-        if (document.visibilityState === 'visible') {
-            getUserData().then((data) => {
-                userData.value = data;
-            });
-        }
-    }, 60000);
 
     const timeTableData = ref(inject('timeTables'));
 
@@ -42,9 +31,6 @@
         }
     })
 
-    onUnmounted(() => {
-        clearInterval(polling);
-    });
 </script>
 
 <template>

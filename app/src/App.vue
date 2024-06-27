@@ -8,10 +8,17 @@ import { getQueue } from './global/dbFunctions.js';
 import { timeTables, storeDataDetail } from './global/constDatas.js';
 import CallNotification from './components/callNotification.vue';
 
+const userData = ref(null);
 const Queues = ref(null);
-getQueue().then((data) => {
-  Queues.value = data.queue;
+
+getUserData().then((data) => {
+  userData.value = data;
+  getQueue().then((data) => {
+    Queues.value = data.queue;
+  });
 });
+
+
 const showCallNotification = ref(false);
 const callNotificationData = ref(null);
 
@@ -40,6 +47,7 @@ const checkNotification = () => {
   callNotificationData.value = null;
 }
 
+provide('userData', readonly(userData));
 provide('Queues', readonly(Queues));
 provide('DB_URL', readonly(import.meta.env.VITE_API_URL));
 provide('THIS_SITE_URL', readonly(import.meta.env.VITE_THIS_SITE_URL));
