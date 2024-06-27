@@ -4,7 +4,7 @@ import ToPageTop from './components/ToPageTop.vue';
 import MainFooter from './components/MainFooter.vue';
 import callNotification from './components/callNotification.vue';
 import { ref, provide, readonly, onUnmounted } from 'vue';
-import { getQueue } from './global/dbFunctions.js';
+import { getUserData, getQueue } from './global/dbFunctions.js';
 import { timeTables, storeDataDetail } from './global/constDatas.js';
 import CallNotification from './components/callNotification.vue';
 

@@ -4,7 +4,6 @@
     import ToIntroductionButton from './ToIntroductionButton.vue';
     import VueQrcode from '@chenfengyuan/vue-qrcode';
     import TimeTableBox from './TimeTableBox.vue';
-    import { getUserData } from '../global/dbFunctions.js';
 
     const userData = inject('userData');
     const Queues = inject('Queues');
