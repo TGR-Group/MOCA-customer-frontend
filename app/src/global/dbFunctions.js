@@ -14,7 +14,6 @@ export async function getUserData() {
             await axios.post('/register')
                 .then(response => {
                     localStorage.setItem('userData', JSON.stringify(response.data));
-                    console.log(response.data);
                     userData = response.data;
                 })
                 .catch(error => {
