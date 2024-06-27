@@ -115,6 +115,7 @@ h2 {
     text-align: left;
     padding: 0%;
     word-break: break-all;
+    white-space: pre-line;
 }
 .reserveButton {
     display: flex;
