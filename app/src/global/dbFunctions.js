@@ -6,6 +6,7 @@ axios.defaults.withCredentials = true;
 axios.defaults.baseURL = DB_URL;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.withCredentials = true;
+axios.defaults.crossDomain = true;
 
 export async function getUserData() {
     let userData = JSON.parse(localStorage.getItem('userData'));
@@ -52,7 +53,9 @@ export async function getStoreDataDetail(id) {
 export async function getQueue() {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
-        userData =  getUserData();
+        await getUserData().then((data) => {
+        userData.value = data;
+    });;
     }
     let queue = [];
     await axios.get('/visitor/queue',{
@@ -73,7 +76,9 @@ export async function getQueue() {
 export async function registerQueue(id) {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
-        userData =  getUserData();
+        await getUserData().then((data) => {
+        userData.value = data;
+    });;
     }
     let result = undefined;
     await axios.post('/visitor/wait',{
@@ -96,7 +101,9 @@ export async function registerQueue(id) {
 export async function delateQueue(id) {
     let userData = JSON.parse(localStorage.getItem('userData'));
     if (userData === null || Object.keys(userData) === 0){
-        userData =  getUserData();
+        await getUserData().then((data) => {
+        userData.value = data;
+    });;
     }
     let result = undefined;
     await axios.post('/visitor/cancel',{
