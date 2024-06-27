@@ -68,7 +68,7 @@
         <h1>{{ StoreData.name }}</h1>
         <div class="storeInfo">
             <img :src="StoreData.img" v-if="StoreData.img" alt="storeImage" width="100%" style="margin: auto;" />
-            <p class="StoreDiscription">{{ StoreData.discription }}</p>
+            <p class="Storedescription">{{ StoreData.description }}</p>
             <p class="storePlace">
                 <span v-if="StoreData.grade=='部活'">部活：</span><span v-else>クラス：</span>{{ StoreData.className }}<br>
                 <span>場所：{{ StoreData.place }}<br></span>
@@ -109,7 +109,7 @@ h2 {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
-.StoreDiscription {
+.Storedescription {
     width: 100%;
     margin: auto auto 2rem auto;
     text-align: left;

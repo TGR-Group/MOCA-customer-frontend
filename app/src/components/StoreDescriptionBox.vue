@@ -38,7 +38,7 @@
 
         <div class="StoreName">{{ props.StoreData.name }}</div>
 
-        <div class="StoreDiscription">{{ props.StoreData.summary }}</div>
+        <div class="StoreDescription">{{ props.StoreData.summary }}</div>
 
         <div class="StoreState" v-if="props.StoreData.WaitingPeople <= 0">
             待ち時間なし
@@ -119,7 +119,7 @@
         top: 0;
         bottom: 0;
     }
-    .StoreDiscription {
+    .StoreDescription {
         display: flex;
         width: 75%;
         align-items: stretch;

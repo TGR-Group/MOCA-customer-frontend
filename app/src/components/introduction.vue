@@ -1,7 +1,7 @@
 <script setup>
     import { ref, computed, onUnmounted } from 'vue';
     import { useRouter } from 'vue-router';
-    import StoreDiscriptionBox from './StoreDiscriptionBox.vue';
+    import StoreDescriptionBox from './StoreDescriptionBox.vue';
     import { getStoreDatas } from '../global/dbFunctions.js';
 
     const StoreDatas = ref(null);
@@ -131,7 +131,7 @@
     </div>
     <div class="StoreBoxes">
         <div class="IntroStoreBox" v-if="StoreDatas && DisplayStoreList" v-for="StoreID of DisplayStoreList" >
-            <StoreDiscriptionBox  :StoreID="StoreID" :StoreData="StoreDatas.find(d =>{return d.id == StoreID})"  />
+            <StoreDescriptionBox  :StoreID="StoreID" :StoreData="StoreDatas.find(d =>{return d.id == StoreID})"  />
         </div>
     </div>
 </template>
