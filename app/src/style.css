@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -23,6 +24,7 @@ a:hover {
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
   color: #1b1b1b;
   margin: 0;
