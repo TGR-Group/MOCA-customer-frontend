@@ -26,7 +26,7 @@ export async function getStoreDatas() {
     let storeDatas = [];
     await axios.get('/programs')
         .then(response => {
-            storeDatas = response.data;
+            storeDatas = response.data.programs;
         })
         .catch(error => {
             storeDatas = undefined;
