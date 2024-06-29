@@ -14,15 +14,16 @@
 
       <transition name="menu">
           <div class="MenuBackground" v-show="HamburgerIsActive" @click.stop='HamburgerIsActive=!HamburgerIsActive'>
-              <div class="menu">
+              <nav class="menu">
                   <ul>
                       <li><router-link to="/#HOME" @click.stop='HamburgerIsActive=!HamburgerIsActive'>ホーム</router-link></li>
                       <li><router-link to="/introduction" @click.stop='HamburgerIsActive=!HamburgerIsActive'>出し物紹介</router-link></li>
                       <li><router-link to="/SchoolMap" @click.stop='HamburgerIsActive=!HamburgerIsActive'>校内マップ</router-link></li>
                       <!--<li><router-link to="/TimeTable" @click.stop='HamburgerIsActive=!HamburgerIsActive'>タイムテーブル</router-link></li>-->
                       <li><router-link to="/access" @click.stop='HamburgerIsActive=!HamburgerIsActive'>学校へのアクセス</router-link></li>
+                      <li><a href="https://staff.project-moca.com/user_status" @click.stop='HamburgerIsActive=!HamburgerIsActive'>落し物</a></li>
                   </ul>
-              </div>
+                </nav>
           </div>
       </transition>
     </div>
