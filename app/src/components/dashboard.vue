@@ -57,7 +57,7 @@
         <ToIntroductionButton />
     </div>
 
-    <div class="QRBackground" v-if="false && userData" v-show="QRIsActive" @click="QRIsActive = !QRIsActive">
+    <div class="QRBackground" v-if="false && userData && QRIsActive" @click="QRIsActive = !QRIsActive">
         <div class="QRBox">
             <VueQrcode :value="userData.screenId" :options="{ width: QRSize }" />
         </div>
