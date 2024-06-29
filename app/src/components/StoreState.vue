@@ -137,7 +137,7 @@
         font-size: 1.8em;
         font-weight: bold;
         overflow-wrap: normal;
-        word-break: keep-all;
+        word-break: normal;
         grid-column: 1;
         grid-row: 1;
         line-height: 1em;
