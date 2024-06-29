@@ -37,7 +37,7 @@ export async function getStoreDatas() {
 
 export async function getStoreDataDetail(id) {
     let storeDataDetail = {};
-    await axios.get('/programs/' + id)
+    await axios.get('/program/' + id)
         .then(response => {
             storeDataDetail = response.data;
         })
