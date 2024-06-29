@@ -63,7 +63,7 @@
             <button class="ReserveBtn btn col-6" v-if="props.StoreData.waitEnabled" @click.stop="Reserve">
                 並ぶ
             </button>
-            <div class="ReserveBtn btn col-6" v-else>
+            <div class="ReserveBtn btn col-6" v-else-if="crowdingSituation">
                 {{ crowdingSituation.quantity }}
             </div>
             <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
