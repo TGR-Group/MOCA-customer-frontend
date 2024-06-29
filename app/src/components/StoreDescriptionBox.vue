@@ -25,7 +25,7 @@
         }
     });
 
-    props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
+    //props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
 
     props.StoreData.CrowdingSituation = ref("混雑中");
 
