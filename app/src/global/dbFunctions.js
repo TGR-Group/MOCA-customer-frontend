@@ -94,6 +94,7 @@ export async function registerQueue(id) {
                 console.log(error);
 
             });
+    location.reload()
     return result;
 }
 
@@ -120,5 +121,6 @@ export async function delateQueue(id) {
                 console.log(error);
 
             });
+    location.reload()
     return result;
 }
