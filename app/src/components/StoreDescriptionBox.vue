@@ -99,7 +99,7 @@
         justify-content: start;
         align-items: stretch;
         margin: auto auto;
-        font-size: 1.9em;
+        font-size: 1.5em;
         font-weight: bold;
         overflow-wrap: normal;
         word-break: keep-all;
