@@ -133,6 +133,6 @@ export async function getCrowdingSituation (programId) {
         })
         .catch((err) => {
             console.log(err);
-        })
+        });
     return result
 }

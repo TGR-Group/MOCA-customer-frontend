@@ -10,6 +10,8 @@
     import exhibitionDetail from './storDetail/exhibition.vue';
     import attractionDetail from './storDetail/attraction.vue';
     import otherDetail from './storDetail/other.vue';
+    import simplifiedMenuBox from './storDetail/simplifiedMenuBox.vue';
+    import TimeTableBox from './TimeTableBox.vue'
 
     const route = useRoute();
     const router = useRouter();
@@ -18,6 +20,7 @@
     const StoreData = ref(null);
     getStoreDataDetail(storeId).then((data) => {
         StoreData.value = data;
+        console.log(data);
     });
 
     const polling = setInterval(() => {
@@ -70,13 +73,13 @@
         <div v-if="StoreData.menu">
             <h2>商品一覧</h2>
             <div class="storeDetailMenuBox">
-                <SimplifiedMenuBox :menuData="StoreData.menu"  />
+                <simplifiedMenuBox :menuData="StoreData.menu" style="margin: 0;" />
             </div>
         </div>
 
-        <div v-if="StoreData.timeTable && StoreData.timeTable.length > 0">
+        <div v-if="StoreData.timeTable && StoreData.timeTable != {}">
             <h2>タイムテーブル</h2>
-            <TimeTableBox class="timeTableComponent"  v-for="data in StoreData.timeTable" :timeTable="data" />
+            <TimeTableBox class="timeTableComponent"  :timeTable="StoreData.timeTable" />
         </div>
 
         <div style="height: 7em; display: flex; align-items: end;">
@@ -91,6 +94,10 @@
 </template>
 
 <style scoped>
+h1 {
+    margin: auto;
+    font-size: 3.9em;
+}
 h2 {
     margin: auto;
 }
@@ -107,6 +114,10 @@ h2 {
     padding: 0%;
     word-break: break-all;
     white-space: pre-line;
+}
+.storeDetailMenuBox{
+    width: 80%;
+    margin: auto;
 }
 .reserveButton {
     display: flex;
@@ -140,5 +151,9 @@ h2 {
     margin: 2em auto;
     font-size: 1.2em;
     text-align: left;
+}
+.timeTableComponent{
+    width: 80%;
+    margin: auto;
 }
 </style>

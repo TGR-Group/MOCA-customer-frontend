@@ -27,17 +27,23 @@
     });
 
     //props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
+    const waitingCount = ref(Math.floor(props.StoreData.waitingCount / 60000));
 
     const crowdingSituation = ref('不明');
     getCrowdingSituation(props.StoreID).then((data) => {
-        crowdingSituation.value = data;
+        if(data){
+            crowdingSituation.value = data;
+        };
+    })
+    .catch(err => {
+        console.log(err);
     })
 
     const polling = setInterval(() => {
         if(router.currentRoute.path !== '/introduction') return
         if (document.visibilityState === 'visible') {
             getCrowdingSituation(props.StoreID)((data) => {
-                crowdingSituation.value = data;
+                crowdingSituation.value = data.quantity;
             });
         };
     },60000);
@@ -45,7 +51,7 @@
 </script>
 
 <template>
-    <div class="StoreBox" @click="StoreBoxClick">
+    <div class="StoreBox">
 
         <img v-if="props.StoreData.StoreImage" class="StoreImage" :src="props.StoreData.StoreImage" alt="StoreImage" />
 
@@ -56,7 +62,7 @@
         <div class="StoreState" v-if="props.StoreData.WaitingPeople <= 0">
             待ち時間なし
         </div><div class="StoreState" v-else>
-            {{ props.StoreData.WaitingPeople }} 人待ち
+            {{ waitingCount }} 分待ち
         </div>
 
         <div class="buttons">
@@ -64,7 +70,7 @@
                 並ぶ
             </button>
             <div class="ReserveBtn btn col-6" v-else-if="crowdingSituation">
-                {{ crowdingSituation.quantity }}
+                {{ crowdingSituation }}
             </div>
             <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
                 詳しく
