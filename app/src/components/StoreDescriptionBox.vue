@@ -102,7 +102,7 @@
         font-size: 1.5em;
         font-weight: bold;
         overflow-wrap: normal;
-        word-break: keep-all;
+        word-break: normal;
         line-height: 1em;
         height: fit-content;
         padding: 0.5em 0 0 0;
