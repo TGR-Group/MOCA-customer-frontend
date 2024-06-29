@@ -28,7 +28,7 @@
 
     //props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
 
-    const crowdingSituation = ref(null);
+    const crowdingSituation = ref('不明');
     getCrowdingSituation(props.StoreID).then((data) => {
         crowdingSituation.value = data;
     })
