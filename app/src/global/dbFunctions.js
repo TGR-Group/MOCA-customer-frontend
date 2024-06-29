@@ -80,11 +80,12 @@ export async function registerQueue(id) {
     }
     let result = undefined;
     await axios.post('/visitor/wait',{
+        programId: id,
+        },{
         auth: {
             username: userData.id,
             password: userData.token,
         },
-        programId: id,
         })
         .then(response => {
                 result = response.data;
@@ -105,11 +106,12 @@ export async function delateQueue(id) {
     }
     let result = undefined;
     await axios.post('/visitor/cancel',{
+            programId: id,
+        },{
         auth: {
             username: userData.id,
             password: userData.token,
         },
-            programId: id,
         })
         .then(response => {
                 result = response.data;
