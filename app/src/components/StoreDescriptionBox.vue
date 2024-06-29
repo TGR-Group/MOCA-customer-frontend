@@ -69,7 +69,7 @@
         <div class="StoreState" v-if="props.StoreData.WaitingPeople <= 0">
             待ち時間なし
         </div><div class="StoreState" v-else>
-            {{ waitingCount }} 分待ち
+            <span v-if="waitingCount">{{ waitingCount }} 分待ち</span><span v-else>待ち時間調査中</span>
         </div>
 
         <div class="buttons">
