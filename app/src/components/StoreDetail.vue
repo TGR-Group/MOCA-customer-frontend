@@ -29,7 +29,6 @@
         }
     }, 60000);
 
-    const storeDataDetail = inject('storeDataDetail');
 
     const waitingTime = computed(() => {
         return Math.floor(StoreData.value.waitingCount / 60000);
@@ -40,13 +39,6 @@
         router.push('/');
     }
 
-    if (storeDataDetail[StoreData.value.id].img){
-        StoreData.value.img = storeDataDetail[StoreData.value.id].img;
-    }
-
-    if (storeDataDetail[StoreData.value.id].menu) {
-        StoreData.value.menu = storeDataDetail[StoreData.value.id].menu;
-    }
 
     const StoreCategory = {
         '食販': foodDetail,
@@ -67,7 +59,6 @@
     <div v-if="StoreData">
         <h1>{{ StoreData.name }}</h1>
         <div class="storeInfo">
-            <img :src="StoreData.img" v-if="StoreData.img" alt="storeImage" width="100%" style="margin: auto;" />
             <p class="Storedescription">{{ StoreData.description }}</p>
             <p class="storePlace">
                 <span v-if="StoreData.grade=='部活'">部活：</span><span v-else>クラス：</span>{{ StoreData.className }}<br>
