@@ -1,7 +1,7 @@
 <script setup>
     import { ref, inject, onUnmounted, computed } from 'vue';
     import { useRoute, useRouter } from "vue-router";
-    import { getStoreDataDetail, registerQueue } from '../global/dbFunctions.js';
+    import { getStoreDataDetail, registerQueue, getCrowdingSituation } from '../global/dbFunctions.js';
     import NotFound from './NotFound.vue';
     import foodDetail from './storDetail/food.vue';
     import cafeDetail from './storDetail/cafe.vue';
@@ -23,16 +23,6 @@
         console.log(data);
     });
 
-    const polling = setInterval(() => {
-        if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
-        if (document.visibilityState === 'visible') {
-            getStoreDataDetail(storeId).then((data) => {
-                StoreData.value = data;
-            });
-        }
-    }, 60000);
-
-
     const waitingTime = computed(() => {
         return Math.floor(StoreData.value.waitingCount / 60000);
     });
@@ -53,6 +43,28 @@
         '体験型': attractionDetail,
         'その他': otherDetail
     };
+
+    const crowdingSituation = ref('不明');
+    getCrowdingSituation(storeId).then((data) => {
+        if(data){
+            crowdingSituation.value = data;
+        };
+    })
+
+    const polling = setInterval(() => {
+        if(router.currentRoute.path !== '/introduction/detail/:pathMatch(.*)*') return
+        if (document.visibilityState === 'visible') {
+            getStoreDataDetail(storeId).then((data) => {
+                StoreData.value = data;
+            });
+            getCrowdingSituation(storeId).then((data) => {
+                if(data){
+                    crowdingSituation.value = data;
+                };
+            })
+        }
+    }, 60000);
+
     onUnmounted(() => {
         clearInterval(polling);
     });
@@ -67,6 +79,7 @@
                 <span v-if="StoreData.grade=='部活'">部活：</span><span v-else>クラス：</span>{{ StoreData.className }}<br>
                 <span>場所：{{ StoreData.place }}<br></span>
                 <span>待ち時間：{{ waitingTime }}分待ち<br></span>
+                <span>混雑状況：{{ crowdingSituation }}<br></span>
             </p>
         </div>
 

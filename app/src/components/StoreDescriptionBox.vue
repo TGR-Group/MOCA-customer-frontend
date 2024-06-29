@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue';
+    import { computed, ref, onUnmounted } from 'vue';
     import { useRouter } from 'vue-router';
     import { registerQueue } from '../global/dbFunctions.js'
     import { getCrowdingSituation } from '../global/dbFunctions.js'
@@ -27,7 +27,9 @@
     });
 
     //props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
-    const waitingCount = ref(Math.floor(props.StoreData.waitingCount / 60000));
+    const waitingCount = computed(() => {
+        return Math.floor(props.StoreData.waitingCount / 60000)
+    });
 
     const crowdingSituation = ref('不明');
     getCrowdingSituation(props.StoreID).then((data) => {
@@ -43,11 +45,16 @@
         if(router.currentRoute.path !== '/introduction') return
         if (document.visibilityState === 'visible') {
             getCrowdingSituation(props.StoreID)((data) => {
-                crowdingSituation.value = data.quantity;
+                if (data) {
+                    crowdingSituation.value = data.quantity;
+                };
             });
         };
     },60000);
 
+    onUnmounted(() => {
+        clearInterval(polling);
+    });
 </script>
 
 <template>
@@ -69,7 +76,7 @@
             <button class="ReserveBtn btn col-6" v-if="props.StoreData.waitEnabled" @click.stop="Reserve">
                 並ぶ
             </button>
-            <div class="ReserveBtn btn col-6" v-else-if="crowdingSituation">
+            <div class="ReserveBtn col-6" v-else-if="crowdingSituation">
                 {{ crowdingSituation }}
             </div>
             <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
@@ -112,6 +119,7 @@
     }
     .StoreName {
         display: flex;
+        text-align: left;
         width: 75%;
         justify-content: start;
         align-items: stretch;
@@ -169,7 +177,6 @@
         text-align: left;
         border-radius: 0em;
         text-decoration: none;
-        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
         color: #3d3d3d;
     }
     .ReserveBtn:hover {
