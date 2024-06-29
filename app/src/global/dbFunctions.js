@@ -124,3 +124,15 @@ export async function delateQueue(id) {
     location.reload()
     return result;
 }
+
+export async function getCrowdingSituation (programId) {
+    let result = undefined
+    await axios.get('/get_stock/'+programId)
+        .then((response) => {
+            result = response.data;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    return result
+}

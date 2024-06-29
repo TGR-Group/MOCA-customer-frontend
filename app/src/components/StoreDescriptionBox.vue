@@ -2,6 +2,7 @@
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
     import { registerQueue } from '../global/dbFunctions.js'
+    import { getCrowdingSituation } from '../global/dbFunctions.js'
 
     const router = useRouter();
     const StoreBoxClick = () => {
@@ -27,7 +28,19 @@
 
     //props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
 
-    props.StoreData.CrowdingSituation = ref("混雑中");
+    const crowdingSituation = ref(null);
+    getCrowdingSituation(props.StoreID).then((data) => {
+        crowdingSituation.value = data;
+    })
+
+    const polling = setInterval(() => {
+        if(router.currentRoute.path !== '/introduction') return
+        if (document.visibilityState === 'visible') {
+            getCrowdingSituation(props.StoreID)((data) => {
+                crowdingSituation.value = data;
+            });
+        };
+    },60000);
 
 </script>
 
@@ -50,11 +63,9 @@
             <button class="ReserveBtn btn col-6" v-if="props.StoreData.waitEnabled" @click.stop="Reserve">
                 並ぶ
             </button>
-            <!--
             <div class="ReserveBtn btn col-6" v-else>
-                {{ props.StoreData.CrowdingSituation }}
+                {{ crowdingSituation.quantity }}
             </div>
-        -->
             <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
                 詳しく
             </router-link>
