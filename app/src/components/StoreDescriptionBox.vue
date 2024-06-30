@@ -87,7 +87,7 @@
             <div class="ReserveBtn col-6" v-else-if="crowdingSituation">
                 {{ crowdingSituation }}
             </div>
-            <router-link :to="'/introduction/detail/' + storeID" class="ToDetail btn col-6">
+            <router-link :to="'/introduction/detail/' + StoreID" class="ToDetail btn col-6">
                 詳しく
             </router-link>
         </div>
