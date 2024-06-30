@@ -96,7 +96,7 @@
         </div>
 
         <div style="height: 7em; display: flex; align-items: end;">
-            <button v-if="StoreData.waitEnabled" class="reserveButton" @click="Reserve">
+            <button v-if="false && StoreData.waitEnabled" class="reserveButton" @click="Reserve">
                 <span class="ButtonText">並ぶ</span>
             </button>
         </div>

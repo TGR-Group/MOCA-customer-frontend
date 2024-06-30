@@ -45,6 +45,7 @@
 
     <h2>予約状況</h2>
 
+    <div v-if="false">
     <div class="NoResearved" v-if="showStoreList.length == 0">
         <p>予約店舗がありません</p>
     </div>
@@ -53,6 +54,8 @@
             <StoreState :VisitorID=userData.screenId :StoreID=Queue.programId :UserData=userData :Queue=Queue />
         </div>
     </div>
+    </div>
+    <p style="font-size: medium;">予約機能停止中</p>
     <div class="ToIntroductionButton_dashboard">
         <ToIntroductionButton />
     </div>
