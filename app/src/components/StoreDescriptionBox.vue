@@ -2,16 +2,16 @@
     import { computed, ref, onUnmounted } from 'vue';
     import { useRouter } from 'vue-router';
     import { registerQueue } from '../global/dbFunctions.js'
-    import { getCrowdingSituation } from '../global/dbFunctions.js'
+    import { getCrowdingSituation, getStoreDataDetail } from '../global/dbFunctions.js'
 
     const router = useRouter();
     const StoreBoxClick = () => {
-        router.push('/introduction/detail/' + props.StoreID);
+        router.push('/introduction/detail/' + storeID);
     }
 
 
     const Reserve = () => {
-        registerQueue(props.StoreID);
+        registerQueue(storeID);
         router.push('/');
     }
 
@@ -20,15 +20,19 @@
             type: String,
             required: true,
         },
-        StoreData: {
-            type: Object,
-            required: true,
-        }
     });
 
-    //props.StoreData.StoreImage = "https://placehold.jp/160x100.png";
+    const storeData = ref(null);
+    getStoreDataDetail(props.StoreID).then((data) => {
+        storeData.value = data;
+        console.log(data);
+    });
+
+
+
+    //storeData.StoreImage = "https://placehold.jp/160x100.png";
     const waitingCount = computed(() => {
-        return Math.floor(props.StoreData.waitingCount / 60000)
+        return Math.floor(storeData.waitingCount / 60000)
     });
 
     const crowdingSituation = ref('不明');
@@ -49,6 +53,10 @@
                     crowdingSituation.value = data.quantity;
                 };
             });
+                getStoreDataDetail(props.StoreID).then((data) => {
+                storeData.value = data;
+                console.log(data);
+            });
         };
     },60000);
 
@@ -60,13 +68,13 @@
 <template>
     <div class="StoreBox">
 
-        <img v-if="props.StoreData.StoreImage" class="StoreImage" :src="props.StoreData.StoreImage" alt="StoreImage" />
+        <img v-if="storeData.StoreImage" class="StoreImage" :src="storeData.StoreImage" alt="StoreImage" />
 
-        <div class="StoreName">{{ props.StoreData.name }}</div>
+        <div class="StoreName">{{ storeData.name }}</div>
 
-        <div class="StoreDescription">{{ props.StoreData.summary }}</div>
+        <div class="StoreDescription">{{ storeData.summary }}</div>
 
-        <div class="StoreState" v-if="props.StoreData.WaitingPeople <= 0">
+        <div class="StoreState" v-if="storeData.WaitingPeople <= 0">
             待ち時間なし
         </div><div class="StoreState" v-else>
             <span v-if="waitingCount">{{ waitingCount }} 分待ち</span><span v-else>待ち時間調査中</span>
@@ -79,7 +87,7 @@
             <div class="ReserveBtn col-6" v-else-if="crowdingSituation">
                 {{ crowdingSituation }}
             </div>
-            <router-link :to="'/introduction/detail/' + props.StoreID" class="ToDetail btn col-6">
+            <router-link :to="'/introduction/detail/' + storeID" class="ToDetail btn col-6">
                 詳しく
             </router-link>
         </div>
