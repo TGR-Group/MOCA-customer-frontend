@@ -1,25 +1,26 @@
-[
+{
+    "queue":[
+        {
+            "success": true,
+            "status": "wait",
+            "programId": "144bf05a-f83d-7e38-be23-10dfeed8abb6",
+            "waitingCount": 1800000,
+            "calledAt": null
+        },
 
-    {
-        "success": true,
-        "status": "wait",
-        "programId": "144bf05a-f83d-7e38-be23-10dfeed8abb6",
-        "waitingCount": 1800000,
-        "calledAt": null
-    },
-
-    {
-        "success": true,
-        "status": "over",
-        "programId": "6fe917dd-cfa5-3cd4-501a-8f2340df80a4",
-        "calledAt": 1715782315245
-    },
+        {
+            "success": true,
+            "status": "over",
+            "programId": "6fe917dd-cfa5-3cd4-501a-8f2340df80a4",
+            "calledAt": 1715782315245
+        },
 
 
-    {
-        "success": true,
-        "status": "over",
-        "programId": "0563690c-c063-2453-09e6-1784067a8135",
-        "calledAt": 1715781303926
-    }
-]
+        {
+            "success": true,
+            "status": "over",
+            "programId": "0563690c-c063-2453-09e6-1784067a8135",
+            "calledAt": 1715781303926
+        }
+    ]
+}

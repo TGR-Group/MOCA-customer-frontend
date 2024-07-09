@@ -1,5 +1,10 @@
 import axios from 'axios'
 
+//demo -----------------------------------------------------------------------------------
+import UserDataSample from '../assets/UserDataSample.json';
+import StoreDatasSample from '../assets/StoreDetail.json';
+import QueuesSample from '../assets/QueuesSample.json';
+// ----------------------------------------------------------------------------------------
 
 const DB_URL = import.meta.env.VITE_API_URL;
 axios.defaults.baseURL = DB_URL;
@@ -17,6 +22,7 @@ export async function getUserData() {
                 })
                 .catch(error => {
                     console.log(error);
+                    userData = UserDataSample;//demo
                 });
     }
     return userData;
@@ -29,7 +35,7 @@ export async function getStoreDatas() {
             storeDatas = response.data.programs;
         })
         .catch(error => {
-            storeDatas = undefined;
+            storeDatas = StoreDatasSample;//demo
             console.log(error);
         });
     return storeDatas;
@@ -42,7 +48,7 @@ export async function getStoreDataDetail(id) {
             storeDataDetail = response.data;
         })
         .catch(error => {
-            storeDataDetail = undefined;
+            storeDataDetail = StoreDatasSample[0];//demo
             console.log(error);
         });
     return storeDataDetail;
@@ -65,6 +71,7 @@ export async function getQueue() {
                 queue = response.data;
             })
         .catch(error => {
+                queue = QueuesSample;//demo
                 console.log(error);
 
             });

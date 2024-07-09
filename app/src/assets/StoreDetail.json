@@ -1,10 +1,11 @@
-{
-     "144bf05a-f83d-7e38-be23-10dfeed8abb6": {
+[
+     {
+        "id":"144bf05a-f83d-7e38-be23-10dfeed8abb6",
         "name": "ネネチキン",
         "summary": "おいしい物がたくさん！！",
         "discription": "皆さんこんにちは3年6組ではネネチキン様の食べ物を販売中です！とてもおいしいのでぜひ足を運んでください！まってます！！！",
         "category": "食販",
-        "grade": "1年生",
+        "grade": "3年生",
         "className": "3年6組",
         "waitEnabled": true,
         "waitingCount": 60000,
@@ -30,4 +31,4 @@
             "price": 200
         }]
     }
-}
+]

@@ -66,7 +66,7 @@
 </script>
 
 <template>
-    <div class="StoreBox">
+    <div v-if="storeData" class="StoreBox">
 
         <img v-if="storeData.StoreImage" class="StoreImage" :src="storeData.StoreImage" alt="StoreImage" />
 
@@ -81,7 +81,7 @@
         </div>
 
         <div class="buttons">
-            <button class="ReserveBtn btn col-6" v-if="false && rops.StoreData.waitEnabled" @click.stop="Reserve">
+            <button class="ReserveBtn btn col-6" v-if="storeData.waitEnabled" @click.stop="Reserve">
                 並ぶ
             </button>
             <div class="ReserveBtn col-6" v-else-if="crowdingSituation">
