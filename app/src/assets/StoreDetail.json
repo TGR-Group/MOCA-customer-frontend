@@ -9,6 +9,7 @@
         "className": "3年6組",
         "waitEnabled": true,
         "waitingCount": 60000,
+        "avgStayLength": 10,
         "img": "/assets/img/144bf05a-f83d-7e38-be23-10dfeed8abb6/shop.jpg",
         "place": "3年6組の教室",
         "menu": [{
