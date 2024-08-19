@@ -32,7 +32,7 @@
 
     //storeData.StoreImage = "https://placehold.jp/160x100.png";
     const waitingCount = computed(() => {
-        return Math.floor(storeData.waitingCount / 60000)
+        return Math.floor(storeData.waitingCount * storeData.avgStayLength / 60000)
     });
 
     const crowdingSituation = ref('不明');

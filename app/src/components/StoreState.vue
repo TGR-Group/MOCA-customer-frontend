@@ -49,7 +49,7 @@
     const NowDate = ref(new Date());
     const NowGetTime = ref(NowDate.value.getTime());
 
-    const waitingCount = ref(Math.floor(props.Queue.waitingCount / 60000));
+    const waitingCount = ref(Math.floor(props.Queue.waitingCount * ReserveData.avgStayLength / 60000));
 
     if((props.Queue.calledAt + ThirtyMinutes - NowGetTime.value) / 1000 / 60 + 5 > 0 && props.Queue.status == 'over'){
         BackGroundColor.value = '#888888';
