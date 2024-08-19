@@ -24,7 +24,7 @@
     });
 
     const waitingTime = computed(() => {
-        return Math.floor(StoreData.value.waitingCount / 60000);
+        return Math.floor(StoreData.value.waitingCount * StoreData.avgStayLength / 60000);
     });
 
     const Reserve = () => {
