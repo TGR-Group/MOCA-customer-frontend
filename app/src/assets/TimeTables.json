@@ -1,0 +1,244 @@
+{
+    "wholeTimeTable":[
+        {
+            "tableName": "一般公開1日目",
+            "year":2024,
+            "month":6,
+            "day":29,
+            "table":[
+                {
+                    "content": "各企画スタート",
+                    "start":{
+                        "hour":11,
+                        "minute":0
+                    },
+                    "end":{},
+                    "highlight":false,
+                    "pageLink":""
+                },
+                {
+                    "content": "一般受付開始",
+                    "start":{
+                        "hour":11,
+                        "minute":40
+                    },
+                    "end":{},
+                    "highlight":false,
+                    "pageLink":""
+                },
+                {
+                    "content": "一般公開",
+                    "start":{
+                        "hour":12,
+                        "minute":0
+                    },
+                    "end":{
+                        "hour":16,
+                        "minute":0
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        },
+
+        {
+            "tableName": "一般公開2日目",
+            "year":2024,
+            "month":6,
+            "day":30,
+            "table":[
+                {
+                    "content": "一般公開 受付開始",
+                    "start":{
+                        "hour": 9,
+                        "minute":40
+                    },
+                    "end":{},
+                    "highlight":false,
+                    "pageLink":""
+                },
+                {
+                    "content": "一般公開",
+                    "start":{
+                        "hour":10,
+                        "minute":0
+                    },
+                    "end":{
+                        "hour":14,
+                        "minute":0
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        }
+    ],
+
+    "eachVenueTimeTable":[
+        {
+            "tableName": "第1体育館2日目",
+            "venueName":"第1体育館",
+            "venueMap":"/SchoolMap/#第1体育館",
+            "year":2024,
+            "month":6,
+            "day":30,
+            "table":[
+                {
+                    "content": "吹奏楽班",
+                    "start":{
+                        "hour":10,
+                        "minute":30
+                    },
+                    "end":{
+                        "hour":11,
+                        "minute":0
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                },
+                {
+                    "content":"ギター・マンドリン班",
+
+                    "start":{
+                        "hour":11,
+                        "minute":15
+                    },
+                    "end":{
+                        "hour":12,
+                        "minute":15
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                },
+                {
+                    "content":"お昼休憩",
+
+                    "start":{
+                        "hour":12,
+                        "minute":15
+                    },
+                    "end":{
+                        "hour":13,
+                        "minute":0
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                },
+                {
+                    "content":"舞踊班",
+
+                    "start":{
+                        "hour":13,
+                        "minute":0
+                    },
+                    "end":{
+                        "hour":13,
+                        "minute":30
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        },
+        {
+            "tableName": "第2体育館2日目",
+            "venueName":"第2体育館",
+            "venueMap":"/SchoolMap/#第2体育館",
+            "year":2024,
+            "month":6,
+            "day":30,
+            "table":[
+                {
+                    "content": "各種企画",
+                    "start":{
+                        "hour":10,
+                        "minute":0
+                    },
+                    "end":{
+                        "hour":14,
+                        "minute":30
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        },
+        {
+            "tableName": "染谷ホール2日目",
+            "venueName":"染谷ホール",
+            "venueMap":"/SchoolMap/#染谷ホール",
+            "year":2024,
+            "month":6,
+            "day":30,
+            "table":[
+                {
+                    "content": "ESS班",
+                    "start":{
+                        "hour":10,
+                        "minute":0
+                    },
+                    "end":{
+                        "hour":14,
+                        "minute":30
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        },
+        {
+            "tableName": "音楽室2日目",
+            "venueName":"音楽室",
+            "venueMap":"/SchoolMap/#音楽室",
+            "year":2024,
+            "month":6,
+            "day":30,
+            "table":[
+                {
+                    "content": "音楽班",
+                    "start":{
+                        "hour":12,
+                        "minute":15
+                    },
+                    "end":{
+                        "hour":12,
+                        "minute":45
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        },
+        {
+            "tableName": "格技室2日目",
+            "venueName":"格技室",
+            "venueMap":"/SchoolMap/#格技室",
+            "year":2024,
+            "month":6,
+            "day":30,
+            "table":[
+                {
+                    "content": "軽音楽班",
+                    "start":{
+                        "hour":12,
+                        "minute":50
+                    },
+                    "end":{
+                        "hour":15,
+                        "minute":50
+                    },
+                    "highlight":false,
+                    "pageLink":""
+                }
+            ],
+            "annotation":""
+        }
+    ]
+}

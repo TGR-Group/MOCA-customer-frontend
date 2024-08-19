@@ -1,0 +1,24 @@
+{
+  "name": "moca",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
+    "@vuex-orm/core": "^0.36.4",
+    "axios": "^1.7.0",
+    "vue": "^3.4.26",
+    "vue-axios": "^3.5.2",
+    "vue-qrcode-reader": "^5.5.6",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.10"
+  }
+}

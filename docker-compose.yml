@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  moca_front_api:
+    internal: true
+  moca_front_access:
+    internal: false
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: "/usr/share/nginx/html"
+    volumes:
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - moca_front_api
+      - moca_front_access
+    expose:
+      - 80
+    tty: true
+    restart: always
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    env_file:
+      - config.env
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - moca_front_access
+    command: tunnel run
+    tty: true
+    restart: always
