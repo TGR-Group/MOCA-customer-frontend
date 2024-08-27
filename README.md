@@ -9,5 +9,5 @@
 ## スタッフページ
 [https://tgr.jp/moca-staff](https://tgr.jp/moca-staff) 
 
-##　Junzsのリポジトリ
+## Junzsのリポジトリ
 [https://tgr.jp/junzs](https://tgr.jp/junzs) 
