@@ -8,3 +8,6 @@
 
 ## スタッフページ
 [https://github.com/TGR-Group/MOCA](https://github.com/TGR-Group/MOCA) 
+
+##　Junzsのリポジトリ
+[https://github.com/JunzsGroup/someyasai](https://github.com/JunzsGroup/someyasai) 
