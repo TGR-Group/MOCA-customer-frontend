@@ -1,13 +1,13 @@
 # MOCA プロジェクト
 
 ## バックエンド
-[https://github.com/TGR-Group/moca-backend](https://github.com/TGR-Group/moca-backend)
+[https://tgr.jp/moca-backend](https://tgr.jp/moca-backend)
 
 ## フロントエンド
-[https://github.com/TGR-Group/MOCA-customer-frontend](https://github.com/TGR-Group/MOCA-customer-frontend)
+[https://tgr.jp/frontend-customer](https://tgr.jp/frontend-customer)
 
 ## スタッフページ
-[https://github.com/TGR-Group/MOCA](https://github.com/TGR-Group/MOCA) 
+[https://tgr.jp/moca-staff](https://tgr.jp/moca-staff) 
 
 ##　Junzsのリポジトリ
-[https://github.com/JunzsGroup/someyasai](https://github.com/JunzsGroup/someyasai) 
+[https://tgr.jp/junzs](https://tgr.jp/junzs) 
